@@ -1,0 +1,209 @@
+[
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "black_tea",
+            "friendly_name": "Black Tea",
+            "group": "Tea"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "white_tea",
+            "friendly_name": "White Tea",
+            "group": "Tea"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "green_tea",
+            "friendly_name": "Green Tea",
+            "group": "Tea"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "flowering_tea",
+            "friendly_name": "Flowering Tea",
+            "group": "Tea"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.category",
+        "fields": {
+            "name": "infusions",
+            "friendly_name": "Infusions",
+            "group": "Tea"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.category",
+        "fields": {
+            "name": "teapots",
+            "friendly_name": "Teapots",
+            "group": "Teaware"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.category",
+        "fields": {
+            "name": "tea_cups",
+            "friendly_name": "Tea Cups",
+            "group": "Teaware"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.category",
+        "fields": {
+            "name": "teaware_sets",
+            "friendly_name": "Teaware Sets",
+            "group": "Teaware"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.category",
+        "fields": {
+            "name": "accessories",
+            "friendly_name": "Accessories",
+            "group": "Teaware"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.category",
+        "fields": {
+            "name": "abstract",
+            "friendly_name": "Abstract",
+            "group": "Artwork"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.category",
+        "fields": {
+            "name": "afternoon_tea",
+            "friendly_name": "Afternoon Tea",
+            "group": "Artwork"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.category",
+        "fields": {
+            "name": "popart",
+            "friendly_name": "Popart",
+            "group": "Artwork"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.category",
+        "fields": {
+            "name": "tea_art",
+            "friendly_name": "Tea Art",
+            "group": "Artwork"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.category",
+        "fields": {
+            "name": "the_orient",
+            "friendly_name": "The Orient",
+            "group": "Artwork"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.category",
+        "fields": {
+            "name": "gift_sets",
+            "friendly_name": "Gift Sets",
+            "group": "Gifts"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.category",
+        "fields": {
+            "name": "gift_vouchers",
+            "friendly_name": "Gift Vouchers",
+            "group": "Gifts"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.category",
+        "fields": {
+            "name": "biscuits",
+            "friendly_name": "Biscuits",
+            "group": "Accompaniments"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.category",
+        "fields": {
+            "name": "mints",
+            "friendly_name": "Mints",
+            "group": "Accompaniments"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "products.category",
+        "fields": {
+            "name": "honey",
+            "friendly_name": "Honey",
+            "group": "Accompaniments"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.category",
+        "fields": {
+            "name": "clearance",
+            "friendly_name": "Clearance",
+            "group": "Specials"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.category",
+        "fields": {
+            "name": "offers",
+            "friendly_name": "Offers",
+            "group": "Specials"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.category",
+        "fields": {
+            "name": "limited_editions",
+            "friendly_name": "Limited Editions",
+            "group": "Specials"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.category",
+        "fields": {
+            "name": "last_chance_to_buy",
+            "friendly_name": "Last Chance to Buy",
+            "group": "Specials"
+        }
+    }
+]
