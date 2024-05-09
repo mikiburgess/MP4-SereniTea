@@ -14,9 +14,9 @@ html {
     height: 100%;
 }
 
-nav
+nav, #topnav
 {
-    background-color: var(--timberwolf);
+    /* background-color: var(--timberwolf); */
 }
 
 /* ensure background image stays center of page */
@@ -25,18 +25,25 @@ body {
     /* opacity: 0.5; */
     /* background-size: cover; */
     height: calc(100vh - 164px);
-    background-color: var(--timberwolf);
+    /* background-color: var(--timberwolf); */
 }
 
 .site-btn {
     
     background-color: white;
     color: black;
-    border: 2px solid #04AA6D; /* Green */
+    border: 2px solid var(--timberwolf); 
     text-align: center;
     text-transform: uppercase;
     border-radius: 0;
     padding: 0 2;
+}
+
+/* ---------------------------------------------- FONT STYLES */
+.sku {
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: left;
 }
 
 /* --------------------------------------------------- IMAGES */
@@ -49,4 +56,17 @@ body {
     opacity: 0.5;
 }
 
+.product-img, .product-img-center {
+    border-radius: 5%;
+    min-height: 200px;
+    min-width: 200px;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.product-image-center {
+    display: block;
+    width: auto;
+    margin: auto;
+}
 /* -------------------------------------------- MEDIA QUERIES */

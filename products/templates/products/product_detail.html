@@ -18,14 +18,14 @@
             {% if product.description|length > 500 %}
             <!-- Long description - include text below product image -->
                 <div class="col-10 offset-1">
-                    <div class="image-container my-5">
+                    <div class="image-container my-5 text-center">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid product-img-center" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
                             <a href="">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid product-img-center" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                         {% endif %}
                     </div>
@@ -33,14 +33,14 @@
             {% else %}
             <!-- Short description - include text alongside product image -->
                 <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                    <div class="image-container my-5">
+                    <div class="image-container my-5 text-center">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
                             <a href="">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                         {% endif %}
                     </div>
@@ -48,7 +48,7 @@
             {% endif %}
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.friendly_name }}</p>
+                    <h2 class="mb-0">{{ product.friendly_name }}</h2>
                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                     {% if product.rating %}
                         <small class="text-muted"><i class="bi bi-star-fill"></i>{{ product.rating }} / 5</small>
