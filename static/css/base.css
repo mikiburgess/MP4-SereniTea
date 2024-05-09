@@ -1,0 +1,52 @@
+
+
+/* ------------------------------------------- COLOR PALLETTE */
+:root {
+    --bistre: rgb(39,33,17);
+    --timberwolf: rgb(208,204,192);
+    --ebony: rgb(98,95,80);
+}
+
+/* ------------------------------------ GENERAL SITE SETTINGS */
+
+/* Allow h-100 classes and vertical centering to work */
+html {
+    height: 100%;
+}
+
+nav
+{
+    background-color: var(--timberwolf);
+}
+
+/* ensure background image stays center of page */
+body {
+    /* background: url('../../media/tea_plantation.jpg') no-repeat center center fixed; */
+    /* opacity: 0.5; */
+    /* background-size: cover; */
+    height: calc(100vh - 164px);
+    background-color: var(--timberwolf);
+}
+
+.site-btn {
+    
+    background-color: white;
+    color: black;
+    border: 2px solid #04AA6D; /* Green */
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 0 2;
+}
+
+/* --------------------------------------------------- IMAGES */
+
+.img-round {
+    border-radius: ;
+}
+
+.img-faded {
+    opacity: 0.5;
+}
+
+/* -------------------------------------------- MEDIA QUERIES */
