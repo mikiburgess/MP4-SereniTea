@@ -69,4 +69,54 @@ body {
     width: auto;
     margin: auto;
 }
+
+
 /* -------------------------------------------- MEDIA QUERIES */
+
+/* X-Small devices (portrait phones, less than 576px)
+   No media query for `xs` --> the Bootstrap default */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* No additional modifications for small viewports */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    /* No additional modifications for medium viewports */
+}
+
+/* Additional formatting for small viewport navbar (up to Medium viewports) */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .header-container {
+        padding-top: 164px;
+    }
+   /* No additional modifications for medium viewports */    
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 80%;
+      }
+
+    /* No additional modifications for x-large viewports */
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    /* No additional modifications for xx-large viewports */
+}
