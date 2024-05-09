@@ -25,12 +25,12 @@
                     Teas
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="teas-link">
-                    <a href="" class="dropdown-item">Black Teas</a>
-                    <a href="" class="dropdown-item">White Teas</a>
-                    <a href="" class="dropdown-item">Green Teas</a>
-                    <a href="" class="dropdown-item">Flowering Teas</a>
-                    <a href="" class="dropdown-item">Infusions</a>
-                    <a href="" class="dropdown-item">All Teas</a>
+                    <a href="{% url 'products' %}?category=black_tea" class="dropdown-item">Black Teas</a>
+                    <a href="{% url 'products' %}?category=white_tea" class="dropdown-item">White Teas</a>
+                    <a href="{% url 'products' %}?category=green_tea" class="dropdown-item">Green Teas</a>
+                    <a href="{% url 'products' %}?category=flowering_tea" class="dropdown-item">Flowering Teas</a>
+                    <a href="{% url 'products' %}?category=infusions" class="dropdown-item">Infusions</a>
+                    <a href="{% url 'products' %}?group=tea" class="dropdown-item">All Teas</a>
                 </div>
             </li>
 
@@ -40,11 +40,11 @@
                     Teaware
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="teaware-link">
-                    <a href="" class="dropdown-item">Tea Cups</a>
-                    <a href="" class="dropdown-item">Teapots</a>
-                    <a href="" class="dropdown-item">Teaware Sets</a>
-                    <a href="" class="dropdown-item">Accessories</a>
-                    <a href="" class="dropdown-item">All Teaware</a>
+                    <a href="{% url 'products' %}?category=tea_cups" class="dropdown-item">Tea Cups</a>
+                    <a href="{% url 'products' %}?category=teapots" class="dropdown-item">Teapots</a>
+                    <a href="{% url 'products' %}?category=teaware_sets" class="dropdown-item">Teaware Sets</a>
+                    <a href="{% url 'products' %}?category=accessories" class="dropdown-item">Accessories</a>
+                    <a href="{% url 'products' %}?group=teaware" class="dropdown-item">All Teaware</a>
                 </div>
             </li>
 
@@ -54,12 +54,12 @@
                     Artwork
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="artwork-link">
-                    <a href="" class="dropdown-item">Abstract</a>
-                    <a href="" class="dropdown-item">Afternoon Tea</a>
-                    <a href="" class="dropdown-item">Popart</a>
-                    <a href="" class="dropdown-item">Tea Art</a>
-                    <a href="" class="dropdown-item">The Orient</a>
-                    <a href="" class="dropdown-item">All Artwork</a>
+                    <a href="{% url 'products' %}?category=abstract" class="dropdown-item">Abstract</a>
+                    <a href="{% url 'products' %}?category=afternoon_tea" class="dropdown-item">Afternoon Tea</a>
+                    <a href="{% url 'products' %}?category=popart" class="dropdown-item">Popart</a>
+                    <a href="{% url 'products' %}?category=tea_art" class="dropdown-item">Tea Art</a>
+                    <a href="{% url 'products' %}?category=the_orient" class="dropdown-item">The Orient</a>
+                    <a href="{% url 'products' %}?group=artwork" class="dropdown-item">All Artwork</a>
                 </div>
             </li>
 
@@ -69,9 +69,9 @@
                     Gifts
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="gifts-link">
-                    <a href="" class="dropdown-item">Gift Sets</a>
-                    <a href="" class="dropdown-item">Gift Vouchers</a>
-                    <a href="" class="dropdown-item">All Gifts</a>
+                    <a href="{% url 'products' %}?category=gift_sets" class="dropdown-item">Gift Sets</a>
+                    <a href="{% url 'products' %}?category=gift_vouchers" class="dropdown-item">Gift Vouchers</a>
+                    <a href="{% url 'products' %}?group=gifts" class="dropdown-item">All Gifts</a>
                 </div>
             </li>
 
@@ -81,10 +81,10 @@
                     Specials
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                    <a href="" class="dropdown-item">Clearance</a>
-                    <a href="" class="dropdown-item">Limited Editions</a>
-                    <a href="" class="dropdown-item">Last Chance to Buy</a>
-                    <a href="" class="dropdown-item">All Specials</a>
+                    <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                    <a href="{% url 'products' %}?category=limited_editions" class="dropdown-item">Limited Editions</a>
+                    <a href="{% url 'products' %}?category=last_chance_to_buy" class="dropdown-item">Last Chance to Buy</a>
+                    <a href="{% url 'products' %}?group=specials" class="dropdown-item">All Specials</a>
                 </div>
             </li>
         </ul>
