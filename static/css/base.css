@@ -40,6 +40,16 @@ body {
 }
 
 /* ---------------------------------------------- FONT STYLES */
+.site-title-font {
+    color: black;
+}
+
+.page-title-font {
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+
 .sku {
     font-size: 0.75rem;
     font-style: italic;
@@ -69,6 +79,33 @@ body {
 
 .carousel-icon {
     color: var(--timberwolf);
+}
+
+#product-sort-selector {
+    width: 100%;
+}
+
+.form-select {
+    border: 2 solid black;
+    border-radius: 0;
+    color: var(--bistre);
+    background-color: white;
+}
+
+.product-sort > a {
+    text-decoration: none;
+    font-weight: bold;
+    border: 2 solid black;
+    border-radius: 0;
+    color: var(--bistre);
+    /* background-color: white; */
+}
+
+.product-sort > .dropdown-menu {
+    text-decoration: none;
+    font-size: smaller;
+    color: var(--bistre);
+    border: 0;
 }
 
 /* --------------------------------------------- PRODUCT CARDS */
@@ -102,6 +139,9 @@ body {
     width: auto;
     margin: auto;
 }
+
+
+/* ---------------------------------------------------- FORMS */
 
 
 /* -------------------------------------------- MEDIA QUERIES */

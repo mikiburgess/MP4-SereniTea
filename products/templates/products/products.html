@@ -12,7 +12,55 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <a href="{% url 'products' %}" class="nav-link main-logo-link">
+        <!-- <i class="bi bi-cup-hot-fill"></i> -->
+        <h2 class="page-title-font my-0">Products</h2>
+        </a>
+    </div>    
+</div>
+
+
+
+
+<!-- Sorting Options -->
+<div id="product-sort" class="row w-100">
+    <!-- <div class=" col-4 offset-4 offset-md-7 d-flex mt-2"> 
+        <select class="form-select" aria-label="Select product ordering">
+            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price [Low to High]</option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price [High to Low]</option>
+            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name [A-Z]</option>
+            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name [Z-A]</option>
+            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category [A-Z]</option>
+            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category [Z-A]</option>
+            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating [Low to High]</option>
+            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating [High to Low]</option>
+        </select>       
+    </div> -->
+
+    <div class="dropdown product-sort col-4 offset-8 d-flex mt-2">
+        <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" 
+            id="product-sort-selection" aria-haspopup="true" aria-expanded="false">
+            Sort products by ...
+        </a>
+        <div class="dropdown-menu" aria-labelledby="product-sort-selection">
+            <a href="{% url 'products' %}?sort=price&direction=desc" class="dropdown-item">Price [High-Low]</a>
+            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price [Low-High]</a>
+            <a href="{% url 'products' %}?sort=name&direction=asc" class="dropdown-item">Name [A-Z]</a>
+            <a href="{% url 'products' %}?sort=name&direction=desc" class="dropdown-item">Name [Z-A]</a>
+            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">Category [A-Z]</a>
+            <a href="{% url 'products' %}?sort=category&direction=desc" class="dropdown-item">Category [Z-A]</a>
+            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">Rating [High-Low]</a>
+            <a href="{% url 'products' %}?sort=rating&direction=asc" class="dropdown-item">Rating [Low-High]</a>
+        </div>
+    </div>
+</div>
+
+<!-- Product Cards -->
+<div id="product-cards" class="container-fluid">
         <div class="row">
             <div class="product-container my-5 col-10 offset-1">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
