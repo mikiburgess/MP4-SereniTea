@@ -49,6 +49,7 @@ body {
 .product-category-label {
     font-size: 0.90rem;
     font-style: italic;
+    text-decoration: none;
     color: var(--bistre);
     text-align: left;
     margin: auto;

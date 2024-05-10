@@ -29,9 +29,13 @@
                                 <a href="">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
-                            {% endif %}
+                            {% endif %} 
                                 <div class="card-body px-2 py-2">
-                                    <p class="product-category-label">{{ product.category.friendly_name }}</p> 
+                                    {% if product.category %}
+                                    <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
+                                    {% else %}
+                                    <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
+                                    {% endif %}
                                     <h5 class="card-title">{{ product.friendly_name }}</h5>
                                 </div>
                                 <div class="card-footer px-2 py-1 bg-white border-0 text-left">
