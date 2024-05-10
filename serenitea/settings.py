@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     # Project-specific apps
     'home',
     'products',
-    'bag',
+    'basket',
 
 ]
 
@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # to make shopping basket accessible across all apps
+                'basket.contexts.basket_contents',
             ],
         },
     },
@@ -159,6 +161,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 FREE_DELIVERY_THRESHOLD = 30
+STANDARD_DELIVERY_CHARGE = 5.99
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

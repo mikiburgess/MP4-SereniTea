@@ -1,6 +1,6 @@
 """
 MILESTONE PROJECT 4 by MIKHAILA BURGESS
-Bag app URLs for "SERENITEA EMPORIUM"
+Basket app URLs for "SERENITEA EMPORIUM"
 - - - - - - - - - - - - - - - - - - - -
 """
 
@@ -9,5 +9,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.view_bag, name='view_bag'),
+    path('', views.view_basket, name='view_basket'),
 ]
