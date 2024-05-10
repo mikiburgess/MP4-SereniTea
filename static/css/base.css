@@ -54,6 +54,22 @@ body {
     margin: auto;
 }
 
+.carousel-text {
+    color: var(--timberwolf);
+    text-align: center;
+    margin: auto;
+}
+
+.carousel-text a {
+    font-style: italic;
+    color: var(--timberwolf);
+    text-decoration: none;
+}
+
+.carousel-icon {
+    color: var(--timberwolf);
+}
+
 /* --------------------------------------------- PRODUCT CARDS */
 .product-card {
     border: 1px solid var(--timberwolf);
