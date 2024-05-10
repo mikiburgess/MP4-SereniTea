@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Project-specific apps
     'home',
     'products',
+    'bag',
 
 ]
 

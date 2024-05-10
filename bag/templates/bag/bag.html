@@ -1,0 +1,45 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+ - Shopping Bag
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <a href="{% url 'view_bag' %}" class="nav-link main-logo-link">
+        <h2 class="page-title-font my-0">Shopping Bag</h2>
+        </a>
+        <hr class="title-border">
+    </div>    
+</div>
+
+
+<!-- Shopping Bag Content -->
+<div class="container shopping-cart">
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+                {% include 'includes/display_bag.html' %}
+            {% else %}
+                <p class="lead mb-5">Your bag is empty.</p>
+                    <a href="{% url 'products' %}" class="site-btn btn rounded-0">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

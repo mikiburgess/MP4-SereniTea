@@ -29,7 +29,6 @@ body {
 }
 
 .site-btn {
-    
     background-color: white;
     color: black;
     border: 2px solid var(--bistre); 
@@ -37,6 +36,13 @@ body {
     text-transform: uppercase;
     border-radius: 0;
     padding: 0 2;
+}
+
+.title-border {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 /* ---------------------------------------------- FONT STYLES */
