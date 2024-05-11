@@ -85,7 +85,7 @@
                                     {% else %}
                                     <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
                                     {% endif %}
-                                    <h5 class="card-title">{{ product.friendly_name }}</h5>
+                                    <h5 class="card-title product-name">{{ product.friendly_name }}</h5>
                                 </div>
                                 <div class="card-footer px-2 py-1 bg-white border-0 text-left">
                                     <div class="row">
@@ -97,7 +97,7 @@
                                                 <small class="text-muted"> No Rating</small>
                                             {% endif %}
                                             <small><em>&nbsp;&nbsp;
-                                                <a href="{% url 'product_detail' product.id %}">more ...</a>
+                                                <a class="link-to-more-info" href="{% url 'product_detail' product.id %}">more ...</a>
                                             </em></small>
                                             
                                         </div>

@@ -46,14 +46,65 @@ body {
 }
 
 /* ---------------------------------------------- FONT STYLES */
+
+.yeseva-one-regular {
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.montserrat-regular {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
 .site-title-font {
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    
+}
+
+.site-content-font,
+.navbar, 
+.form-control,
+.btn,
+p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: black;
 }
 
+.site-content-font, 
+.form-control,
+p {
+    font-weight: 200;
+}
+
+.navbar,
+.btn {
+    font-weight: 400;
+}
+
 .page-title-font {
+    font-family: "Yeseva One", serif;
+    font-weight: 300;
+    font-style: normal;
     color: black;
     text-align: center;
     padding-top: 10px;
+}
+
+.product-name {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: black;
 }
 
 .sku {
@@ -63,21 +114,25 @@ body {
 }
 
 .product-category-label {
+    font-family: "Yeseva One", serif;
+    font-weight: 100;
     font-size: 0.90rem;
     font-style: italic;
     text-decoration: none;
-    color: var(--bistre);
+    color: var(--ebony);
     text-align: left;
     margin: auto;
 }
 
 .carousel-text {
+    font-family: "Montserrat", sans-serif;
     color: var(--timberwolf);
     text-align: center;
     margin: auto;
 }
 
 .carousel-text a {
+    font-family: "Montserrat", sans-serif;
     font-style: italic;
     color: var(--timberwolf);
     text-decoration: none;
@@ -108,10 +163,21 @@ body {
 }
 
 .product-sort > .dropdown-menu {
+    font-family: "Montserrat", sans-serif;
     text-decoration: none;
     font-size: smaller;
     color: var(--bistre);
     border: 0;
+}
+
+.link-to-more-info {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+    font-size: 0.85rem;
+    font-style: italic;
+    text-decoration:underline;
+    color: var(--bistre);
+    margin: auto;
 }
 
 /* --------------------------------------------- PRODUCT CARDS */
