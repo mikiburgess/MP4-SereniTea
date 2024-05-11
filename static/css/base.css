@@ -45,11 +45,15 @@ body {
     width: 80%;
 }
 
-
 .basket-table {
-    width: 80%;
-    align-items: center;
+    width: 100%;
 }
+
+.update-qty,
+.remove-item {
+    cursor: pointer;
+}
+
 /* ---------------------------------------------- FONT STYLES */
 
 .yeseva-one-regular {
@@ -226,6 +230,9 @@ p {
 
 /* ---------------------------------------------------- FORMS */
 
+.qty_input {
+    text-align: center;
+}
 
 /* -------------------------------------------- MEDIA QUERIES */
 

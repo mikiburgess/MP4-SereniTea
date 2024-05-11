@@ -26,10 +26,10 @@
 
 <!-- Shopping Basket Content -->
 <div class="shopping-basket">
-    <div class="row">
+    <div class="row mx-auto">
         <div class="col-10 offset-1 my-auto">
             {% if basket_items %}
-            {% include './includes/display-basket.html' %}
+                {% include 'basket/includes/display-basket.html' %}
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="site-btn btn">
@@ -42,4 +42,31 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-qty').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        
+        var url = `/basket/remove/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}

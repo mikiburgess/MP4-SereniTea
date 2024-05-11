@@ -28,7 +28,21 @@
                     <p class="my-0">£{{ item.product.price }}</p>
                 </td>
                 <td class="py-2">
-                    <p class="my-0">{{ item.quantity }}</p>
+                    <!-- <p class="my-0">{{ item.quantity }}</p> -->
+                    <!-- Allow item quantity updates -->
+                    <form action="" class="form update-form" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group my-0">
+                            <div class="input-group">
+                                <input class="form-control form-control-sm qty_input" type="number"
+                                    name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            </div>
+                        </div>
+                    </form>
+                    <!-- update actions -->
+                    <a href="" class="update-qty text-success float-start"><small><i class="bi bi-arrow-clockwise"></i></small></a>
+                    <a href="" class="remove-item text-danger float-end"><small><i class="bi bi-trash"></i></small></a>
                 </td>
                 <td class="py-2">
                     <!-- <p class="my-0">£{{ item.product.price }}</p> -->
