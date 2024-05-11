@@ -2,7 +2,6 @@
 {{ basket_items }}
 <hr>
 
-
 <div class="table-responsive rounded basket-table">
     <table class="table table-sm table-borderless">
         <thead class="text-black">
@@ -30,7 +29,7 @@
                 <td class="py-2">
                     <!-- <p class="my-0">{{ item.quantity }}</p> -->
                     <!-- Allow item quantity updates -->
-                    <form action="" class="form update-form" method="POST">
+                    <form action="{% url 'adjust_basket' item.item_id %}" class="form update-form" method="POST">
                         {% csrf_token %}
                         <div class="form-group my-0">
                             <div class="input-group">
@@ -41,8 +40,8 @@
                         </div>
                     </form>
                     <!-- update actions -->
-                    <a href="" class="update-qty text-success float-start"><small><i class="bi bi-arrow-clockwise"></i></small></a>
-                    <a href="" class="remove-item text-danger float-end"><small><i class="bi bi-trash"></i></small></a>
+                    <a class="update-qty text-success float-start"><small><i class="bi bi-arrow-clockwise"></i></small></a>
+                    <a class="remove-item text-danger float-end" id="remove_{{ item.item_id }}"><small><i class="bi bi-trash"></i></small></a>
                 </td>
                 <td class="py-2">
                     <!-- <p class="my-0">£{{ item.product.price }}</p> -->

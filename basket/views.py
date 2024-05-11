@@ -4,7 +4,7 @@ Basket app VIEWS for "SERENITEA EMPORIUM"
 - - - - - - - - - - - - - - - - - - - -
 """
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_basket(request):
@@ -31,3 +31,40 @@ def add_to_basket(request, item_id):
 
     request.session['basket'] = basket
     return redirect(redirect_url)
+
+
+def adjust_basket(request, item_id):
+    """ Update product quantities in shopping basket basket """
+
+    # obtain submitted variable values
+    quantity = int(request.POST.get('quantity'))
+
+    basket = request.session.get('basket', {})
+
+    # update item quantity in basket
+    if quantity > 0:
+        # update item quantity
+        basket[item_id] = quantity
+    else:
+        # remove item from basket
+        basket.pop(item_id)
+
+    request.session['basket'] = basket
+    return redirect(reverse('view_basket'))
+
+
+def remove_from_basket(request, item_id):
+    """Remove the item from the shopping basket """
+
+    try:
+        # If item is in the basket, remove it and update basket contents
+        basket = request.session.get('basket', {})
+        basket.pop(item_id)
+
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+    
+    # If item not in basket, exception is raised and deletion not possible
+    except Exception as e:
+        print(e)
+        return HttpResponse(status=500)

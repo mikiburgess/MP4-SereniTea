@@ -46,7 +46,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-
+{% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
@@ -59,8 +59,9 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
+        console.log(itemId)
         
-        var url = `/basket/remove/${itemId}`;
+        var url = `/basket/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
