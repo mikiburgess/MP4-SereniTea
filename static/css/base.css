@@ -30,8 +30,8 @@ body {
 
 .site-btn {
     background-color: white;
-    color: black;
     border: 2px solid var(--bistre); 
+    color: black;
     text-align: center;
     text-transform: uppercase;
     border-radius: 0;
@@ -200,10 +200,10 @@ p {
 
 .product-img, .product-img-center {
     border-radius: 5%;
-    min-height: 200px;
-    min-width: 200px;
-    max-height: 400px;
-    max-width: 400px;
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 300px;
+    max-width: 300px;
 }
 
 .product-image-center {
