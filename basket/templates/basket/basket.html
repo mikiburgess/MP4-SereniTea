@@ -25,9 +25,9 @@
 
 
 <!-- Shopping Basket Content -->
-<div class="container shopping-cart">
+<div class="shopping-basket">
     <div class="row">
-        <div class="col">
+        <div class="col-10 offset-1 my-auto">
             {% if basket_items %}
             {% include './includes/display-basket.html' %}
             {% else %}
@@ -36,7 +36,7 @@
                         <span class="icon">
                             <i class="bi bi-arrow-left-circle"></i>
                         </span>
-                        <span class="text-uppercase">Keep Shopping</span>
+                        <span>Keep Shopping</span>
                     </a>
             {% endif %}
         </div>

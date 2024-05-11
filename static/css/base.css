@@ -45,6 +45,11 @@ body {
     width: 80%;
 }
 
+
+.basket-table {
+    width: 80%;
+    align-items: center;
+}
 /* ---------------------------------------------- FONT STYLES */
 
 .yeseva-one-regular {
@@ -204,6 +209,12 @@ p {
     min-width: 150px;
     max-height: 300px;
     max-width: 300px;
+}
+
+.product-img-basket {
+    border-radius: 5%;
+    width: 100px;
+    height: 100px;
 }
 
 .product-image-center {
