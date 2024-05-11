@@ -24,12 +24,12 @@
 </div>
 
 
-<!-- Shopping Bag Content -->
+<!-- Shopping Basket Content -->
 <div class="container shopping-cart">
     <div class="row">
         <div class="col">
-            {% if bag_items %}
-                {% include 'includes/display_bag.html' %}
+            {% if basket_items %}
+            {% include './includes/display-basket.html' %}
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="site-btn btn">
