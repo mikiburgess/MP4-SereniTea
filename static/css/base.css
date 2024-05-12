@@ -56,6 +56,10 @@ body {
 
 /* ---------------------------------------------- FONT STYLES */
 
+.in-development {
+    background-color:gold;
+}
+
 .yeseva-one-regular {
     font-family: "Yeseva One", serif;
     font-weight: 400;
@@ -187,6 +191,21 @@ p {
     text-decoration:underline;
     color: var(--bistre);
     margin: auto;
+}
+
+/* ----------------------------------------- MESSAGES / TOASTS */
+
+/* style adapted from Boutique Ado */
+.message-container {
+    position: fixed;
+    top: 75px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.site-toast {
+    /* border-radius: 0; */
+    overflow: visible;
 }
 
 /* --------------------------------------------- PRODUCT CARDS */
