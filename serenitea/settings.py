@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',  # allauth itself
     'allauth.account',  # app that allows basic user accounts
-    'allauth.socialaccount',  # support login in using social media accounts
+    # 'allauth.socialaccount',  # support login in using social media accounts
+
+    # Additional third-party apps
+    'crispy_forms',
+    "crispy_bootstrap5",
 
     # Project-specific apps
     'home',
@@ -56,9 +60,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # allauth account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'serenitea.urls'
+
+# Crispy forms template packs
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -77,6 +87,10 @@ TEMPLATES = [
                 # to make shopping basket accessible across all apps
                 'basket.contexts.basket_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
