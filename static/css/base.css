@@ -167,12 +167,18 @@ p {
 }
 
 .product-sort > a {
-    text-decoration: none;
     font-weight: bold;
     border: 2 solid black;
     border-radius: 0;
     color: var(--bistre);
     /* background-color: white; */
+}
+
+.product-sort > a {
+    text-decoration: none;
+}
+.site-link {
+    text-decoration: underline;
 }
 
 .product-sort > .dropdown-menu {
