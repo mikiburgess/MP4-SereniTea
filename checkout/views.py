@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -8,9 +9,11 @@ from products.models import Product
 from basket.contexts import basket_contents
 
 import stripe
+import json
 
 
 def checkout(request):
+    """ Complete payment for customer checkout """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -20,7 +23,6 @@ def checkout(request):
         basket = request.session.get('basket', {})
         # then put form data into dictionary
         form_data = {
-            'title': request.POST['title'],
             'first_name': request.POST['first_name'],
             'surname': request.POST['surname'],
             'email': request.POST['email'],
@@ -126,3 +128,21 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@require_POST
+def cache_checkout_data(request):
+    """ Handle user ticked box to save checkout data """
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
