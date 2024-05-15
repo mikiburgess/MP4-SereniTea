@@ -64,71 +64,31 @@ form.addEventListener('submit', function(ev) {
     $('#loading-overlay').fadeToggle(100);
     // call the confirm card payment method, 
 
-    var saveInfo = Boolean($('#id-save-info').attr('checked'));
-    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    var postData = {
-        'csrfmiddlewaretoken': csrfToken,
-        'client_secret': clientSecret,
-        'save_info': saveInfo,
-    };
-    
-    var url = '/checkout/cache_checkout_data/';
 
-    $.post(url, postData).done(function() {
-        stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: card,
-                billing_details: {
-                    title: $.trim(form.title.value),
-                    first_name: $.trim(form.first_name.value),
-                    surname: $.trim(form.surname.value),
-                    email: $.trim(form.email.value),
-                    phone: $.trim(form.phone_number.value),
-                    address:{
-                        line1: $.trim(form.street_address1.value),
-                        line2: $.trim(form.street_address2.value),
-                        city: $.trim(form.town_or_city.value),
-                        country: $.trim(form.country.value),
-                        state: $.trim(form.county.value),
-                    }
-                }
-            },
-            shipping: {
-                title: $.trim(form.title.value),
-                first_name: $.trim(form.first_name.value),
-                surname: $.trim(form.surname.value),
-                phone: $.trim(form.phone_number.value),
-                address: {
-                    line1: $.trim(form.street_address1.value),
-                    line2: $.trim(form.street_address2.value),
-                    city: $.trim(form.town_or_city.value),
-                    country: $.trim(form.country.value),
-                    state: $.trim(form.county.value),
-                }
-            },
-        }).then(function(result) {
-            if (result.error) {
-                // Handle errors when submitting payment
-                var errorDiv = document.getElementById('card-errors');
-                var html = `
-                    <span class="icon" role="alert">
-                    <i class="bi bi-x-lg"></i>
-                    </span>
-                    <span>${result.error.message}</span>`;
-                $(errorDiv).html(html);
-                $('#payment-form').fadeToggle(100);
-                $('#loading-overlay').fadeToggle(100);
-                card.update({ 'disabled': false});
-                $('#submit-button').attr('disabled', false);
-            } else {
-                // Confirm payment when succesfull
-                if (result.paymentIntent.status === 'succeeded') {
-                    form.submit();
-                }
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        if (result.error) {
+            var errorDiv = document.getElementById('card-errors');
+            var html = `
+                <span class="icon" role="alert">
+                <i class="bi bi-x-lg"></i>
+                </span>
+                <span>${result.error.message}</span>`;
+            $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
+            card.update({ 'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
             }
-        });
-    }).fail(function () {
-        // just reload the page, the error will be in django messages
-        location.reload();
-    })
+        }
+    });
+
+
+   
 });

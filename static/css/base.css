@@ -4,6 +4,7 @@
 :root {
     --bistre: rgb(39,33,17);
     --timberwolf: rgb(208,204,192);
+    --timberwolf-pale: rgba(208, 204, 192, 0.3);
     --ebony: rgb(98,95,80);
     --danger: rgb(220, 53, 69);  /* match Bootstrap text-danger */
 }
@@ -58,8 +59,9 @@ body {
 footer > .row {
     /* display: flex;
     justify-content: flex-start; */
-    background-color: var(--timberwolf);
-    padding-top: 5px;
+    background-color: var(--timberwolf-pale);
+    padding-top: 8px;
+    margin-top: 10px;
 }
 
 footer > .row > p {

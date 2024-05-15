@@ -85,7 +85,7 @@
         <!-- Checkout Details -->
         <div class="col-10 offset-1 col-lg-6 offset-lg-0 my-auto">
             <p class="text-body-secondary">Please fill out the form to complete and submit your order</p>
-            <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
 
                 <!-- Customer Details -->
@@ -168,6 +168,14 @@
             </form>
         </div>
     </div>
+</div>
+
+<div id="loading-overlay">
+    <h1 class="loading-spinner">
+        <span class="icon">
+            <i class="bi bi-arrow-repeat"></i>
+        </span>
+    </h1>
 </div>
 {% endblock %}
 
