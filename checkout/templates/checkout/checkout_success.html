@@ -1,0 +1,39 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+- Checkout Success
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <a href="{% url 'products' %}" class="nav-link main-logo-link">
+            <h2 class="page-title-font my-0">Thank You</h2>
+        </a>
+        <hr class="title-border">
+        <p>Your order information is below. A confirmation email will be send to <strong>{{ order.email }}</strong>.</p>
+    </div>
+</div>
+
+
+<!-- Order Summary-->
+<div class="checkout-page container">
+
+    <div class="row mx-auto">
+        <!-- Order Summary --> 
+    </div>
+</div>
+{% endblock %}

@@ -16,7 +16,7 @@
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-    box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 rgb(208,204,192);
     border-color: rgb(39,33,17);
 }
 
@@ -25,7 +25,7 @@
 }
 
 .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
+    background-color: rgb(208,204,192) !important;
 }
 
 /* Checkout formatting */
@@ -50,14 +50,6 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
-a {
-    text-decoration: none;
-    font-weight: bold;
-    border: 2 solid black;
-    border-radius: 0;
-    color: rgb(39,33,17);
-    /* background-color: white; */
-}
 
 #loading-overlay {
     display: none;
