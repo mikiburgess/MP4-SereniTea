@@ -1,0 +1,1 @@
+web: gunicorn serenitea.wsgi:application

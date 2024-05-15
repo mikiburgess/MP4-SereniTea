@@ -17,7 +17,7 @@
             "water_temp": null,
             "price": 10.0,
             "stock_level": null,
-            "rating": 2.8
+            "rating": null
         }
     },
     {
@@ -59,7 +59,7 @@
             "water_temp": null,
             "price": 50.0,
             "stock_level": null,
-            "rating": 4.3
+            "rating": null
         }
     },
     {
@@ -80,7 +80,7 @@
             "water_temp": null,
             "price": 100.0,
             "stock_level": null,
-            "rating": 4.9
+            "rating": null
         }
     },
     {
@@ -995,7 +995,7 @@
             "name": "spiced_apple_chai_herbal_infusion",
             "friendly_name": "Spiced Apple Chai Herbal Infusion",
             "description": "<p>Experience the warmth and comfort of our Spiced Apple Chai Herbal Infusion. This delightful blend features sweet apple pieces, cinnamon, cloves, and cardamom, offering a rich and aromatic flavor that's perfect for cozy evenings. With its soothing spices and natural sweetness, it's a delightful treat without the caffeine.</p>",
-            "image": "organic_spiced_apple_chai_herbal_infusion.jpg",
+            "image": "spiced_apple_chai_herbal_infusion.jpg",
             "alt_text": "White ceramic bowl on a wooden table, containing loose leafe chai tea with added dried fruit and spices.",
             "bs_icon": "bi bi-cup-hot",
             "weight": 75,
@@ -1016,7 +1016,7 @@
             "name": "tropical_sunset_herbal_infusion",
             "friendly_name": "Tropical Sunset Herbal Infusion",
             "description": "<p>Escape to paradise with our Tropical Sunset Herbal Infusion. A tantalizing blend of sweet pineapple, coconut flakes, and exotic mango, this tea transports you to a tropical island with each sip. It's caffeine-free and ideal for those who crave a sweet and fruity tea that's perfect for enjoying hot or iced.</p>",
-            "image": "organic_tropical_sunset_herbal_infusion.jpg",
+            "image": "tropical_sunset_herbal_infusion.jpg",
             "alt_text": "Pile of loose leaf tea, with dried tropical fruit and flowers, on a wooden table. ",
             "bs_icon": "bi bi-cup-hot",
             "weight": 75,
@@ -1239,27 +1239,6 @@
         }
     },
     {
-        "pk": 60,
-        "model": "products.product",
-        "fields": {
-            "category": 27,
-            "sku": "clic691441",
-            "name": "classic_peppermint_thins",
-            "friendly_name": "Classic Peppermint Thins",
-            "description": "<p>Refresh your palate with our Classic Peppermint Thins. These sleek, wafer-thin mints are infused with natural peppermint oil, offering a cool and invigorating flavor. Encased in rich dark chocolate, they're the perfect after-dinner treat to cleanse your palate and satisfy your sweet tooth.</p>",
-            "image": "classic_peppermint_thins.jpg",
-            "alt_text": "",
-            "bs_icon": "bi bi-gift",
-            "weight": 125,
-            "strength": null,
-            "brew_time": null,
-            "water_temp": null,
-            "price": 12.99,
-            "stock_level": null,
-            "rating": 3.1
-        }
-    },
-    {
         "pk": 61,
         "model": "products.product",
         "fields": {
@@ -1403,7 +1382,7 @@
             "water_temp": null,
             "price": 7.99,
             "stock_level": null,
-            "rating": 3.0
+            "rating": 4.5
         }
     },
     {
@@ -1424,7 +1403,7 @@
             "water_temp": null,
             "price": 8.99,
             "stock_level": null,
-            "rating": 3.2
+            "rating": null
         }
     },
     {
@@ -1760,7 +1739,7 @@
             "water_temp": null,
             "price": 28.99,
             "stock_level": null,
-            "rating": 2.8
+            "rating": null
         }
     },
     {
@@ -2349,6 +2328,27 @@
             "price": 45.99,
             "stock_level": null,
             "rating": 5.0
+        }
+    },
+    {
+        "pk": 500,
+        "model": "products.product",
+        "fields": {
+            "category": 31,
+            "sku": "lied156400",
+            "name": "limited_edition_meditation_box",
+            "friendly_name": "Limited Edition Meditation Box",
+            "description": "<p>Introducing our <strong> Limited Edition Meditation Box</strong> , a thoughtfully curated collection designed to enhance your meditation practice and promote inner peace and tranquility. Each element of this exclusive set is carefully selected to create a harmonious environment for mindfulness and relaxation.</p>\n\n<p>At the heart of the Meditation Box is our premium organic chamomile tea, renowned for its calming properties and delicate floral aroma. Sourced from the finest organic farms, this soothing herbal infusion is perfect for unwinding after a long day or preparing for a restful night's sleep. Each sachet is filled with whole chamomile flowers, ensuring a pure and aromatic tea experience.</p>\n\n<p>Complementing the chamomile tea is a beautifully crafted meditation bowl, hand-selected for its quality and resonance. Made from high-quality materials, this bowl produces a rich, soothing sound that can help you achieve a state of deep relaxation and focus during your meditation sessions. Its elegant design and smooth texture make it a delightful addition to any meditation space.</p>\n\n<p>In addition to the chamomile tea and meditation bowl, the Limited Edition Meditation Box includes a selection of related products to enhance your meditation practice:</p>\n<ul>\n<li><strong>Aromatic Incense Sticks</strong>: Infuse your meditation space with the calming scents of lavender, sandalwood, and other natural fragrances, creating a serene atmosphere for relaxation and introspection.</li>\n<li><strong>Meditation Cushion</strong>: Provide comfortable support for your meditation practice with a soft and plush meditation cushion, designed to promote proper posture and alignment while sitting.</li>\n<li><strong>Guided Meditation Booklet</strong>: Discover new techniques and insights with a guided meditation booklet, offering helpful tips and practices to deepen your meditation experience.</li>\n<li><strong>Mindfulness Journal</strong>: Capture your thoughts, reflections, and inspirations in a beautiful mindfulness journal, providing a space for self-discovery and personal growth.</li>\n</ul>\n\n<p>Each item in the Limited Edition Meditation Box is carefully packaged and presented with mindfulness and intention, creating a meaningful gift for yourself or a loved one. Whether you're an experienced meditator or just beginning your journey, this exclusive set invites you to pause, breathe, and connect with the present moment, one sip of tea and one sound of the bowl at a time.</p>",
+            "image": "limited_edition_meditation_box.jpg",
+            "alt_text": "Large, cream cushion, next to a cardboard box, mindfulness journal, insence sticks and camomile flowers, displayed on a wooden table.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 35.99,
+            "stock_level": null,
+            "rating": null
         }
     }
 ]
