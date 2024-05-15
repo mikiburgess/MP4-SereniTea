@@ -14,7 +14,6 @@ from .models import Product, Category
 
 def all_products(request):
     """ View to show all products """
-
     products = Product.objects.all()  # retrieve all products from database
     sort = None  # initialise product sorting element to None (i.e. unspecified)
     direction = None  # initialise product sorting order to None (i.e. unspecified)
