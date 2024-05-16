@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['mp4-serenitea-emporium-5454dc22e46f.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['mp4-serenitea-emporium-5454dc22e46f.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -186,12 +186,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-
-# Site Media
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # AWS Access settings
 if 'USE_AWS' in os.environ:
@@ -212,7 +206,13 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-
+else:
+    print('local execution')
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+    # Site Media
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Shipping cost data
