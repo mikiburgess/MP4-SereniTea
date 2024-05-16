@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Additional third-party apps
     'crispy_forms',
     "crispy_bootstrap5",
+    'storages',
 
     # Project-specific apps
     'home',
@@ -122,15 +123,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Settings for allauth account authentication
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
 ACCOUNT_EMAIL_REQUIRED = True  # users must register with an email address
-
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # Set to 'none' on deployed site
-
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Enter email twice on registration to ensure it's correct
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # minimum allowed username length
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'  # upon login, redirect to front page of store/site
-
 
 WSGI_APPLICATION = 'serenitea.wsgi.application'
 
@@ -194,6 +192,23 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 # Site Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# AWS Access settings
+if 'USE_AWS' in os.environ:
+    # Bucket configuration
+    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME")
+    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # Shipping cost data
 FREE_DELIVERY_THRESHOLD = Decimal('30.00')
