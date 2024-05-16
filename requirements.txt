@@ -11,7 +11,7 @@ django-storages==1.14.3
 dj-database-url==2.1.0
 gunicorn==21.2.0
 idna==2.10
-jmespath==1.0.1
+jmespath==0.9.5
 oauthlib==3.2.2
 Pillow==9.1.0
 psycopg2-binary==2.9.9
