@@ -230,6 +230,13 @@ DEFAULT_FROM_EMAIL = 'confirmation-noreply@serenitea.com'
 # For Whitenoise
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
