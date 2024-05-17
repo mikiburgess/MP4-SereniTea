@@ -8,7 +8,7 @@
 {% load static %}
 
 {% block extra_title %}
-- Checkout
+- Profile
 {% endblock %}
 
 {% block extra_css %}
@@ -21,7 +21,7 @@
     <div class="col-12 my-auto">
         <hr class="title-border">
         <a href="{% url 'view_basket' %}" class="nav-link main-logo-link">
-            <h2 class="page-title-font my-0">Profile</h2>
+            <h2 class="page-title-font my-0">My Profile</h2>
         </a>
         <hr class="title-border">
     </div>
@@ -29,10 +29,60 @@
 
 
 <!-- Profile Page -->
-<div class="checkout-page container">
-<div></div>
+<div class="profile-page container">
+
+    <div class="row mx-auto">
+        <!-- User Profile -->
+        <div class="col-12 col-lg-6">
+            <p class="text-body-secondary">Default Delivery Information</p>
+            <form action="{% url 'profile' %}" class="mt-3" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="site-btn btn">Update Information</button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="text-body-secondary">Order History</p>
+            <!-- responsive bootstrap table -->
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Order Total</th>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}"
+                                    title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>£{{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

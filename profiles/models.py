@@ -1,6 +1,7 @@
 """
 Profile Models for "SERENITEA EMPORIUM"
 - - - - - - - - - - - - - - - - - - - -
+   Adapted from Boutique Ado
 """
 
 from django.db import models
