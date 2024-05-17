@@ -39,7 +39,11 @@ def checkout(request):
 
         # if form is valid, save the order
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_id = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
             # Iterate through all items in the basket to create each order line item
             for item_id, item_data in basket.items():
                 try:
