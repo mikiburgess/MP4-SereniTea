@@ -31,6 +31,9 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     country = CountryField(blank_label='Country *', max_length=40, null=False, blank=False)
+    # unique order details
+    original_basket = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """ Generate a random, unique order number using UUID """
