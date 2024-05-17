@@ -53,6 +53,7 @@ card.addEventListener('change', function(event) {
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
+    console.log("Submit function running")
     // stop default action on 'submit'
     ev.preventDefault();
     // disable card element and submit button to stop multiple submissions
@@ -73,14 +74,13 @@ form.addEventListener('submit', function(ev) {
     };
     
     var url = '/checkout/cache_checkout_data/';
-    var full_name = [$.trim(form.first_name.value), ' ', $.trim(form.surname.value)].join()
 
     $.post(url, postData).done(function() {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
-                    name: full_name,
+                    name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                     address:{
@@ -94,7 +94,7 @@ form.addEventListener('submit', function(ev) {
             },
             // shipping address included for future use
             shipping: {
-                name: full_name,
+                name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
                     line1: $.trim(form.street_address1.value),

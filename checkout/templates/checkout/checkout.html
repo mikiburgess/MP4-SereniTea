@@ -91,9 +91,7 @@
                 <!-- Customer Details -->
                 <fieldset>
                     <legend class="fieldset-label">Details</legend>
-                    {{ order_form.title | as_crispy_field }}
-                    {{ order_form.first_name | as_crispy_field }}
-                    {{ order_form.surname | as_crispy_field }}
+                    {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                     {{ order_form.phone_number | as_crispy_field }}
                 </fieldset>
@@ -119,7 +117,7 @@
                         checked>
                     {% else %}
                     <!-- if user is not authenticated - offer options to log in or sign up for an account -->
-                    <label for="id-save-info" class="form-check-label">
+                    <label class="form-check-label">
                         <a href="{% url 'account_signup' %}" class="site-link">Create an account</a> or
                         <a href="{% url 'account_login' %}" class="site-link">login</a> to save this information
                     </label>

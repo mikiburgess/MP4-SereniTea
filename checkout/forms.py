@@ -10,9 +10,7 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         # only show the fields user needs to edit
-        fields = ('title',
-                  'first_name',
-                  'surname',
+        fields = ('full_name',
                   'email',
                   'phone_number',
                   'street_address1',
@@ -31,9 +29,7 @@ class OrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # define dictionary of field placeholders to be used in place of form labels
         placeholders = {
-            'title': 'Title',
-            'first_name': 'First Name',
-            'surname': 'Surname',
+            'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
             'street_address1': 'Street Address 1',
@@ -44,8 +40,8 @@ class OrderForm(forms.ModelForm):
             'country': 'Country',
         }
 
-        # Start on Title field when page loads
-        self.fields['title'].widget.attrs['autofocus'] = True
+        # Start on Full Name field when page loads
+        self.fields['full_name'].widget.attrs['autofocus'] = True
         # iterate through form fields adding * if required, adding custom placeholder, 
         #  add css for each field, and remove the default labels
         for field in self.fields:

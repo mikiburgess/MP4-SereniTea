@@ -23,8 +23,7 @@ def checkout(request):
         basket = request.session.get('basket', {})
         # then put form data into dictionary
         form_data = {
-            'first_name': request.POST['first_name'],
-            'surname': request.POST['surname'],
+            'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'street_address1': request.POST['street_address1'],
