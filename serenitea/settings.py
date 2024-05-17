@@ -203,7 +203,7 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_DIRS = None
+STATICFILES_DIRS = ''
 
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
