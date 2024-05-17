@@ -10,7 +10,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Product
-
+from profiles.models import UserProfile
 
 # Model for order placed by shop customers
 class Order(models.Model):
@@ -21,6 +21,8 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateTimeField(auto_now_add=True)
     # Customer Details
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, 
+                                     null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=254, null=True, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
