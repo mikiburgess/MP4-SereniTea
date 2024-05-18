@@ -164,7 +164,7 @@ def checkout_success(request, order_number):
 
     # Let customer know order was placed successfully
     messages.success(request, f'Order successfully processed! \
-                    Your order number is {order_number}. A confirmation \
+                    Your order number is {order_number[:6]}. A confirmation \
                     email will be sent to {order.email}')
 
     # shopping basket no longer needed, so delete
