@@ -6,6 +6,7 @@ Order Form for "SERENITEA EMPORIUM"
 from django import forms
 from .models import Order
 
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -19,15 +20,15 @@ class OrderForm(forms.ModelForm):
                   'county',
                   'postcode',
                   'country',)
-    
+
     def __init__(self, *args, **kwargs):
         """
             Add placeholders and classes, remove auto-generated
-            labels, and set autofocus on first field 
+            labels, and set autofocus on first field
         """
         # st up form in usual, default way
         super().__init__(*args, **kwargs)
-        # define dictionary of field placeholders to be used in place of form labels
+        # define dictionary of field placeholders to be used in place of labels
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email Address',
@@ -42,8 +43,8 @@ class OrderForm(forms.ModelForm):
 
         # Start on Full Name field when page loads
         self.fields['full_name'].widget.attrs['autofocus'] = True
-        # iterate through form fields adding * if required, adding custom placeholder, 
-        #  add css for each field, and remove the default labels
+        # iterate through form fields adding * if required, adding custom
+        # placeholder, add css for each field, and remove the default labels
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:

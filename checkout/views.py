@@ -47,7 +47,8 @@ def checkout(request):
             order.original_basket = json.dumps(basket)
             order.save()
 
-            # Iterate through all items in the basket to create each order line item
+            # Iterate through all items in the basket to create each
+            #  order line item
             for item_id, item_data in basket.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -61,13 +62,13 @@ def checkout(request):
                 except Product.DoesNotExist:
                     # In case of error, handle gracefully
                     messages.error(request, (
-                        "One of the products in your basket wasn't found in our database. "
+                        "One of the products in your basket wasn't found. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))    
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:  # form is not valid
             messages.error(request, f'There was an error with your form. \
                            Please double check your information. \
@@ -113,7 +114,7 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 # Set up a new, blank order form
                 order_form = OrderForm()
-        
+
     # Check public key has been set
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
