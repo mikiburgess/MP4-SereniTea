@@ -1,2 +1,21 @@
 {% extends "allauth/layouts/base.html" %}
-{% block content %}{% endblock %}
+
+{% block extra_title %}
+- Account Management
+{% endblock %}
+
+{% block content %}
+    {% block allauth_inner_content_heading %}
+    {% endblock allauth_inner_content_heading %}
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row mx-auto">
+            
+            <div class="col-12 col-lg-10 offset-lg-1 mb-5">
+                {% block allauth_inner_content %}
+                {% endblock allauth_inner_content %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

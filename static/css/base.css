@@ -88,6 +88,7 @@ footer > .row > p {
     font-style: normal;
 }
 
+title,
 .site-title-font {
     font-family: "Yeseva One", serif;
     font-weight: 400;
@@ -118,15 +119,16 @@ p {
     font-weight: 400;
 }
 
-.footer-text,
-.footer-link {
+.message-text {
     font-family: "Montserrat", sans-serif;
-    font-size: 0.75rem;
     font-optical-sizing: auto;
+    font-size: 0.80rem;
+    font-weight: 100;
     font-style: normal;
-    color: var(--bistre);
+    color: black;
 }
 
+h1, h2,
 .page-title-font {
     font-family: "Yeseva One", serif;
     font-weight: 300;
@@ -190,8 +192,10 @@ p {
     background-color: white;
 }
 
+a,
 .site-link,
 .product-sort > a {
+    font-size: .9rem;
     font-weight: bold;
     border: 2 solid black;
     border-radius: 0;
@@ -223,6 +227,16 @@ p {
     color: var(--bistre);
     margin: auto;
 }
+
+.footer-text,
+.footer-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: var(--bistre);
+}
+
 
 /* ----------------------------------------- MESSAGES / TOASTS */
 
