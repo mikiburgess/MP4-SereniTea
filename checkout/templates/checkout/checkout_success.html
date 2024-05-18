@@ -22,11 +22,23 @@
         <div class="col-12 my-auto">
             <hr class="title-border">
             <a href="{% url 'products' %}" class="nav-link main-logo-link">
-                <h2 class="page-title-font my-0">Thank You</h2>
+                {% if from_profile %}
+                    <h2 class="page-title-font my-0">Order Summary</h2>
+                {% else %}
+                    <h2 class="page-title-font my-0">Thank You</h2>
+                {% endif %}
             </a>
             <hr class="title-border">
-            <p>Your order information is below. A confirmation email will be send to <strong>{{ order.email }}</strong>.
-            </p>
+            {% if from_profile %}
+                <p>
+                    A confirmation email was sent to <strong>{{ order.email }}</strong>.
+                </p>
+            {% else %}
+                <p>
+                    Your order information is below.
+                    A confirmation email will be send to <strong>{{ order.email }}</strong>.
+                </p>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -90,7 +102,7 @@
                 <small class="text-body-emphasis fw-bold">Delivery Details</small>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="row mx-auto">
                 <div class="col-12 col-md-4">
@@ -168,7 +180,7 @@
                 <small class="text-body-emphasis fw-bold">Billing Information</small>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="row mx-auto">
                 <div class="col-12 col-md-4">
@@ -196,6 +208,26 @@
             </div>
         </div>
 
+    </div>
+     <!-- Continue/Actions -->
+     <div class="row mx-auto">
+        <div class="col-12 col-lg-7 text-right mt-5">
+            {% if from_profile %}
+                <a href="{% url 'profile' %}" class="btn site-btn">
+                    <span class="icon">
+                        <i class="bi bi-arrow-left-circle"></i>
+                    </span>
+                    <span class="font-weight-bold">Return to Profile</span>
+                </a>
+            {% else %}
+                <a href="{% url 'products' %}" class="btn site-btn">
+                    <span class="icon">
+                        <i class="bi bi-arrow-left-circle"></i>
+                    </span>
+                    <span class="font-weight-bold">Continue browsing the store</span>
+                </a>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}
