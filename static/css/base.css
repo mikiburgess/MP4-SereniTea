@@ -40,6 +40,14 @@ body {
     padding: 0 2;
 }
 
+.site-btn:hover,
+.site-btn:focus {
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
+    /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
+    border: 1px solid var(--ebony); 
+    transform: translateY(-0.25em);
+}
+
 .title-border {
     display: block;
     margin-left: auto;
@@ -283,6 +291,10 @@ a,
     border-radius: 5%;
     width: 100px;
     height: 100px;
+}
+
+.product-img-order {
+    border-radius: 5%;
 }
 
 .product-image-center {
