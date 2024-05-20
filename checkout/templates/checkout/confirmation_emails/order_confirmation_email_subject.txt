@@ -1,0 +1,1 @@
+SereniTea Emporium: Thank You for Your Order (number {{ order.order_number }})
