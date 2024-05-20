@@ -114,6 +114,8 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 # Set up a new, blank order form
                 order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     # Check public key has been set
     if not stripe_public_key:

@@ -10,6 +10,7 @@ from decimal import Decimal
 import os
 import dj_database_url
 
+# import environment variables from env.py, if present
 if os.path.exists("env.py"):
     import env
 
@@ -21,17 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-nmjpclz#nok#&s(_ag6*+r%v)9$=q#sk5h4@@wef%-q*jo%$s^'
-
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com', 
+    'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com',
     '127.0.0.1',
+    'localhost',
 ]
 
 
@@ -123,8 +122,13 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# Log emails to the console during development
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG:
+    # Log emails to the console during development
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    # Send emails from registered email address during production
+    pass
 
 # Settings for allauth account authentication
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
