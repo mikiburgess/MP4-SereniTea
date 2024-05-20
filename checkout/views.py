@@ -99,7 +99,7 @@ def checkout(request):
             try:
                 # Retrieve user profile object
                 profile = UserProfile.objects.get(user=request.user)
-                # Set up order form
+                # Set up order form, populated with data from user profile
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -158,7 +158,9 @@ def checkout_success(request, order_number):
                 'default_postcode': order.postcode,
                 'default_country': order.country,
             }
+            # Create instance of user profile form using provided data
             user_profile_form = UserProfileForm(profile_data, instance=profile)
+            # if content is valid, save user profile data
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
@@ -181,7 +183,7 @@ def checkout_success(request, order_number):
 
 @require_POST
 def cache_checkout_data(request):
-    """ Handle user ticked box to save checkout data """
+    """ Handle case where user has ticked the box to save checkout data """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
