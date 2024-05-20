@@ -86,7 +86,7 @@ def remove_from_basket(request, item_id):
         # inform customer that product successfully removed
         messages.success(request, f'Removed {product.friendly_name} from your basket')
         return HttpResponse(status=200)
-    
+
     # If item not in basket, exception is raised and deletion not possible
     except Exception as e:
         print(e)

@@ -1,6 +1,5 @@
 <!-- Display shopping basket contents -->
-{{ basket_items }}
-<hr>
+{% load basket_tools %}
 
 <div class="table-responsive rounded basket-table">
     <table class="table table-sm table-borderless">
@@ -44,8 +43,8 @@
                     <a class="remove-item text-danger float-end" id="remove_{{ item.item_id }}"><small><i class="bi bi-trash"></i></small></a>
                 </td>
                 <td class="py-2">
-                    <!-- <p class="my-0">£{{ item.product.price }}</p> -->
-                    <p class="my-0">£{{ item.product.price  }}</p>
+                    <!-- Calculate total cost of item order -> price * quantity -->
+                    <p class="my-0">£{{ item.product.price|calculate_line_subtotal:item.quantity }}</p>
                 </td>
             </tr>
         {% endfor %}
