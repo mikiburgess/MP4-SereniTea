@@ -13,12 +13,38 @@
 
 {% block content %}
 <!-- Page Title -->
+
 <div id="page-title" class="row">
     <div class="col-12 my-auto">
         <hr class="title-border">
         <a href="{% url 'products' %}" class="nav-link main-logo-link">
         <h1 class="page-title-font my-0">Products</h1>
         </a>
+        {% if current_categories|length > 0 %}
+            <div class="product-option-buttons my-3 mx-2 text-center">
+                {% if current_group %}
+                    <a class="site-btn btn" href="{% url 'products' %}?group={{ current_group }}">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span>All {{ current_group }}</span>
+                    </a>
+                {% else %}
+                    <a class="site-btn btn" href="{% url 'products' %}">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span>All Products</span>
+                    </a>
+                {% endif %}
+                {% for category in current_categories %}
+                    <a class="site-btn btn" href="{% url 'products' %}?category={{ category.name }}">
+                        <span>{{ category.friendly_name }}</span>
+                    </a>
+                {% endfor %}
+                
+            </div>
+        {% endif %}
         <hr class="title-border">
     </div>    
 </div>

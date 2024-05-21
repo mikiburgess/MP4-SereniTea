@@ -14,7 +14,10 @@ from .models import Product, Category
 
 def all_products(request):
     """ View to show all products """
+    print(request)
     products = Product.objects.all()  # retrieve all products from database
+    categories = None  # initialise current selected product categories to None (i.e. unspecified)
+    group = None  # initialise current selected product group to None (i.e. unspecified)
     sort = None  # initialise product sorting element to None (i.e. unspecified)
     direction = None  # initialise product sorting order to None (i.e. unspecified)
     query = None  # initialise query search term to None (i.e. unspecified)
@@ -69,6 +72,8 @@ def all_products(request):
     context = {
         'products': products,
         'current_sorting': current_sorting,
+        'current_group': group,
+        'current_categories': categories,
         'search_term': query,
     }
 

@@ -127,6 +127,10 @@ p {
     font-weight: 400;
 }
 
+.product-option-buttons .btn {
+    font-size: small;    
+}
+
 .message-text {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
