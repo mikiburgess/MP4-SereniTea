@@ -1,5 +1,4 @@
 {% load allauth %}
-<h1>
-    {% slot default %}
-    {% endslot %}
-</h1>
+<div class="h1 aa-{{ origin|slugify }} page-title-font">
+    {% slot default %}{% endslot %}
+</div>

@@ -45,7 +45,7 @@ body {
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
     /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
     border: 1px solid var(--ebony); 
-    transform: translateY(-0.25em);
+    transform: translateY(-0.15em);
 }
 
 .title-border {
