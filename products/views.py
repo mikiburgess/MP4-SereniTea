@@ -4,6 +4,7 @@ Product Views for "SERENITEA EMPORIUM"
 """
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # to generate search queries in Django
 from django.db.models.functions import Lower
 
@@ -93,17 +94,26 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required(login_url="/accounts/login/")
 def add_product(request):
     """ Add a new product to the store """
+    # Check user has permission to access this feature
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Oops! You are not authorized to access that page.')
+        return redirect(reverse('home'))
+
     # Handle POST requests
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'New product successfully added to store catalogue.')
+            messages.success(request,
+                             'New product successfully added to store catalogue.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please check the form is valid.')
+            messages.error(request,
+                           'Failed to add product. Please check the form is valid.')
     else:
         # Handle GET requests
         form = ProductForm()
@@ -115,8 +125,15 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required(login_url="/accounts/login/")
 def edit_product(request, product_id):
     """ Update details of an existing store product """
+    # Check user has permission to access this feature
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Oops! You are not authorized to access that page.')
+        return redirect(reverse('home'))
+
     # retrieve details of the selected product
     product = get_object_or_404(Product, pk=product_id)
     # Handle POST requests
@@ -124,10 +141,12 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product successfully updated in store catalogue.')
+            messages.success(request,
+                             'Product successfully updated in store catalogue.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update product. Please ensure the form is valid.')
     else:
         # Handle GET requests
         form = ProductForm(instance=product)
@@ -141,8 +160,15 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required(login_url="/accounts/login/")
 def delete_product(request, product_id):
     """ Delete a product from the store catalogue """
+    # Check user has permission to access this feature
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Oops! You are not authorized to access that page.')
+        return redirect(reverse('home'))
+
     # retrieve details of the selected product
     product = get_object_or_404(Product, pk=product_id)
     # Delete product from database
