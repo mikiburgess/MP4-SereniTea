@@ -27,7 +27,7 @@
                                 <img class="card-img-top img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
-                            <a href="">
+                            <a href="{{ {{ MEDIA_URL }}noimage.png }}" target="_blank">
                                 <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                         {% endif %}
@@ -86,7 +86,11 @@
         <div class="row">
             <div class="col-10 offset-1">
                 <div class="image-container text-left">
-                    {{ product.description|safe }}
+                    {% if product.description %}
+                        {{ product.description|safe }}
+                    {% else %}
+                        <p><em>Product description coming soon ...</em></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
