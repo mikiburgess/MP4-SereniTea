@@ -111,8 +111,8 @@
                                     <h5 class="card-title product-name">{{ product.friendly_name }}</h5>
                                 </div>
                                 <div class="card-footer px-2 py-1 bg-white border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
+                                    <div class="row align-items-end">
+                                        <div class="col-8">
                                             <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>    
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="bi bi-star-fill"></i> {{ product.rating }} / 5</small>
@@ -122,11 +122,22 @@
                                             <small><em>&nbsp;&nbsp;
                                                 <a class="link-to-more-info" href="{% url 'product_detail' product.id %}">more ...</a>
                                             </em></small>
-                                            
+                                        </div>
+                                        <div class="col-4 text-end align-text-bottom">
+                                            {% if request.user.is_superuser %}
+                                            <a class="edit-option text-success"
+                                                    href="{% url 'edit_product' product.id %}">
+                                                    <small><i class="bi bi-pencil-square"></i></small>
+                                                </a>
+                                                <small> | </small>
+                                                <a class="delete-option text-danger"
+                                                    href="{% url 'delete_product' product.id %}">
+                                                    <small><i class="bi bi-trash"></i></small>
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
-                            
                             </div>
                         </div>
                     {% endfor %}

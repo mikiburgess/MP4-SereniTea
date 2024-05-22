@@ -49,6 +49,19 @@
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                    <p>
+                        <a class="edit-option text-success"
+                            href="{% url 'edit_product' product.id %}">
+                            <small>Edit <i class="bi bi-pencil-square"></i></small>
+                        </a>
+                        <small> | </small>
+                        <a class="delete-option text-danger"
+                            href="{% url 'delete_product' product.id %}">
+                            <small>Delete <i class="bi bi-trash"></i></small>
+                        </a>
+                    </p>
+                    {% endif %}
                 </div>
 
                 <!-- Form to add items to basket -->
