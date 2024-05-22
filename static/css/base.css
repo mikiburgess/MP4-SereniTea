@@ -159,6 +159,21 @@ h1, h2,
     text-align: left;
 }
 
+a,
+.site-link,
+.product-sort > a {
+    font-size: .9rem;
+    font-weight: bold;
+    border: 2 solid black;
+    border-radius: 0;
+    color: var(--bistre);
+    /* background-color: white; */
+}
+
+#product-sort-selector {
+    width: 100%;
+}
+
 .sku {
     font-size: 0.75rem;
     font-style: italic;
@@ -190,7 +205,9 @@ h1, h2,
 .carousel-text a {
     font-family: "Montserrat", sans-serif;
     font-style: italic;
-    color: var(--timberwolf);
+    font-weight: 600;
+    font-size: 1em !important;
+    color: var(--timberwolf) !important;
     text-decoration: none;
 }
 
@@ -198,26 +215,11 @@ h1, h2,
     color: var(--timberwolf);
 }
 
-#product-sort-selector {
-    width: 100%;
-}
-
 .form-select {
     border: 2 solid black;
     border-radius: 0;
     color: var(--bistre);
     background-color: white;
-}
-
-a,
-.site-link,
-.product-sort > a {
-    font-size: .9rem;
-    font-weight: bold;
-    border: 2 solid black;
-    border-radius: 0;
-    color: var(--bistre);
-    /* background-color: white; */
 }
 
 .product-sort > a {
