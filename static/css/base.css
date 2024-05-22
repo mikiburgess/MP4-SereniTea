@@ -29,9 +29,13 @@
     -webkit-filter: drop-shadow(0px 8px 10px var(--shadow));
 }
 
+.welcome-image {
+    height: 75vh;
+}
+
 .image-large {
-    min-height: 500px;
-    max-height: 600px;
+    min-height: 350px;
+    max-height: 500px;
 }
 
 .image-small {
@@ -60,14 +64,24 @@ body {
     /* background-color: var(--timberwolf); */
 }
 
+.browse-btn,
 .site-btn {
-    background-color: white;
     border: 2px solid var(--bistre); 
     color: black;
     text-align: center;
     text-transform: uppercase;
     border-radius: 0;
     padding: 0 2;
+}
+
+.site-btn {
+    background-color: white;
+}
+
+.browse-btn {
+    padding: auto;
+    margin: auto;
+    background-color: var(--timberwolf)
 }
 
 .file-btn {
@@ -95,11 +109,19 @@ body {
 .site-btn:hover,
 .site-btn:focus, 
 .file-btn:hover,
-.file-btn:focus {
+.file-btn:focus,
+.img-round:hover {
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
     /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
     border: 1px solid var(--ebony); 
     transform: translateY(-0.15em);
+}
+.browse-btn:hover {
+    
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
+    /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
+    border: 1px solid var(--ebony); 
+    /* transform: translateY(-0.15em); */
 }
 
 .custom-checkbox .custom-control-label::before {
@@ -223,6 +245,17 @@ h1, h2,
     text-align: left;
 }
 
+.welcome-container > p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: var(--bistre);
+    text-align: center;
+}
+
 a,
 .site-link,
 .product-sort > a {
@@ -320,6 +353,21 @@ a,
     color: var(--bistre);
 }
 
+/* --------------------------------------------- WELCOME TEXT  */
+.welcome-container {
+    text-align: center;
+    position: absolute;
+    border-radius: 8px;
+    top: 35%;
+    left: 50%;
+    width: 85vw;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(208, 204, 192, 0.8);
+}
+
+  
 
 /* ----------------------------------------- MESSAGES / TOASTS */
 
@@ -355,7 +403,10 @@ a,
 
 /* --------------------------------------------------- IMAGES */
 .img-round {
-    border-radius: ;
+    border-radius: 50%;
+    background-color: var(--timberwolf-pale);
+    height: 150px;
+    width: 150px;
 }
 
 .img-faded {
@@ -406,7 +457,6 @@ a,
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
     /* No additional modifications for medium viewports */
 }
 
@@ -426,17 +476,22 @@ a,
     .header-container {
         padding-top: 164px;
     }
-   /* No additional modifications for medium viewports */    
+
+    .welcome-container {
+        width: 75vw;
+        top: 40%;
+    }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
     .container {
         max-width: 80%;
       }
 
-    /* No additional modifications for x-large viewports */
+    .welcome-container {
+        width: 70vw;
+    }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
