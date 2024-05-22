@@ -9,6 +9,36 @@
     --danger: rgb(220, 53, 69);  /* match Bootstrap text-danger */
 }
 
+
+/* --------------------------------------- IMAGES and EFFECTS */
+.field-meditation-img1 {
+    background-image: url('../../media/image_fx_relaxing_landscape_picture_of_a_tea_bushes_fa.jpg');
+}
+
+.plantation-meditation-img {
+    background-image: url('../../media/plantation-meditation.jpg');
+}
+
+.parallax {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: top;
+    filter: drop-shadow(0px 8px 10px var(--shadow));
+    -webkit-filter: drop-shadow(0px 8px 10px var(--shadow));
+}
+
+.image-large {
+    min-height: 500px;
+    max-height: 600px;
+}
+
+.image-small {
+    min-height: 150px;
+    max-height: 200px;
+}
+
 /* ------------------------------------ GENERAL SITE SETTINGS */
 
 /* Allow h-100 classes and vertical centering to work */
@@ -23,7 +53,7 @@ nav, #topnav
 
 /* ensure background image stays center of page */
 body {
-    /* background: url('../../media/tea_plantation.jpg') no-repeat center center fixed; */
+    
     /* opacity: 0.5; */
     /* background-size: cover; */
     height: calc(100vh - 164px);
@@ -103,8 +133,7 @@ footer > .row {
     /* display: flex;
     justify-content: flex-start; */
     background-color: var(--timberwolf-pale);
-    padding-top: 8px;
-    margin-top: 10px;
+    padding-top: 12px;
 }
 
 footer > .row > p {
