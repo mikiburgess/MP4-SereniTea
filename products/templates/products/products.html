@@ -127,13 +127,10 @@
                                             {% if request.user.is_superuser %}
                                             <a class="edit-option text-success"
                                                     href="{% url 'edit_product' product.id %}">
-                                                    <small><i class="bi bi-pencil-square"></i></small>
-                                                </a>
-                                                <small> | </small>
+                                                    <small><i class="bi bi-pencil-square"></i></small></a>
                                                 <a class="delete-option text-danger"
                                                     href="{% url 'delete_product' product.id %}">
-                                                    <small><i class="bi bi-trash"></i></small>
-                                                </a>
+                                                    <small><i class="bi bi-trash"></i></small></a>
                                             {% endif %}
                                         </div>
                                     </div>
