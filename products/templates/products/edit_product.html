@@ -1,0 +1,55 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+- Edit Product
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">Edit Existing Product</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+<!-- Add Product Form -->
+<div class="add-product-page container">
+    <div class="row mx-auto">
+        <!-- Product Details -->
+        <div class="col-10 offset-1 my-auto">
+            <p class="text-body-secondary">Use the following form to update product details</p>
+            <form action="{% url 'edit_product' product.id %}" method="POST" id="edit-product-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+
+                <!-- Product Submit button -->
+                <div class="submit-button text-right mt-5 mb-2">
+                    <!-- Cancel and link back to products -->
+                    <a href="{% url 'product_detail' product.id %}" class="site-btn btn">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span class="font-weight-bold">Cancel</span>
+                    </a>
+                    <!-- Save new product details -->
+                    <button id="submit-button" class="site-btn btn">
+                        <span class="font-weight-bold">Update Product</span>
+                        <span class="icon">
+                            <i class="bi bi-pencil-square"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
