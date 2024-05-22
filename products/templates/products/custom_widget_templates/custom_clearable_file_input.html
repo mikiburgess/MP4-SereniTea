@@ -1,0 +1,30 @@
+<!-- Adapted from Django Github Repo and Boutique Ado-->
+
+{% if widget.is_initial %}
+    {{ widget.initial_text }}:
+    <a href="{{ widget.value.url }}">
+        <img width="96" height="96" class="img-thumbnail rounded" 
+            src="{{ widget.value.url }}">
+    </a>
+        {% if not widget.required %}
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" name="{{ widget.checkbox_name }}" 
+                id="{{ widget.checkbox_id }}"
+                class="custom-control-input"
+                {% if widget.attrs.disabled %}disabled{% endif %}
+                {% if widget.attrs.checked %}checked{% endif %}>
+            <label for="{{ widget.checkbox_id }}"
+                class="text-danger custom-control-label">
+                {{ widget.clear_checkbox_label }}
+            </label>
+        </div>
+        {% endif %}
+        <br>
+    {{ widget.input_text }}:
+{% endif %}
+<span class="file-btn">
+    Choose product image 
+    <input type="{{ widget.type }}" name="{{ widget.name }}" id="new-image"
+        {% include "django/forms/widgets/attrs.html" %}>
+</span>
+<strong><p class="text-danger" id="filename"></p></strong>
