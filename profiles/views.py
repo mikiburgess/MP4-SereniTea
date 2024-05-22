@@ -16,7 +16,9 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Profile updated successfully.')
+        else:
+            messages.error(request, 'Profile update failed. Please check the form.')
 
     # Handle GET - user request to view their profile details
     form = UserProfileForm(instance=profile)  # populate form with current user profile information
