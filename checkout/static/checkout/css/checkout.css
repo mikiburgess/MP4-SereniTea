@@ -63,7 +63,8 @@ select option[value=""] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(23, 162, 184, .85);
+    /* background: rgba(23, 162, 184, .85); */
+    background: rgba(208, 204, 192, 0.3);
     z-index: 1024;
 }
 
@@ -72,5 +73,12 @@ select option[value=""] {
     align-items: center;
     justify-content: center;
     margin: 0;
+    font-size: xx-large;
     height: 100%;
+    animation: spin 2s linear infinite;
 }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

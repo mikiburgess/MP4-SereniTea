@@ -377,12 +377,14 @@ a,
     top: 75px;
     right: 15px;
     z-index: 1000; */
+    position: absolute;
+    width: 100%;
     font-family: "Yeseva One", serif;
     font-weight: 200;
     font-style: normal;
     color: black;
     text-align: center;
-    margin-top: 2px;
+    /* margin-top: 2px; */
     margin-bottom: 2px;
 
 }
