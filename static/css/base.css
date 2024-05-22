@@ -156,6 +156,7 @@ h1, h2,
     font-weight: 200;
     font-style: normal;
     color: black;
+    text-align: left;
 }
 
 .sku {
@@ -173,6 +174,10 @@ h1, h2,
     color: var(--ebony);
     text-align: left;
     margin: auto;
+}
+
+.icon {
+    margin-inline: 0.25rem;
 }
 
 .carousel-text {
