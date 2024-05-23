@@ -10,4 +10,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
+    path('about_serenitea', views.about_serenitea, name='about_serenitea'),
 ]

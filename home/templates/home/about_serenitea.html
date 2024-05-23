@@ -1,0 +1,119 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+ - About Us
+{% endblock %}
+
+{% block content %}
+
+<div class="parallax calm-plantation-img">
+
+    <div class="row">
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col-4 my-auto">
+                        <img src="{{ MEDIA_URL }}relaxing_with_a_mug_of_tea.jpg" alt="" class="general-img">
+                    </div>
+                    <div class="col-8 my-auto">
+                        <p class="site-content-font">At SereniTea Emporium, we believe that tea is more
+                            than just a beverage — it's an experience, a ritual, and a journey into the
+                            rich traditions and cultures of the world. Our curated selection of premium
+                            teas and thoughtfully crafted tea accessories will inspire you to explore,
+                            relax, and enjoy every moment of your tea journey.</p>
+                        <hr class="title-border">
+                        <p class="site-content-font">At SereniTea, we are committed to sustainability and
+                            ethical sourcing. We work with tea producers who uphold environmentally
+                            friendly practices and support fair labor conditions, allowing you to enjoy
+                            your tea with peace of mind. Our organic tea selection offers you a variety
+                            of choices that are as good for the planet as they are for your health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col-8 my-auto">
+                        <p class="site-content-font">Discover an extensive range of loose leaf teas,
+                            including classic black and green teas, aromatic oolongs, delicate white
+                            teas, and unique herbal infusions. Each tea is carefully sourced from
+                            renowned tea gardens around the globe, ensuring the highest quality and
+                            sustainability. Whether you're a seasoned tea connoisseur or new to the
+                            world of tea, our expert recommendations and detailed product descriptions
+                            will guide you in selecting the perfect tea for any occasion.</p>
+                    </div>
+                    <div class="col-4 my-auto">
+                        <img src="{{ MEDIA_URL }}leaf.jpg" alt="" class="general-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col-4 my-auto">
+                        <img src="{{ MEDIA_URL }}tea_in_the_woods.jpg" alt="" class="general-img">
+                    </div>
+                    <div class="col-8 my-auto">
+                        <p class="site-content-font">Enhance your tea-drinking experience with our collection
+                            of beautiful teapots, teacups, and tea accessories. From traditional cast iron
+                            teapots to modern glass infuser mugs, our selection has something for every tea
+                            lover. Explore our range of bamboo tea trays, tea infusers, and matcha bowls to
+                            elevate your tea rituals</p>
+                            <hr class="title-border">
+                        <p class="site-content-font">Join our SereniTea community to stay updated on the
+                            latest tea trends, special offers, and exclusive discounts. Sign up for our
+                            newsletter and receive personalized tea recommendations, expert brewing tips,
+                            and invitations to virtual tea-tasting events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col-10 offset-1 my-auto">
+                        <p class="site-content-font">Experience the serenity and joy of tea with SereniTea
+                            Emporium. Browse our collection, find your perfect tea, and let us deliver a
+                            moment of tranquility right to your door.
+                        </p>
+                    </div>
+                    <div class="col-10 offset-1 text-center my-auto">
+                        <a class="browse-btn btn" role="button" href="{% url 'products' %}">
+                            Browse the Products
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br>
+    </div>
+    
+
+</div>
+{% endblock %}
