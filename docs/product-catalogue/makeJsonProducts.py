@@ -15,31 +15,38 @@ with open("products.csv", newline='') as csvfile:
         sku = row[2]
         name = row[3]
         friendly_name = row[4]
-        description = row[5]
-        image = row[6]
-        alt_text = row[7]
-        bs_icon = row[8]
-
+        if row[5] == '':
+            description = None
+        else:
+            description = row[5]
+        if row[6] == '':
+            image = None
+        else:
+            image = row[6]
+        if row[7] == '':
+            alt_text = None
+        else:
+            alt_text = row[7]
+        if row[8] == '':
+            bs_icon = None
+        else:
+            bs_icon = row[8]
         if row[9] == '':
             weight = None
         else:
             weight = int(row[9])
-
         if row[10] == '':
             strength = None
         else:
             strength = int(row[10])
-
-        if row[10] == '':
+        if row[11] == '':
             brew_time = None
         else:
             brew_time = row[11]
-
         if row[12] == '':
             water_temp = None
         else:
             water_temp = int(row[12])
-
         if row[13] == '':
             price = None
         else:
