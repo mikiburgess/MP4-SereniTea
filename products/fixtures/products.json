@@ -1,6 +1,6 @@
 [
     {
-        "pk": 1,
+        "pk": 601,
         "model": "products.product",
         "fields": {
             "category": 25,
@@ -8,8 +8,8 @@
             "name": "gift_voucher_10",
             "friendly_name": "£10 Gift Voucher",
             "description": "<p>Give the gift of serenity with a <strong>SereniTea Emporium Gift Certificate</strong>, the perfect present for tea lovers and those seeking a moment of calm in their busy lives. With a SereniTea Gift Certificate, you can treat someone special to a personalized tea-shopping experience, allowing them to explore our extensive range of premium loose leaf teas, tea accessories, and unique tea gift sets.</p>\n\n<p>This versatile gift certificate is ideal for any occasion, whether it's a birthday, anniversary, holiday, or simply a thoughtful gesture to show appreciation. It can be used to purchase anything from our online store, including our carefully curated selection of organic teas, stylish teaware, and beautifully packaged gift boxes.</p>\n\n<p>The <strong>SereniTea Emporium Gift Certificate</strong> is available in various denominations, giving your recipient the flexibility to choose their favorite teas and accessories. It's a convenient and thoughtful way to share the joy of tea without the guesswork of picking the perfect blend.</p>\n\n<p>Upon purchase, you'll receive a digital gift certificate via email, complete with a unique code for redemption at our online store. You can forward the email to your recipient or print it for a personal touch. If you're sending it as a gift, you can add a custom message to make the gift certificate even more special.</p>\n\n<p>Whether they're new to the world of tea or a seasoned tea connoisseur, a SereniTea Emporium Gift Certificate opens the door to a world of soothing flavors, elegant teaware, and relaxing tea rituals. It's a gift that not only provides a delightful tea experience but also invites your recipient to take a moment to relax and enjoy life's simple pleasures.</p>",
-            "image": "serenitea_emporium.jpg",
-            "alt_text": "SereniTea Emporium logo.",
+            "image": "serenitea_10_gift_certificate.jpg",
+            "alt_text": "Female hands holding a cream gift card decorated with a teacup and a £10 label.",
             "bs_icon": "bi bi-gift",
             "weight": null,
             "strength": null,
@@ -21,7 +21,7 @@
         }
     },
     {
-        "pk": 2,
+        "pk": 602,
         "model": "products.product",
         "fields": {
             "category": 25,
@@ -29,8 +29,8 @@
             "name": "gift_voucher_20",
             "friendly_name": "£20 Gift Voucher",
             "description": "<p>Give the gift of serenity with a <strong>SereniTea Emporium Gift Certificate</strong>, the perfect present for tea lovers and those seeking a moment of calm in their busy lives. With a SereniTea Gift Certificate, you can treat someone special to a personalized tea-shopping experience, allowing them to explore our extensive range of premium loose leaf teas, tea accessories, and unique tea gift sets.</p>\n\n<p>This versatile gift certificate is ideal for any occasion, whether it's a birthday, anniversary, holiday, or simply a thoughtful gesture to show appreciation. It can be used to purchase anything from our online store, including our carefully curated selection of organic teas, stylish teaware, and beautifully packaged gift boxes.</p>\n\n<p>The <strong>SereniTea Emporium Gift Certificate</strong> is available in various denominations, giving your recipient the flexibility to choose their favorite teas and accessories. It's a convenient and thoughtful way to share the joy of tea without the guesswork of picking the perfect blend.</p>\n\n<p>Upon purchase, you'll receive a digital gift certificate via email, complete with a unique code for redemption at our online store. You can forward the email to your recipient or print it for a personal touch. If you're sending it as a gift, you can add a custom message to make the gift certificate even more special.</p>\n\n<p>Whether they're new to the world of tea or a seasoned tea connoisseur, a SereniTea Emporium Gift Certificate opens the door to a world of soothing flavors, elegant teaware, and relaxing tea rituals. It's a gift that not only provides a delightful tea experience but also invites your recipient to take a moment to relax and enjoy life's simple pleasures.</p>",
-            "image": "serenitea_emporium.jpg",
-            "alt_text": "SereniTea Emporium logo.",
+            "image": "serenitea_present_certificate.jpg",
+            "alt_text": "Female hands holding a cream gift card decorated with a teacup and graphic of a wrapped parcel.",
             "bs_icon": "bi bi-gift",
             "weight": null,
             "strength": null,
@@ -42,7 +42,7 @@
         }
     },
     {
-        "pk": 3,
+        "pk": 603,
         "model": "products.product",
         "fields": {
             "category": 25,
@@ -50,8 +50,8 @@
             "name": "gift_voucher_50",
             "friendly_name": "£50 Gift Voucher",
             "description": "<p>Give the gift of serenity with a <strong>SereniTea Emporium Gift Certificate</strong>, the perfect present for tea lovers and those seeking a moment of calm in their busy lives. With a SereniTea Gift Certificate, you can treat someone special to a personalized tea-shopping experience, allowing them to explore our extensive range of premium loose leaf teas, tea accessories, and unique tea gift sets.</p>\n\n<p>This versatile gift certificate is ideal for any occasion, whether it's a birthday, anniversary, holiday, or simply a thoughtful gesture to show appreciation. It can be used to purchase anything from our online store, including our carefully curated selection of organic teas, stylish teaware, and beautifully packaged gift boxes.</p>\n\n<p>The <strong>SereniTea Emporium Gift Certificate</strong> is available in various denominations, giving your recipient the flexibility to choose their favorite teas and accessories. It's a convenient and thoughtful way to share the joy of tea without the guesswork of picking the perfect blend.</p>\n\n<p>Upon purchase, you'll receive a digital gift certificate via email, complete with a unique code for redemption at our online store. You can forward the email to your recipient or print it for a personal touch. If you're sending it as a gift, you can add a custom message to make the gift certificate even more special.</p>\n\n<p>Whether they're new to the world of tea or a seasoned tea connoisseur, a SereniTea Emporium Gift Certificate opens the door to a world of soothing flavors, elegant teaware, and relaxing tea rituals. It's a gift that not only provides a delightful tea experience but also invites your recipient to take a moment to relax and enjoy life's simple pleasures.</p>",
-            "image": "serenitea_emporium.jpg",
-            "alt_text": "SereniTea Emporium logo.",
+            "image": "serenitea_gift_certificate.jpg",
+            "alt_text": "Female hands holding a cream gift card decorated with a teacup and Gift text label.",
             "bs_icon": "bi bi-gift",
             "weight": null,
             "strength": null,
@@ -63,7 +63,7 @@
         }
     },
     {
-        "pk": 4,
+        "pk": 604,
         "model": "products.product",
         "fields": {
             "category": 25,
@@ -71,8 +71,8 @@
             "name": "gift_voucher_100",
             "friendly_name": "£100 Gift Voucher",
             "description": "<p>Give the gift of serenity with a <strong>SereniTea Emporium Gift Certificate</strong>, the perfect present for tea lovers and those seeking a moment of calm in their busy lives. With a SereniTea Gift Certificate, you can treat someone special to a personalized tea-shopping experience, allowing them to explore our extensive range of premium loose leaf teas, tea accessories, and unique tea gift sets.</p>\n\n<p>This versatile gift certificate is ideal for any occasion, whether it's a birthday, anniversary, holiday, or simply a thoughtful gesture to show appreciation. It can be used to purchase anything from our online store, including our carefully curated selection of organic teas, stylish teaware, and beautifully packaged gift boxes.</p>\n\n<p>The <strong>SereniTea Emporium Gift Certificate</strong> is available in various denominations, giving your recipient the flexibility to choose their favorite teas and accessories. It's a convenient and thoughtful way to share the joy of tea without the guesswork of picking the perfect blend.</p>\n\n<p>Upon purchase, you'll receive a digital gift certificate via email, complete with a unique code for redemption at our online store. You can forward the email to your recipient or print it for a personal touch. If you're sending it as a gift, you can add a custom message to make the gift certificate even more special.</p>\n\n<p>Whether they're new to the world of tea or a seasoned tea connoisseur, a SereniTea Emporium Gift Certificate opens the door to a world of soothing flavors, elegant teaware, and relaxing tea rituals. It's a gift that not only provides a delightful tea experience but also invites your recipient to take a moment to relax and enjoy life's simple pleasures.</p>",
-            "image": "serenitea_emporium.jpg",
-            "alt_text": "SereniTea Emporium logo.",
+            "image": "serenitea_100_gift_certificate.jpg",
+            "alt_text": "Cream card with green leaf design and the SereniTea name, displayed on a wooden table surrounded by fresh green leaves.",
             "bs_icon": "bi bi-gift",
             "weight": null,
             "strength": null,
@@ -2349,6 +2349,531 @@
             "price": 35.99,
             "stock_level": null,
             "rating": null
+        }
+    },
+    {
+        "pk": 501,
+        "model": "products.product",
+        "fields": {
+            "category": 24,
+            "sku": "meat433388",
+            "name": "meditation_starter_box",
+            "friendly_name": "Meditation Starter Box",
+            "description": "<p>Begin your journey to inner peace and tranquility with our <strong>Meditation Starter Box</strong>, a curated set designed to enhance your meditation practice and create a serene ambiance. This thoughtfully assembled kit includes:</p>\n<ol>\n<li><strong>Incense Sticks</strong>: Infuse your meditation space with calming aromas using our premium incense sticks. Crafted from natural ingredients, these incense sticks release gentle fragrances that promote relaxation and mindfulness.</li>\n\n<li><strong>Candle</strong>: Set the mood for meditation with the soft glow of our scented candle. Made from high-quality wax, it provides a warm and soothing ambiance, helping you to unwind and focus your mind.</li>\n\n<li><strong>Chamomile Tea Bags</strong>: Sip on our chamomile tea bags as you embark on your meditation journey. Chamomile is renowned for its calming properties, making it the perfect companion for relaxation and stress relief.</li>\n\n<p>The <strong>Meditation Starter Box</strong> is a perfect gift for both beginners and experienced meditators, offering everything you need to create a sacred space for quiet reflection and self-discovery. Whether you're seeking moments of calm amidst the chaos of daily life or looking to deepen your meditation practice, this comprehensive set is your gateway to inner harmony and balance.</p>",
+            "image": "meditation_starter_box.jpg",
+            "alt_text": "Cardboard box containing a booklet, incense sticks, candle and camomile tea bags",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 15.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 201,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit408773",
+            "name": "serenitea_coasters",
+            "friendly_name": "SereniTea Coasters (Set of 2)",
+            "description": "<p>Protect your surfaces in style with our SereniTea ceramic coasters. Crafted from creamy ceramic and adorned with a delicate print of green leaves, these circular coasters bring a touch of natural elegance to your table decor. Each coaster features the SereniTea brand name subtly incorporated into the design, reflecting quality and sophistication. Perfect for both hot and cold beverages, these coasters not only safeguard your furniture but also add a charming accent to your tea time. Practical, durable, and easy to clean, they are an essential addition to any tea lover's collection.</p>",
+            "image": "serenitea_foliage_coaster.jpg",
+            "alt_text": "Round, cream ceramic coaster decorated with painted green leaves and the name SereniTea, displayed on a wooden table.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 8.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 202,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit548959",
+            "name": "serenitea_foliage_tablecloth",
+            "friendly_name": "SereniTea Foliage Tablecloth",
+            "description": "<p> This cream-colored tablecloth is adorned with a beautiful print of green leaves, bringing a fresh, botanical touch to your table. The SereniTea brand name is subtly incorporated into the design, signifying quality and style. Ideal for both everyday use and special occasions, this tablecloth creates a serene and inviting atmosphere for any meal. Made from high-quality, durable fabric, it is easy to clean and maintain, ensuring it remains a charming addition to your home decor.</p>",
+            "image": "serenitea_foliage_tablecloth.jpg",
+            "alt_text": "Folded cream tablecloth decorated with painted green leaves and the name SereniTea, displayed on a wooden table.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 15.5,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 203,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit268433",
+            "name": "serenitea_foliage_tablerunner",
+            "friendly_name": "SereniTea Foliage Table Runner",
+            "description": "<p>Add a touch of elegance to your table setting with the SereniTea Foliage Table Runner. This cream-colored table runner is adorned with a delicate print of green leaves, infusing your dining space with a natural, botanical charm. Featuring the SereniTea brand name subtly incorporated into the design, this table runner embodies quality and sophistication. Whether for everyday use or special occasions, it effortlessly elevates your table decor, creating a serene and inviting ambiance. Crafted from high-quality fabric, this table runner is durable and easy to clean, ensuring long-lasting beauty for your dining space. Enhance your tea time experience with the timeless elegance of the SereniTea Foliage Table Runner.</p>",
+            "image": "serenitea_foliage_tablerunner.jpg",
+            "alt_text": "Narrow tablecloth decorated with painted green leaves and the name SereniTea, displayed along a wooden table with a plant in a pot and a cookie.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 12.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 204,
+        "model": "products.product",
+        "fields": {
+            "category": 13,
+            "sku": "chmi304332",
+            "name": "chamomile_bouquet_tea",
+            "friendly_name": "Chamomile Bouquet Tea",
+            "description": "<p>Experience pure tranquility with our Chamomile Bouquet Tea, a soothing blend that captures the essence of relaxation. Made from the finest organic chamomile flowers, this tea offers a gentle floral aroma and a naturally sweet, calming flavor. Perfect for unwinding after a long day or preparing for a restful night's sleep, Chamomile Bouquet Tea is your go-to for peace and serenity. Let each sip of this delicate infusion bring you a sense of calm and well-being.</p>",
+            "image": "chamomile_bouquet_tea.jpg",
+            "alt_text": "Glass teapot filled with tea, including an opened and infused flowering tea ball.",
+            "bs_icon": "bi bi-cup",
+            "weight": 125,
+            "strength": 2,
+            "brew_time": "6-7",
+            "water_temp": 80,
+            "price": 11.5,
+            "stock_level": null,
+            "rating": 5.0
+        }
+    },
+    {
+        "pk": 205,
+        "model": "products.product",
+        "fields": {
+            "category": 13,
+            "sku": "lyex744589",
+            "name": "lychee_and_strawberry_bloom_tea",
+            "friendly_name": "Lychee and Strawberry Bloom Tea ",
+            "description": "<p>Delight in the vibrant flavors of our Lychee and Strawberry Bloom Tea, a refreshing blend that brings a burst of fruity sweetness to your cup. This exquisite loose leaf tea combines the exotic, juicy notes of lychee with the luscious taste of ripe strawberries, creating a harmonious and invigorating brew. Perfect for a summer afternoon or a refreshing pick-me-up, Lychee and Strawberry Bloom Tea is a delightful escape to a tropical paradise with every sip. Enjoy this fruity infusion hot or iced for a truly delightful tea experience.</p>",
+            "image": "lychee_and_strawberry_bloom_tea.jpg",
+            "alt_text": "Glass jug filled with tea, including an opened and infused flowering tea ball.",
+            "bs_icon": "bi bi-cup",
+            "weight": 125,
+            "strength": 2,
+            "brew_time": "6-7",
+            "water_temp": 80,
+            "price": 12.5,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 206,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit665711",
+            "name": "serenitea_foliage_hug_mug",
+            "friendly_name": "SereniTea Foliage Cozy Hug Mug",
+            "description": "<p>Embrace warmth and comfort with the SereniTea Cozy Hug Mug, designed to be your perfect companion on chilly evenings. This cream-colored mug, adorned with hand-painted leaves and the elegant SereniTea brand name, offers both style and a snug fit for your hands. Its unique, ergonomic shape is crafted for hugging, providing an inviting and cozy feel as you sip your favorite tea. Whether you're relaxing by the fire or unwinding after a long day, the SereniTea Cozy Hug Mug brings a touch of nature and a lot of comfort to your tea-drinking experience.</p>",
+            "image": "serenitea_foliage_hug_mug.jpg",
+            "alt_text": "Cream mug on a windowsill, decorated with painted leaves and SereniTea brand name.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 11.5,
+            "stock_level": null,
+            "rating": 4.8
+        }
+    },
+    {
+        "pk": 207,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit553194",
+            "name": "serenitea_foliage_mug",
+            "friendly_name": "SereniTea Foliage Mug",
+            "description": "<p>Enjoy your tea in style with the SereniTea Foliage Mug, a beautiful blend of elegance and nature. This white ceramic mug features a charming hand-painted design of green leaves, complemented by the SereniTea brand name. Its clean, modern aesthetic makes it a perfect addition to any kitchen or office. Ideal for savoring your favorite tea, this mug combines functionality with a touch of natural beauty, making every sip a delightful experience. Embrace the serenity of tea time with the SereniTea Foliage Mug.</p>",
+            "image": "serenitea_foliage_mug.jpg",
+            "alt_text": "White mug on a windowsill, decorated with painted green leaves and SereniTea brand name.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 12.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 208,
+        "model": "products.product",
+        "fields": {
+            "category": 32,
+            "sku": "seit250972",
+            "name": "serenitea_country_tablecloth",
+            "friendly_name": "SereniTea Country Tablecloth",
+            "description": "<p>Transform your dining experience with the SereniTea Country Tablecloth, a perfect blend of elegance and nature. This pristine white tablecloth is beautifully printed with a pattern of green leaves, adding a fresh, botanical touch to your table setting. The SereniTea brand name subtly accents the design, reflecting quality and style. Ideal for both casual and formal occasions, this tablecloth brings a serene and inviting atmosphere to any meal. Crafted from high-quality, durable fabric, it's easy to clean and maintain, making it a practical yet stylish addition to your home decor. Enhance your dining space with the natural beauty of the SereniTea Country Tablecloth.</p>",
+            "image": "serenitea_country_tablecloth.jpg",
+            "alt_text": "White tablecloth decorated with painted green leaves and the name SereniTea, draped over a garden table with teapot, mug and garden plant in a pot.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 15.5,
+            "stock_level": null,
+            "rating": 4.5
+        }
+    },
+    {
+        "pk": 209,
+        "model": "products.product",
+        "fields": {
+            "category": 31,
+            "sku": "surx226391",
+            "name": "summer_picnic_set",
+            "friendly_name": "Summer Picnic Set",
+            "description": "<p>Elevate your outdoor tea experience with our Limited Edition Picnic Set, thoughtfully curated for tea lovers. This charming set includes two elegant cups and saucers, a packet of premium loose leaf black tea, a packet of convenient teabags, and two stainless steel teaspoons. The beautifully woven wicker basket not only provides a stylish and durable container but also adds a touch of rustic elegance to your picnic. Perfect for romantic outings, family gatherings, or serene solo escapes, this set makes every tea moment special. Treat yourself or surprise a loved one with this exclusive, limited edition picnic basket, designed for delightful tea experiences on the go.</p>",
+            "image": "summer_picnic_set.jpg",
+            "alt_text": "Wicker picnic basket with leather decoration around handles, set against a plain cream wall, open showing two porcelain cups and saucers and two packets of tea.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 29.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 210,
+        "model": "products.product",
+        "fields": {
+            "category": 31,
+            "sku": "lied380495",
+            "name": "limited_edition_serenitea_blue_mug",
+            "friendly_name": "Limited Edition SereniTea Blue Mug",
+            "description": "<p>Discover the charm of our Limited Edition Blue Mug, a perfect blend of elegance and artistry. This exquisite mug features a hand-painted blue leaf motif that stands out beautifully against the pristine white ceramic backdrop. Crafted with care and attention to detail, this mug is both durable and stylish. Ideal for enjoying your favorite tea or coffee, it also makes a wonderful gift for loved ones. Add a touch of nature-inspired elegance to your collection with this exclusive, limited edition piece, available for a short time only.</p>",
+            "image": "limited_edition_serenitea_blue_mug.jpg",
+            "alt_text": "White mug on a windowsill, decorated with painted blue leaves and SereniTea brand name.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 15.0,
+            "stock_level": null,
+            "rating": 3.8
+        }
+    },
+    {
+        "pk": 211,
+        "model": "products.product",
+        "fields": {
+            "category": 31,
+            "sku": "lied548104",
+            "name": "limited_edition_serenitea_gold_rim_mug",
+            "friendly_name": "Limited Edition SereniTea Gold Rim Mug",
+            "description": "<p>Elevate your tea time with this Limited Edition mug, a stunning piece that combines elegance with nature-inspired artistry. This exclusive mug features a delicate pattern of intertwining leaves, beautifully accented by a luxurious gold rim. Crafted from high-quality ceramic, it offers both durability and sophistication. Perfect for savoring your favorite brew or as a thoughtful gift, this limited edition mug adds a touch of refined beauty to any occasion. Don’t miss the chance to own this exquisite collector’s item, available for a limited time only.</p>",
+            "image": "limited_edition_serenitea_gold_rim_mug.jpg",
+            "alt_text": "Cream mug on a windowsill, decorated with painted green leaves and SereniTea brand name, with a gold leaf rim.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 19.99,
+            "stock_level": null,
+            "rating": 5.0
+        }
+    },
+    {
+        "pk": 212,
+        "model": "products.product",
+        "fields": {
+            "category": 24,
+            "sku": "inse739986",
+            "name": "incense_with_wooden_holder",
+            "friendly_name": "Incense with Wooden Holder",
+            "description": "<p>Immerse yourself in a world of calming fragrances with our Incense Set, complete with a stylish wooden holder. Each box contains a selection of premium incense sticks crafted from natural ingredients, offering a variety of soothing scents to enhance your space. From the gentle aroma of lavender to the earthy notes of sandalwood, our incense sticks create an atmosphere of tranquility and relaxation. The included wooden holder provides a convenient and elegant way to burn your incense sticks safely, allowing you to enjoy their fragrance without any mess or fuss. Elevate your meditation, yoga practice, or simply unwind after a long day with our Incense Stick Set with Wooden Holder.</p>\n<p>Produced in Tibet under the Fair Trade licence, this set comes in an ethically sourced biodegradable box.</p>",
+            "image": "natural_incense.jpg",
+            "alt_text": "Brown box containing a set of incense sticks and a circular wooden holder, decorated with a green flower.",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 8.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 213,
+        "model": "products.product",
+        "fields": {
+            "category": 24,
+            "sku": "inse560689",
+            "name": "incense_gift_set",
+            "friendly_name": "Incense Gift Set - NEW!",
+            "description": "",
+            "image": "incense_gift_set.jpg",
+            "alt_text": "Brown box, green pottery vase containing bunch of insence sticks, a matching candle holder, and two lit tealights",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 29.99,
+            "stock_level": null,
+            "rating": 4.2
+        }
+    },
+    {
+        "pk": 214,
+        "model": "products.product",
+        "fields": {
+            "category": 33,
+            "sku": "meat622384",
+            "name": "meditation_and_tea",
+            "friendly_name": "Meditation and Tea",
+            "description": "",
+            "image": "meditation_and_tea_book.jpg",
+            "alt_text": "Book with a drawing of a meditating man, next to a mug of tea",
+            "bs_icon": "bi bi-book",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 7.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 215,
+        "model": "products.product",
+        "fields": {
+            "category": 33,
+            "sku": "ther170707",
+            "name": "the_serene_life",
+            "friendly_name": "The Serene Life",
+            "description": "",
+            "image": "the_serene_life_book.jpg",
+            "alt_text": "Book with a photo of a beach and the sea, next to fresh lemons",
+            "bs_icon": "bi bi-book",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 7.99,
+            "stock_level": null,
+            "rating": 4.6
+        }
+    },
+    {
+        "pk": 216,
+        "model": "products.product",
+        "fields": {
+            "category": 33,
+            "sku": "thec139475",
+            "name": "the_secret_of_tea",
+            "friendly_name": "The Secret of Tea",
+            "description": "",
+            "image": "the_secret_of_tea_book.jpg",
+            "alt_text": "Book with a photo of an old porcelain teapot, placed on a mantlepiece in the sun",
+            "bs_icon": "bi bi-book",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 14.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 217,
+        "model": "products.product",
+        "fields": {
+            "category": 33,
+            "sku": "thea219599",
+            "name": "the_leaf_tea_guide",
+            "friendly_name": "The Leaf Tea Guide",
+            "description": "",
+            "image": "the_leaf_tea_guide_book.jpg",
+            "alt_text": "Book with a photo of four bowls of leaf tea, placed on a mantlepiece in the sun next to two oriental tea cups",
+            "bs_icon": "bi bi-book",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 12.99,
+            "stock_level": null,
+            "rating": 4.8
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 24,
+            "sku": "tepx775367",
+            "name": "teacup_prints_(set_of_6)",
+            "friendly_name": "Teacup Prints (Set of 6)",
+            "description": "",
+            "image": "set_of_teacup_cards.jpg",
+            "alt_text": "Set of six cards, each of a print of a different teacup painting, laid out on a wooden table",
+            "bs_icon": "bi bi-easel",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 8.5,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "meat518891",
+            "name": "meditation_stool",
+            "friendly_name": "Meditation Stool",
+            "description": "",
+            "image": "round_meditation_stool.jpg",
+            "alt_text": "Round wooden stool embossed with oriental symbol",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 45.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "meat767214",
+            "name": "meditation_stool",
+            "friendly_name": "Meditation Stool",
+            "description": "",
+            "image": "wooden_meditation_stool.jpg",
+            "alt_text": "Round wooden stool embossed with buddhist symbols",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 59.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "pobl717108",
+            "name": "portable_meditation_mat",
+            "friendly_name": "Portable Meditation Mat",
+            "description": "",
+            "image": "meditation_mat.jpg",
+            "alt_text": "Stripped woven mat rolled out on the grass in a park with trees n the background",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 29.99,
+            "stock_level": null,
+            "rating": 3.8
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "caes914597",
+            "name": "candles_(set_of_2)",
+            "friendly_name": "Candles (Set of 2)",
+            "description": "",
+            "image": "meditation_candles.jpg",
+            "alt_text": "Two white candles in glass jars, in front of a lit fireplace",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 14.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "caex433382",
+            "name": "candle_(single)",
+            "friendly_name": "Candle (single)",
+            "description": "",
+            "image": "meditation_candle.jpg",
+            "alt_text": "White candle in glass jars, in front of a lit fireplace",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 6.99,
+            "stock_level": null,
+            "rating": null
+        }
+    },
+    {
+        "pk": 218,
+        "model": "products.product",
+        "fields": {
+            "category": 34,
+            "sku": "cine996886",
+            "name": "citronella_candle",
+            "friendly_name": "Citronella Candle",
+            "description": "<p>Infused with citronella and with a burning time of 8 hours, this candle is perfect for outdoor meditation practice.</p>",
+            "image": "citronella_meditation_candle.jpg",
+            "alt_text": "White candle in brown glass jars, in front of a lit outdoor fire pit",
+            "bs_icon": "bi bi-gift",
+            "weight": null,
+            "strength": null,
+            "brew_time": null,
+            "water_temp": null,
+            "price": 6.99,
+            "stock_level": null,
+            "rating": 4.8
         }
     }
 ]

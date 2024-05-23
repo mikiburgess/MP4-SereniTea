@@ -201,9 +201,27 @@
         "pk": 32,
         "model": "products.category",
         "fields": {
-            "name": "last_chance_to_buy",
-            "friendly_name": "Last Chance to Buy",
+            "name": "serenitea_specials",
+            "friendly_name": "SereniTea Specials",
             "group": "Specials"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.category",
+        "fields": {
+            "name": "books",
+            "friendly_name": "Books",
+            "group": "Gifts"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "products.category",
+        "fields": {
+            "name": "meditation",
+            "friendly_name": "Meditation",
+            "group": "Gifts"
         }
     }
 ]
