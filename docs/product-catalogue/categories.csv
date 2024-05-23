@@ -1,0 +1,26 @@
+pk,name,friendly_name,group
+10,black_tea,Black Tea,Tea
+11,white_tea,White Tea,Tea
+12,green_tea,Green Tea,Tea
+13,flowering_tea,Flowering Tea,Tea
+14,infusions,Infusions,Tea
+15,teapots,Teapots,Teaware
+16,tea_cups,Tea Cups,Teaware
+17,teaware_sets,Teaware Sets,Teaware
+18,accessories,Accessories,Teaware
+19,abstract,Abstract,Artwork
+20,afternoon_tea,Afternoon Tea,Artwork
+21,popart,Popart,Artwork
+22,tea_art,Tea Art,Artwork
+23,the_orient,The Orient,Artwork
+24,gift_sets,Gift Sets,Gifts
+25,gift_vouchers,Gift Vouchers,Gifts
+26,biscuits,Biscuits,Accompaniments
+27,mints,Mints,Accompaniments
+28,honey,Honey,Accompaniments
+29,clearance,Clearance,Specials
+30,offers,Offers,Specials
+31,limited_editions,Limited Editions,Specials
+32,serenitea_specials,SereniTea Specials,Specials
+33,books,Books,Gifts
+34,meditation,Meditation,Gifts
