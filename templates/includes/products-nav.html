@@ -5,6 +5,9 @@
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center flex-grow-1">
+            <li class="nav-item d-lg-none"><a class="nav-link" href="{% url 'home' %}">
+                Home</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle logo-font font-weight-bold nav-link text-black mr-5" href="#"
                     id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +74,22 @@
                 <div class="dropdown-menu border-0" aria-labelledby="gifts-link">
                     <a href="{% url 'products' %}?category=gift_sets" class="dropdown-item">Gift Sets</a>
                     <a href="{% url 'products' %}?category=gift_vouchers" class="dropdown-item">Gift Vouchers</a>
+                    <a href="{% url 'products' %}?category=books" class="dropdown-item">Books</a>
+                    <a href="{% url 'products' %}?category=meditation" class="dropdown-item">Meditation Accessories</a>
                     <a href="{% url 'products' %}?group=gifts" class="dropdown-item">All Gifts</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle logo-font font-weight-bold nav-link text-black" href="#" id="accompaniments-link"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Accompaniments
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="accompaniments-link">
+                    <a href="{% url 'products' %}?category=biscuits" class="dropdown-item">Biscuits</a>
+                    <a href="{% url 'products' %}?category=honey" class="dropdown-item">Honey</a>
+                    <a href="{% url 'products' %}?category=mints" class="dropdown-item">Mints</a>
+                    <a href="{% url 'products' %}?group=accompaniments" class="dropdown-item">All Accompaniments</a>
                 </div>
             </li>
 
@@ -82,8 +100,9 @@
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                     <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                    <a href="{% url 'products' %}?category=offers" class="dropdown-item">Offers</a>
                     <a href="{% url 'products' %}?category=limited_editions" class="dropdown-item">Limited Editions</a>
-                    <a href="{% url 'products' %}?category=last_chance_to_buy" class="dropdown-item">Last Chance to Buy</a>
+                    <a href="{% url 'products' %}?category=serenitea_specials" class="dropdown-item">SereniTea Specials</a>
                     <a href="{% url 'products' %}?group=specials" class="dropdown-item">All Specials</a>
                 </div>
             </li>
