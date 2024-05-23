@@ -11,10 +11,6 @@
 
 
 /* --------------------------------------- IMAGES and EFFECTS */
-.field-meditation-img1 {
-    background-image: url('../../media/image_fx_relaxing_landscape_picture_of_a_tea_bushes_fa.jpg');
-}
-
 .plantation-meditation-img {
     background-image: url('../../media/plantation-meditation.jpg');
 }
@@ -164,11 +160,6 @@ footer > .row > p {
 }
 
 /* ---------------------------------------------- FONT STYLES */
-
-.in-development {
-    background-color:gold;
-}
-
 .yeseva-one-regular {
     font-family: "Yeseva One", serif;
     font-weight: 400;
@@ -220,10 +211,13 @@ p {
 .message-text {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-size: 0.80rem;
+    font-size: 0.90rem;
     font-weight: 100;
     font-style: normal;
     color: black;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    padding: 0;
 }
 
 h1, h2,
@@ -353,7 +347,7 @@ a,
     color: var(--bistre);
 }
 
-/* --------------------------------------------- WELCOME TEXT  */
+/* ----------------------------------------------- TEXT AREAS  */
 .welcome-container {
     text-align: center;
     position: absolute;
@@ -367,26 +361,23 @@ a,
     background-color: rgba(208, 204, 192, 0.8);
 }
 
-  
+.product-description-container {
+    padding-top: 10px;
+    padding-bottom: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
 
-/* ----------------------------------------- MESSAGES / TOASTS */
-
-/* style adapted from Boutique Ado */
+/* --------------------------------------------- SITE MESSAGES */
 .message-container {
-    /* position: fixed;
-    top: 75px;
-    right: 15px;
-    z-index: 1000; */
     position: absolute;
     width: 100%;
-    font-family: "Yeseva One", serif;
-    font-weight: 200;
-    font-style: normal;
-    color: black;
     text-align: center;
-    /* margin-top: 2px; */
+    margin-top: 2px;
     margin-bottom: 2px;
-
+    background-color: var(--timberwolf);
+    z-index: 1024;
 }
 
 .site-toast {
@@ -493,6 +484,11 @@ a,
 
     .welcome-container {
         width: 70vw;
+    }
+
+    .product-description-container {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 

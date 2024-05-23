@@ -114,10 +114,10 @@
 
 	<!-- Area for site messages -->
 	{% if messages %}
-		<div class="message-container">
+		<div class="container-fluid message-container align-middle">
 			<!-- iterate through any/all messages -->
 			{% for message in messages %}
-				<p class="in-development message-text">{{ message }}</p>
+				<p class="message-text">{{ message }}</p>
 			{% endfor %}
 		</div>
 	{% endif %}
