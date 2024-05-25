@@ -53,6 +53,7 @@ html {
 nav, #topnav
 {
     /* background-color: var(--timberwolf); */
+    z-index: 1024;
 }
 
 /* ensure background image stays center of page */
@@ -393,7 +394,7 @@ a,
     margin-top: 2px;
     margin-bottom: 2px;
     background-color: var(--timberwolf);
-    z-index: 1024;
+    z-index: 128;
 }
 
 .site-toast {
