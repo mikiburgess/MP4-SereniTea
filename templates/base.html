@@ -118,8 +118,17 @@
 		<div class="container-fluid message-container align-middle">
 			<!-- iterate through any/all messages -->
 			{% for message in messages %}
-				<p class="message-text">{{ message }}</p>
+				{% if message.SUCCESS %}
+				<p class="message-text text-success">{{ message }}</p>
+				{% elif message.WARNING %}
+				<p class="message-text text-warning">{{ message }}</p>
+				{% elif message.ERROR %}
+				<p class="message-text text-error">{{ message }}</p>
+				{% else %}
+				<p class="message-text text-emphasis">{{ message }}</p>
+				{% endif %}
 			{% endfor %}
+			
 		</div>
 	{% endif %}
 
@@ -136,9 +145,6 @@
 	<footer class="container-fluid">
 		<div class="row">
 			<div class="col-4 col-md-6 col-lg-8">
-				<span class="footer-text copyright d-none d-lg-inline">SereniTea copyright <i class="bi bi-c-circle"></i> M. Burgess 2024.</span>
-				<span class="footer-text copyright d-lg-none"><i class="bi bi-c-circle"></i> M. Burgess 2024.</span>
-				<br>
 				<span class="footer-text socials">Find us on 
 					<a href="https://x.com/" target="_blank" class="footer-link"><i class="bi bi-twitter-x"></i></a>
 					<a href="https://www.instagram.com/" target="_blank" class="footer-link"><i class="bi bi-instagram"></i></a>
@@ -167,18 +173,23 @@
 					<a href="#" class="footer-link">Site Map</a>
 				</span>
 			</div>
+			
 			<div class="col-12 text-center">
 				<hr class="title-border">
-				<p class="footer-text d-none d-lg-block">
+				<span class="footer-text d-none d-lg-block">
 					WARNING: SereniTea Emporium is a fictional store, and therefore cannot be used to purchase the items displayed in it's pages.
 					<br>
 					For more information visit the project <a href="https://github.com/mikiburgess/MP4-SereniTea" 
 					target="_blank" class="footer-link"><i class="bi bi-github"></i> Github Repo</a>.
-				</p>
-				<p class="footer-text d-lg-none">
+				</span>
+				<span class="footer-text d-lg-none">
 					WARNING: SereniTea is a fictional store. Read more at <a href="https://github.com/mikiburgess/MP4-SereniTea" 
 					target="_blank" class="footer-link"><i class="bi bi-github"></i></a>.
-				</p>
+				</span>
+			</div>
+			<div class="col-12 text-center text-lg-left">
+				<span class="footer-text copyright d-none d-lg-inline">SereniTea copyright <i class="bi bi-c-circle"></i> M. Burgess 2024.</span>
+				<span class="footer-text copyright d-lg-none"><i class="bi bi-c-circle"></i> M. Burgess 2024.</span>
 			</div>
 		</div>
 	</footer>
@@ -186,7 +197,14 @@
 
 	<!-- Additional scripts -->
 	{% block postloadjs %}
-
+	<script>
+		$(document).ready(function () {
+			// Fade out site messages after 10 seconds
+			setTimeout(function () {
+				$('.message-container').fadeOut('slow');
+			}, 10000); // 1000 =  1 sec
+		});
+	</script>
     {% endblock %}
 
 </body>
