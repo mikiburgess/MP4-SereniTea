@@ -1,0 +1,130 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+ - Shipping & Delivery
+{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="SereniTea Emporium - shipping methods and delivery costs">
+{% endblock %}
+
+{% block content %}
+ <!-- Page Title -->
+ <div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">Shipping & Delivery</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+<div class="parallax calm-plantation-img">
+
+    <!-- <div class="row">
+        <br>
+    </div> -->
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col-4 my-auto">
+                        <img src="{{ MEDIA_URL }}parcel.jpg" alt="" class="general-img">
+                    </div>
+                    <div class="col-8 my-auto">
+                        <p class="site-content-font">At SereniTea Emporium, we strive to provide
+                            our customers with convenient and affordable shipping options. We offer
+                            standard and expedited shipping options to cater to your needs, with free
+                            standard delivery for all orders over £{{ free_delivery_threshold }}.</p>
+                        <p class="site-content-font">Information on our delivery charges and shipping
+                            methods can be found below.</p>
+                        <p class="site-content-font">We hope you enjoy shopping with us, and let us bring the serenity of tea
+                            right to your doorstep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="page-content-container">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="page-subtitle-font my-2">Delivery Options</h3>
+                    </div>
+                    <div class="accordion" id="deliveryAccordion">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button btn" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                            Standard Delivery - £{{ standard_delivery_charge }}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
+                            <div class="accordion-body site-content-font">
+                              <ul>
+                                <li>Delivery available to UK mainland, Scottish Highlands and Islands, Channel Islands, Isles of Scilly, Isle of Wight, Isle of Man and Northern Ireland.</li>
+                                <li>Orders will usually arrive between 2 - 4 working days after placing your order.</li> 
+                                <li>Orders to the Scottish Highlands and Islands, Channel Islands, Isles of Scilly, Isle of Wight, Isle of Man and Northern Ireland will take longer to arrive.</li>
+                                <li>Deliveries within the UK are made by courier and delivered between 9 a.m. and 5 p.m. Monday to Saturday, excluding bank holidays.</li>
+                                <li>If you are not going to be at home to receive your delivery, we recommend arranging delivery to a neighbour or your work address.</li>
+                              </ul>
+                            </div>
+                        </div>
+                        <h2 class="accordion-header">
+                            <button class="accordion-button btn" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="true" aria-controls="collapseTwo">
+                            FREE Delivery for orders over £{{ free_delivery_threshold }}
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
+                            <div class="accordion-body site-content-font">
+                              <ul>
+                                <li>Free delivery offer only valid for standard deliveries within the UK, including Scottish Highlands and Islands.</li>
+                                <li>An order constitutes a single delivery to a single address.</li>
+                                <li>Deliveries within the UK are made by courier and delivered between 9 a.m. and 5 p.m. Monday to Saturday, excluding bank holidays.</li>
+                                <li>If you are not going to be at home to receive your delivery, we recommend arranging delivery to a neighbour or your work address.</li>
+                              </ul>
+                            </div>
+                        </div>
+                        <h2 class="accordion-header">
+                            <button class="accordion-button btn" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="true" aria-controls="collapseThree">
+                            Next Day/Expidated Delivery
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
+                            <div class="accordion-body site-content-font">
+                              <ul>
+                                <li>Next Day delivery for UK mainland orders can be arranged upon request.</li>
+                                <li>Next Day deliveries are made by courier and delivered between 9 a.m. and 5 p.m.
+                                    Monday to Saturday, excluding bank holidays.</li>
+                                <li>Contact us for more details - <a href="mailto:sales@serenitea.com">sales@serenitea.com</a></li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <br>
+    </div>
+    
+
+</div>
+{% endblock %}

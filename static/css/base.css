@@ -66,7 +66,8 @@ body {
 }
 
 .browse-btn,
-.site-btn {
+.site-btn,
+.accordion-button {
     border: 2px solid var(--bistre); 
     color: black;
     text-align: center;
@@ -79,10 +80,21 @@ body {
     background-color: white;
 }
 
+.accordion-button,
 .browse-btn {
     padding: auto;
     margin: auto;
-    background-color: var(--timberwolf)
+    background-color: var(--timberwolf);
+}
+
+.accordion-button[aria-expanded="false"] {
+    background-color: var(--timberwolf);
+    border-color: black;
+}
+
+.accordion-button[aria-expanded="true"] {
+    background-color: var(--timberwolf);
+    border-color: darkgrey;
 }
 
 .file-btn {
@@ -225,7 +237,7 @@ p {
     padding: 0;
 }
 
-h1, h2,
+h1, h2, h3,
 .page-title-font {
     font-family: "Yeseva One", serif;
     font-weight: 300;
@@ -233,6 +245,10 @@ h1, h2,
     color: black;
     text-align: center;
     padding-top: 10px;
+}
+
+.page-subtitle-font {
+    font-size: large;
 }
 
 .product-name {
