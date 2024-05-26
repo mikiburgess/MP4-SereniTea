@@ -1,0 +1,44 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+ - Oops!
+{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="SereniTea Emporium - 404 error">
+{% endblock %}
+
+{% block content %}
+ <!-- Page Title -->
+ <div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">Oops! Something went wrong!</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 col-md-6 offset-md-0">
+            <div class="image-container my-5 text-center">
+                <a href="{{MEDIA_URL}}oops.png" target="_blank">
+                    <img class="card-img-top img-fluid product-img" src="{{MEDIA_URL}}oops.png"
+                        alt="Dropped cup, spilled tea and broken biscuits">
+                </a>
+            </div>
+        </div>
+        <div class="col-10 offset-1 col-md-6 offset-md-0">
+            <a class="browse-btn btn" role="button" href="{% url 'products' %}">
+                Return to browsing the products</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
