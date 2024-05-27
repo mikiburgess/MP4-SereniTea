@@ -44,6 +44,8 @@
                 {% endfor %}
                 
             </div>
+        {% elif search_term|length > 0 %}
+            <p class="page-subtitle-font text-center">Search results for "{{ search_term }}"</p>
         {% endif %}
         <hr class="title-border">
     </div>    
@@ -87,69 +89,75 @@
 <div id="product-cards" class="container-fluid">
         <div class="row">
             <div class="product-container my-5 col-10 offset-1">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 {% if products %}
-                    {% for product in products %}
-                        <!-- <div class="col-10 col-sm-6 col-md-4 col-lg-3"> -->
-                        <div class="col">
-                            <div class="card product-card h-100">
-                            {% if product.image %}
-                                <a href="{% url 'product_detail' product.id %}" >
-                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                            {% else %}    
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                </a>
-                            {% endif %} 
-                                <div class="card-body px-2 py-2">
-                                    {% if product.category %}
-                                    <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
-                                    {% else %}
-                                    <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
-                                    {% endif %}
-                                    <h5 class="card-title product-name">{{ product.friendly_name }}</h5>
-                                </div>
-                                <div class="card-footer px-2 py-1 bg-white border-0 text-left">
-                                    <div class="row align-items-end">
-                                        <div class="col-8">
-                                            {% if product.stock_level == 0 %}
-                                                <p class="product-price mb-0 text-left font-weight-bold text-danger">
-                                                    <span class="text-decoration-line-through">£{{ product.price }}</span>
-                                                    <span class="out-of-stock"><strong> SOLD OUT</strong></span>
-                                                </p>
-                                            {% else %}
-                                                <p class="product-price mb-0 text-left font-weight-bold">£{{ product.price }}</p>
-                                            {% endif %}
-                                            {% if product.rating %}
-                                                <small class="text-muted"><i class="bi bi-star-fill"></i> {{ product.rating }} / 5</small>
-                                            {% else %}
-                                                <small class="text-muted"> No Rating</small>
-                                            {% endif %}
-                                            <small><em>&nbsp;&nbsp;
-                                                <a class="link-to-more-info" href="{% url 'product_detail' product.id %}">more ...</a>
-                                            </em></small>
-                                        </div>
-                                        <div class="col-4 text-end align-text-bottom">
-                                            {% if request.user.is_superuser %}
-                                            <a class="edit-option text-success"
-                                                    href="{% url 'edit_product' product.id %}">
-                                                    <small><i class="bi bi-pencil-square"></i></small></a>
-                                                <a class="delete-option text-danger"
-                                                    href="{% url 'delete_product' product.id %}">
-                                                    <small><i class="bi bi-trash"></i></small></a>
-                                            {% endif %}
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                        {% for product in products %}
+                            <!-- <div class="col-10 col-sm-6 col-md-4 col-lg-3"> -->
+                            <div class="col">
+                                <div class="card product-card h-100">
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}" >
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}    
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %} 
+                                    <div class="card-body px-2 py-2">
+                                        {% if product.category %}
+                                        <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
+                                        {% else %}
+                                        <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
+                                        {% endif %}
+                                        <h5 class="card-title product-name">{{ product.friendly_name }}</h5>
+                                    </div>
+                                    <div class="card-footer px-2 py-1 bg-white border-0 text-left">
+                                        <div class="row align-items-end">
+                                            <div class="col-8">
+                                                {% if product.stock_level == 0 %}
+                                                    <p class="product-price mb-0 text-left font-weight-bold text-danger">
+                                                        <span class="text-decoration-line-through">£{{ product.price }}</span>
+                                                        <span class="out-of-stock"><strong> SOLD OUT</strong></span>
+                                                    </p>
+                                                {% else %}
+                                                    <p class="product-price mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                                {% endif %}
+                                                {% if product.rating %}
+                                                    <small class="text-muted"><i class="bi bi-star-fill"></i> {{ product.rating }} / 5</small>
+                                                {% else %}
+                                                    <small class="text-muted"> No Rating</small>
+                                                {% endif %}
+                                                <small><em>&nbsp;&nbsp;
+                                                    <a class="link-to-more-info" href="{% url 'product_detail' product.id %}">more ...</a>
+                                                </em></small>
+                                            </div>
+                                            <div class="col-4 text-end align-text-bottom">
+                                                {% if request.user.is_superuser %}
+                                                <a class="edit-option text-success"
+                                                        href="{% url 'edit_product' product.id %}">
+                                                        <small><i class="bi bi-pencil-square"></i></small></a>
+                                                    <a class="delete-option text-danger"
+                                                        href="{% url 'delete_product' product.id %}">
+                                                        <small><i class="bi bi-trash"></i></small></a>
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}                    
+                    </div>
                 {% else %}
-                <h4>Out of Stock</h4>
+
+                    <h4>No products currently available.</h4>
+                    <a href="{% url 'products' %}" class="site-btn btn mt-2">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span>Continue Shopping</span>
+                    </a>
                 {% endif %}
-                </div>
-                
             </div>
         </div>
     </div>
