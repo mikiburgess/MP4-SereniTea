@@ -113,7 +113,14 @@
                                 <div class="card-footer px-2 py-1 bg-white border-0 text-left">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>    
+                                            {% if product.stock_level == 0 %}
+                                                <p class="product-price mb-0 text-left font-weight-bold text-danger">
+                                                    <span class="text-decoration-line-through">£{{ product.price }}</span>
+                                                    <span class="out-of-stock"><strong> SOLD OUT</strong></span>
+                                                </p>
+                                            {% else %}
+                                                <p class="product-price mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                            {% endif %}
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="bi bi-star-fill"></i> {{ product.rating }} / 5</small>
                                             {% else %}

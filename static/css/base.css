@@ -256,8 +256,6 @@ p {
     padding: 0;
 }
 
-
-
 .page-subtitle-font {
     font-size: large;
 }
@@ -269,6 +267,14 @@ p {
     font-style: normal;
     color: black;
     text-align: left;
+}
+
+.product-price {
+    font-size: calc(0.75rem + 0.5vw);
+}
+
+.out-of-stock {
+    font-size: calc(0.55rem + 0.4vw);
 }
 
 .welcome-container > p {
