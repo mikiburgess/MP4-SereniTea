@@ -32,34 +32,37 @@ with open("products.csv", newline='') as csvfile:
         else:
             bs_icon = row[8]
         if row[9] == '':
+            organic = None
+        else:
+            organic = row[9]
+        if row[10] == '':
             weight = None
         else:
-            weight = int(row[9])
-        if row[10] == '':
+            weight = int(row[10])
+        if row[11] == '':
             strength = None
         else:
-            strength = int(row[10])
-        if row[11] == '':
+            strength = int(row[11])
+        if row[12] == '':
             brew_time = None
         else:
-            brew_time = row[11]
-        if row[12] == '':
+            brew_time = row[12]
+        if row[13] == '':
             water_temp = None
         else:
-            water_temp = int(row[12])
-        if row[13] == '':
+            water_temp = int(row[13])
+        if row[14] == '':
             price = None
         else:
-            price = float(row[13])
-
-        if row[14] == '':
+            price = float(row[14])
+        if row[15] == '':
             stock_level = None
         else:
-            stock_level = int(row[14])
-        if row[15] == '':
+            stock_level = int(row[15])
+        if row[16] == '':
             rating = None
         else:
-            rating = float(row[15])
+            rating = float(row[16])
 
         jsonObj = {
             "pk": pk,
@@ -73,6 +76,7 @@ with open("products.csv", newline='') as csvfile:
                 "image": image,
                 "alt_text": alt_text,
                 "bs_icon": bs_icon,
+                "organic": organic,
                 "weight": weight,
                 "strength": strength,
                 "brew_time": brew_time,
