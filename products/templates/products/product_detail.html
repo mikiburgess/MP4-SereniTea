@@ -54,13 +54,21 @@
                     <p>
                         <a class="edit-option text-success"
                             href="{% url 'edit_product' product.id %}">
-                            <small>Edit <i class="bi bi-pencil-square"></i></small>
-                        </a>
-                        <small> | </small>
+                            <small>Edit <i class="bi bi-pencil-square"></i></small></a>
+                        &ensp;
                         <a class="delete-option text-danger"
                             href="{% url 'delete_product' product.id %}">
-                            <small>Delete <i class="bi bi-trash"></i></small>
-                        </a>
+                            <small>Delete <i class="bi bi-trash"></i></small></a>
+                        &emsp;
+                        <small class="border border-dark rounded px-1">Stock level: 
+                            {% if product.stock_level > 0 %}
+                                {{ product.stock_level }}
+                            {% elif product.stock_level == 0 %}
+                                <em>sold out</em>
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </small>
                     </p>
                     {% endif %}
                 </div>
