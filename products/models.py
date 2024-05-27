@@ -38,6 +38,7 @@ class Product(models.Model):
     alt_text = models.TextField(null=True, blank=True)
     bs_icon = models.CharField(max_length=100, null=True, blank=True)
     weight = models.IntegerField(null=True, blank=True)
+    organic = models.CharField(max_length=3, null=True, blank=True)
     strength = models.IntegerField(null=True, blank=True)
     brew_time = models.CharField(max_length=10, null=True, blank=True)
     water_temp = models.IntegerField(null=True, blank=True)
