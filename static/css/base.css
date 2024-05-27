@@ -50,9 +50,14 @@ html {
     height: 100%;
 }
 
-nav, #topnav
+nav
 {
-    /* background-color: var(--timberwolf); */
+    z-index: 100;
+}
+
+#topnav
+{
+    background-color: white;
     z-index: 1024;
 }
 
