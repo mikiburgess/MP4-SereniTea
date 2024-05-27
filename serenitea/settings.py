@@ -219,6 +219,8 @@ if 'USE_AWS' in os.environ:
         'CacheControl': 'max-age=86400',
     }
     STATIC_HOST = AWS_S3_CUSTOM_DOMAIN
+    # For Whitenoise
+    STATIC_ROOT = BASE_DIR / "staticfiles"
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
@@ -248,8 +250,7 @@ STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
 
-# For Whitenoise
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # STORAGES = {
 #     # Enable WhiteNoise's GZip and Brotli compression of static assets:
