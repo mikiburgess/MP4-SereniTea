@@ -120,9 +120,9 @@
                         {% if product.organic %}
                         <span class="d-inline p-2">
                             <small>
-                                {% if product.organic is 'yes' %}
+                                {% if product.organic == 'yes' %}
                                     <i class="bi bi-check2-circle"> <strong>Organic</strong></i>
-                                {% else %}
+                                {% elif product.organic == 'no' %}
                                     <i class="bi bi-x-circle-fill"></i> <strong>Non-organic</strong>
                                 {% endif %}
                             </small>
