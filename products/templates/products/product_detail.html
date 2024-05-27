@@ -20,7 +20,7 @@
         <div class="row">
             
             <!-- Product Image -->
-                <div class="col-10 offset-1 col-md-6 offset-md-0">
+                <div class="col-10 offset-1 col-md-5 offset-md-1">
                     <div class="image-container my-5 text-center">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
@@ -36,19 +36,20 @@
 
              <!-- Product Overview -->
             <div class="col-10 offset-1 col-md-6 offset-md-0">
-                <div class="product-details-container mb-5 mt-md-5">
+                <div class="product-details-container mb-3 mb-lg-5 mt-2 mt-md-5">
                     <h2 class="mb-0 product-name">{{ product.friendly_name }}</h2>
                     {% if product.category %}
                         <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
                     {% else %}
                         <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
                     {% endif %}
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }} {% if product.weight %}<small> ({{ product.weight }}g) </small>{% endif %}</p>
                     {% if product.rating %}
                         <small class="text-muted"><i class="bi bi-star-fill"></i>{{ product.rating }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
+
                     {% if request.user.is_superuser %}
                     <p>
                         <a class="edit-option text-success"
@@ -104,13 +105,77 @@
                     {% else %}
                         <p><em>Product description coming soon ...</em></p>
                     {% endif %}
+                    
+                    <!-- Additional Product Details - specifically for Teas -->
+                    <div class="text-center">
+                        {% if product.organic %}
+                        <span class="d-inline p-2">
+                            <small>
+                                {% if product.organic is 'yes' %}
+                                    <i class="bi bi-check2-circle"> <strong>Organic</strong></i>
+                                {% else %}
+                                    <i class="bi bi-x-circle-fill"></i> <strong>Non-organic</strong>
+                                {% endif %}
+                            </small>
+                        </span>
+                        {% endif %}
+
+                        {% if product.brew_time %}
+                        <span class="d-inline p-2"><small><i class="bi bi-cup-hot-fill"></i>
+                            <strong> Brew Time (mins) -</strong> {{ product.brew_time }}</small>
+                        </span>
+                        {% endif %}
+
+                        {% if product.water_temp %}
+                        <span class="d-inline p-2" data-bs-toggle="tooltip" 
+                            data-bs-placement="bottom" data-bs-html="true"
+                            data-bs-title="Boiling (100) <i class='bi bi-thermometer-high'></i><br>
+                                Hot (over 80) <i class='bi bi-thermometer-half'></i><br>
+                                Low (over 60) <i class='bi bi-thermometer-low'></i><br>
+                                Cold <i class='bi bi-thermometer'></i>">
+                            <small>
+                                {% if product.water_temp == 100 %} <i class="bi bi-thermometer-high"></i>
+                                {% elif product.water_temp > 80 %} <i class="bi bi-thermometer-half"></i>
+                                {% elif product.water_temp > 60 %} <i class="bi bi-thermometer-low"></i>
+                                {% else %} <i class="bi bi-thermometer"></i>
+                                {% endif %}
+                                <strong>Brew Temperature -</strong> {{ product.water_temp}}&#8451;
+                            </small>
+                        </span>     
+                        {% endif %}
+
+                        {% if product.strength %}
+                        <span class="d-inline p-2" data-bs-toggle="tooltip" 
+                            data-bs-placement="bottom" data-bs-html="true"
+                            data-bs-title="Mild (1-2) <i class='bi bi-droplet'></i><br>
+                                Medium (3) <i class='bi bi-droplet-half'></i><br>
+                                Strong (4-5) <i class='bi bi-droplet-fill'></i>">
+                            <small>
+                                {% if product.strength == 1 %} <i class="bi bi-droplet"></i>
+                                {% elif product.strength == 2 %} <i class="bi bi-droplet"></i>
+                                {% elif product.strength == 3 %} <i class="bi bi-droplet-half"></i>
+                                {% elif product.strength == 4 %} <i class="bi bi-droplet-fill"></i>
+                                {% elif product.strength == 5 %} <i class="bi bi-droplet-fill"></i>
+                                {% endif %}
+                                <strong>Strength -</strong> {{ product.strength}}
+                            </small>
+                        </span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
+
         {{ block.super }}
     </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
+    <script>
+        // enable page tooltips
+        $(document).ready(function(){
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
 {% endblock %}
