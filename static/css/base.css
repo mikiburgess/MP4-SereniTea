@@ -195,6 +195,16 @@ footer > .row > p {
     font-style: normal;
 }
 
+h1, h2, h3,
+.page-title-font {
+    font-family: "Yeseva One", serif;
+    font-weight: 300;
+    font-style: normal;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+
 title,
 .site-title-font {
     font-family: "Yeseva One", serif;
@@ -202,6 +212,10 @@ title,
     font-style: normal;
     color: black;
     
+}
+
+#topnav-title {
+    font-size: calc(0.9rem + 1.3vw);
 }
 
 .site-content-font,
@@ -242,15 +256,7 @@ p {
     padding: 0;
 }
 
-h1, h2, h3,
-.page-title-font {
-    font-family: "Yeseva One", serif;
-    font-weight: 300;
-    font-style: normal;
-    color: black;
-    text-align: center;
-    padding-top: 10px;
-}
+
 
 .page-subtitle-font {
     font-size: large;
