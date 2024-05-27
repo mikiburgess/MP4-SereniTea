@@ -123,18 +123,25 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-if DEBUG:
-    # Log emails to the console during development
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
+# if 'DEVELOPMENT' in os.environ:
+#     # Log emails to the console during development
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#     DEFAULT_FROM_EMAIL = 'serenitea.project.email@localhost.com'
+# else:
     # Send emails from registered email address during production
-    pass
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # Settings for allauth account authentication
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
 ACCOUNT_EMAIL_REQUIRED = True  # users must register with an email address
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Set to 'none' on deployed site
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
+# ACCOUNT_EMAIL_VERIFICATION = 'none'  # Set to 'none' on deployed site
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Enter email twice on registration to ensure it's correct
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # minimum allowed username length
 LOGIN_URL = '/accounts/login/'
@@ -198,33 +205,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-# AWS Access settings
-if 'USE_AWS' in os.environ:
-    # Bucket configuration
-    AWS_STORAGE_BUCKET_NAME = 'mp4-serenitea-emporium'
-    AWS_S3_REGION_NAME = 'eu-north-1'
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
-    # Static and media files
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
-    # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-else:
-    print('local execution')
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-    # Site Media
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+# # AWS Access settings
+# if 'USE_AWS' in os.environ:
+#     # Bucket configuration
+#     AWS_STORAGE_BUCKET_NAME = 'mp4-serenitea-emporium'
+#     AWS_S3_REGION_NAME = 'eu-north-1'
+#     AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+#     AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
+#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+#     AWS_S3_OBJECT_PARAMETERS = {
+#         'CacheControl': 'max-age=86400',
+#     }
+#     # Static and media files
+#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+#     STATICFILES_LOCATION = 'static'
+#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+#     MEDIAFILES_LOCATION = 'media'
+#     # Override static and media URLs in production
+#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+#     PRODUCT_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/products/'
+#     SITE_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/images/'
+# else:
+STATIC_URL = '/static/'
+STATICFILESDIRECT_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+MEDIA_URL = '/media/'
+PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
+SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Shipping cost data
 FREE_DELIVERY_THRESHOLD = Decimal('30.00')
@@ -235,7 +244,6 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
-DEFAULT_FROM_EMAIL = 'confirmation-noreply@serenitea.com'
 
 # For Whitenoise
 # STATIC_ROOT = BASE_DIR / "staticfiles"
