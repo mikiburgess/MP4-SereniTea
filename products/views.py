@@ -47,7 +47,7 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             # Filter if search term present in product name OR product description
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(alt_text__icontains=query)
             products = products.filter(queries)
 
         # Handle user submitting request to view products in specific category
