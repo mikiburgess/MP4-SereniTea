@@ -68,15 +68,13 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default.full_name = shipping_details.name
-                profile.default.email = billing_details.email
-                profile.default.phone_number = shipping_details.phone
-                profile.default.street_address1 = shipping_details.address.line1
-                profile.default.street_address2 = shipping_details.address.line2
-                profile.default.town_or_city = shipping_details.address.city
-                profile.default.county = shipping_details.address.state
-                profile.default.postcode = shipping_details.address.postal_code
-                profile.default.country = shipping_details.address.country
+                profile.default_phone_number = shipping_details.phone
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_county = shipping_details.address.state
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_country = shipping_details.address.country
 
         # Check if order already exists
         order_exists = False
