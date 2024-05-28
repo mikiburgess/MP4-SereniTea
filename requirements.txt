@@ -25,4 +25,4 @@ s3transfer==0.10.0
 sqlparse==0.4.4
 stripe==9.4.0
 urllib3==1.26.0
-whitenoise==6.6.0
+whitenoise[brotli]>=6,<7
