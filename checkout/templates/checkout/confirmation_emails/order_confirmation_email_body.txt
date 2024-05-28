@@ -12,12 +12,13 @@ Order Date: {{ order.date }}
 
 Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
-Grand Total: ${{ order.grand_total }}
+Grand Total: £{{ order.grand_total }}
+
 
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
-
 We've got your phone number on file as {{ order.phone_number }}.
 
+If you've registered for an account, a summary of your order can also be found in your account page.
 
 If you have any questions, just contact the SereniTea team at {{ contact_email }}.
 
