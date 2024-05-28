@@ -239,13 +239,13 @@ else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # WITHOUT AWS
-STATIC_URL = '/static/'
-STATICFILESDIRECT_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-MEDIA_URL = '/media/'
-PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
-SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# STATIC_URL = '/static/'
+# STATICFILESDIRECT_URL = '/static/'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+# MEDIA_URL = '/media/'
+# PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
+# SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Shipping cost data
