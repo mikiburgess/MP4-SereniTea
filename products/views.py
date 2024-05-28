@@ -46,7 +46,7 @@ def all_products(request):
                                ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
 
-            # Filter if search term present in product name OR product description
+            # Filter if search term present in product name OR product description OR image description
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(alt_text__icontains=query)
             products = products.filter(queries)
 
