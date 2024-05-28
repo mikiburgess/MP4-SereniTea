@@ -33,10 +33,14 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    # Use WhiteNoise's runserver implementation instead of 
+    #    the Django default, for dev-prod parity.
+    "whitenoise.runserver_nostatic",
+
+    # django apps:
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # The following apps are required by allauth:
+    # apps required by allauth:
     'django.contrib.sites',
     'allauth',  # allauth itself
     'allauth.account',  # app that allows basic user accounts
@@ -55,13 +59,12 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'storages',
 
-    # Project-specific apps
+    # Project-specific apps:
     'home',
     'products',
     'basket',
     'checkout',
     'profiles',
-
 ]
 
 MIDDLEWARE = [
@@ -140,8 +143,12 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 # Settings for allauth account authentication
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
 ACCOUNT_EMAIL_REQUIRED = True  # users must register with an email address
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
-# ACCOUNT_EMAIL_VERIFICATION = 'none'  # Set to 'none' on deployed site
+if 'DEVELOPMENT' in os.environ:
+    # not required in development site
+    ACCOUNT_EMAIL_VERIFICATION = 'none'
+else:
+    # when deployed, registration only confirmed upon email verification
+    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Enter email twice on registration to ensure it's correct
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # minimum allowed username length
 LOGIN_URL = '/accounts/login/'
@@ -152,7 +159,6 @@ WSGI_APPLICATION = 'serenitea.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -227,6 +233,15 @@ USE_TZ = True
 #     PRODUCT_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/products/'
 #     SITE_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/images/'
 # else:
+    # STATIC_URL = '/static/'
+    # STATICFILESDIRECT_URL = '/static/'
+    # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    # MEDIA_URL = '/media/'
+    # PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
+    # SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
+    # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# File locations - WITHOUT AWS
 STATIC_URL = '/static/'
 STATICFILESDIRECT_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
@@ -246,7 +261,23 @@ STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
 
 # For Whitenoise
-# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# For Whitenoise
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    # Enable WhiteNoise's GZip and Brotli compression of static assets:
+    # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# Don't store the original (un-hashed filename) version of static files, to reduce slug size:
+# https://whitenoise.readthedocs.io/en/latest/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
+WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
