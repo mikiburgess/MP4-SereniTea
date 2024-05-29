@@ -63,11 +63,7 @@ nav
 
 /* ensure background image stays center of page */
 body {
-    
-    /* opacity: 0.5; */
-    /* background-size: cover; */
     height: calc(100vh - 164px);
-    /* background-color: var(--timberwolf); */
 }
 
 .browse-btn,
@@ -130,16 +126,12 @@ body {
 .file-btn:focus,
 .img-round:hover {
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
-    /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
     border: 1px solid var(--ebony); 
     transform: translateY(-0.15em);
 }
 .browse-btn:hover {
-    
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.24), 0 12px 40px 0 rgba(0,0,0,0.19);
-    /* box-shadow: 0 0.5em 0.5em -0.4em var(--hover); */
     border: 1px solid var(--ebony); 
-    /* transform: translateY(-0.15em); */
 }
 
 .custom-checkbox .custom-control-label::before {
@@ -295,13 +287,15 @@ p {
 
 a,
 .site-link,
+.basket-link,
 .product-sort > a {
     font-size: .9rem;
     font-weight: bold;
-    border: 2 solid black;
-    border-radius: 0;
-    color: var(--bistre);
-    /* background-color: white; */
+    color: black;
+}
+
+.basket-link {
+    font-weight: 200;
 }
 
 #product-sort-selector {
@@ -436,7 +430,6 @@ a,
 }
 
 .site-toast {
-    /* border-radius: 0; */
     overflow: visible;
 }
 
