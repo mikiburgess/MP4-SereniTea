@@ -24,9 +24,9 @@
                     <div class="image-container my-5 text-center">
                         {% if product.image %}
                             <a href="{{ product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img id="product-img" class="card-img-top img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
-                            {% else %}
+                        {% else %}
                             <a href="{{MEDIA_URL}}noimage.png" target="_blank">
                                 <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
@@ -194,5 +194,10 @@
         $(document).ready(function(){
             $('[data-bs-toggle="tooltip"]').tooltip();
         });
+
+        // If unable to load product image, display 'noimage.png' instead
+        $('#product-img').on("error", function () {
+            $('#product-img').attr('src', '{{ MEDIA_URL }}noimage.png')
+        })      
     </script>
 {% endblock %}

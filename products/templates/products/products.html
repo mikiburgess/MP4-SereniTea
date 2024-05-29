@@ -97,7 +97,7 @@
                                 <div class="card product-card h-100">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}" >
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                        <img id="product-img" class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                     </a>
                                 {% else %}    
                                     <a href="{% url 'product_detail' product.id %}">
@@ -165,4 +165,10 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script>
+        // If unable to load product image, display 'noimage.png' instead
+        $('#product-img').on("error", function () {
+            $('#product-img').attr('src', '{{ MEDIA_URL }}noimage.png')
+        })   
+    </script>
 {% endblock %}
