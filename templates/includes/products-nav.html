@@ -1,13 +1,11 @@
 <div class="offcanvas offcanvas-start" id="products-nav" data-bs-scroll="true">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SereniTea Emporium</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="{% url 'products' %}">SereniTea Emporium</a></h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center flex-grow-1">
-            <li class="nav-item d-lg-none"><a class="nav-link" href="{% url 'home' %}">
-                Home</a>
-            </li>
+            
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle logo-font font-weight-bold nav-link text-black mr-5" href="#"
                     id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -106,6 +104,40 @@
                     <a href="{% url 'products' %}?group=specials" class="dropdown-item">All Specials</a>
                 </div>
             </li>
+
+            <li class="nav-item dropdown d-lg-none">
+                <a class="dropdown-toggle logo-font font-weight-bold nav-link text-black" href="#" id="specials-link"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-account-link">
+                    {% if request.user.is_authenticated %}
+						{% if request.user.is_superuser %}
+                            <a href="{{ BASE_URL }}admin/" class="dropdown-item">Site Administration</a>
+                            <a href="{% url 'add_product' %}" class="dropdown-item">Add New Product</a>
+						{% endif %}
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
+            </li>
+
+            <li class="nav-item dropdown d-lg-none">
+                <a class="dropdown-toggle logo-font font-weight-bold nav-link text-black" href="#" id="specials-link"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More ...
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-account-link">
+                    <a href="{% url 'about_serenitea' %}" class="dropdown-item">About SereniTea Emporium</a>
+                    <a href="{% url 'shipping' %}" class="dropdown-item">Shipping & Delivery</a>
+                    <a href="{% url 'view_basket' %}" class="dropdown-item">My Shopping Basket</a>
+                    <a href="{% url 'home' %}" class="dropdown-item">Return to Home</a>
+                </div>
+            </li>
+
         </ul>
     </div>
 </div>

@@ -206,16 +206,21 @@ h1, h2, h3,
 }
 
 title,
+.offcanvas-title a,
 .site-title-font {
     font-family: "Yeseva One", serif;
     font-weight: 400;
     font-style: normal;
-    color: black;
-    
+    color: black;   
 }
 
-#topnav-title {
+#topnav-title, 
+.offcanvas-title a {
     font-size: calc(0.9rem + 1.3vw);
+}
+
+.offcanvas-title a {
+    text-decoration: none;
 }
 
 .site-content-font,
