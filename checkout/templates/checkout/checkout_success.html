@@ -85,7 +85,9 @@
             <div class="row mx-auto">
                 <div class="col-12 col-md-4">
                     <p class="small mb-0 text-body-secondary">
-                        <strong>{{ item.product.friendly_name }}</strong>
+                        <a href="{% url 'product_detail' item.product.id %}" class="basket-link">
+                            {{ item.product.friendly_name }}
+                        </a>
                     </p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
