@@ -24,7 +24,7 @@ def profile(request):
 
     # Handle GET - user request to view their profile details
     form = UserProfileForm(instance=profile)  # populate form with current user profile information
-    orders = profile.orders.all()
+    orders = profile.orders.all().order_by("date").reverse()
 
     template = "profiles/profile.html"
     context = {
