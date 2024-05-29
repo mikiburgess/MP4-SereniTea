@@ -247,6 +247,9 @@ PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
 SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+# Session Cookies
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # session details deleted on browser close
+SESSION_COOKIE_AGE = 3600 # sessionid cookie expire after 1 hour
 
 # Shipping cost data
 FREE_DELIVERY_THRESHOLD = Decimal('30.00')
