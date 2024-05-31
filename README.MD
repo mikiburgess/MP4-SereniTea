@@ -23,7 +23,12 @@
   - [Surface](#Surface)
 - [Site Functionality](#Site-Functionality)
 - [Site Development](#Site-Development)
+  - [Underlying Site Data](#Underlying-Site-Data)
   - [Site Content](#Site-Content)
+  - [User Management](#User-Management)
+  - [Site Navigation](#Site-Navigation)
+  - [Tools & Technologies](#Tools-&-Technologies)
+- [Walkthrough](#Walkthrough)
 - [Testing](#Testing)
 - [Guide to Deployment and Development](#Guide-to-Deployment-and-Development)
 - [Project Review and Reflection](#Project-Review-and-Reflection)
@@ -67,6 +72,10 @@ The scope of this project is the design, build and deployment of a full stack on
 At the back-end it will include full CRUD functionality for one or more aspects of the site, specifically allowing site administrators to add, edit and delete store products.
 
 
+
+
+
+
 ### Structure
 <!-- How is the information structured, and is it logically grouped? -->
 
@@ -82,7 +91,8 @@ At the back-end it will include full CRUD functionality for one or more aspects 
 
 ## Site Development
 
-
+### Data Management
+...RDBMS and DB & Models
 ...
 
 ### Site Content
@@ -129,6 +139,67 @@ Some site text was also generated using AI.
 2. Use description as input into [ChatGPT](https://chatgpt.com/) to generate candidate site text
 3. Review and edit text, using it as a basis for creating the final site text.
 
+
+### User Management
+Incorporating Django Allauth
+...
+
+### Site Navigation
+...
+
+### Tools & Technologies
+Below is a summary of the tools and languages used during this project, from design through to development and testing.
+
+
+#### Coding
+- [Django v4.2](https://www.djangoproject.com/ "Django"): The Web Framework underpinning this Full Stack Web Application.
+- [Python](https://www.python.org/ "Python.org"): Used to provide the majority of the backend functionality.   
+- [JavaScript](https://www.w3schools.com/js/js_intro.asp "JavaScript Introduction, W3Schools") & [jQuery](https://jquery.com/ "jQuery"): These were used to add additional functionality to the site, including adding interactivity to some of the site pages. 
+- [Django-allauth v0.60](https://docs.allauth.org/en/latest/index.html "allauth"): For the provision of user access functionality, including site registration, signin and logout.
+- [Stripe](https://stripe.com/gb "Stripe"): The Stripe payment mechanism was employed in the backend to process payments, used in 'Test Mode' to ensure no payments can actually be taken from any visitors.
+
+#### Markup Languages
+- [HTML](https://www.w3schools.com/html/html_intro.asp "HTML Introduction, W3Schools"): The standard web page markup language for constructing static web pages.
+- [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/ "Jinja Templating Engine"): This templating language was used to enable dynamic data modifications across the site pages.
+- [Markdown](https://en.wikipedia.org/wiki/Markdown "Markdown overview, Wikipedia"): Use to produce project documentation, including this README.
+
+#### Styling
+- [Bootstrap 5.3.3](https://getbootstrap.com/ "Bootstrap"): The Bootstrap toolkit was used for site layout and styling.
+- [Bootstrap Icons](https://icons.getbootstrap.com/ "Bootstrap Icons"): The course for all icons used across the site.
+- [CSS](https://www.w3schools.com/css/css_intro.asp "CSS Introduction, W3Schools"): Additional styling was added to the site using CSS.
+- [Google Fonts](https://fonts.google.com/ "Google Fonts"): The source for the fonts used across the site - [Yeseva One](https://fonts.google.com/specimen/Yeseva+One "Yeseva One @ Google Fonts") and [Montserrat](https://fonts.google.com/specimen/Montserrat "Montserrat @ Google Fonts")
+- The pairing of Yeseva One and Montserrat fonts was inspired by a suggestion from [####](####).
+- Site color palette was developed using [####](####).
+
+#### Tools
+This section lists the tools used during this project in support of the development and deployment stages.
+- [Balsamiq Wireframes](####): Used to create the initial site wireframes during the design stage, to guide the development stage.
+- [Draw.io](####): This free online drawing tool was used to create the entity relationship diagram (ERD), describing the underlying data storage (postgres database) model.
+- [Elephant ###](####): The relational database management system (RDBMS) used to store site data, as defined by the ERD.
+- [Visual Studio Code](https://code.visualstudio.com/ "VSCode"): All code was developed using a local installation of VS Code. (Code Institute development tools were not used during this project)
+- Git & [GitHub](####): Git used for version control, with GitHub being employed as the online repository for all project work.
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools "DevTools"): Used throughout development to support page design, testing and accessibility. 
+- [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx "ImageFX"): Generative AI tool, used to create al product and site images.
+- [ChatGPT v3.5](https://chatgpt.com/ "ChatGPT-3.5"): Generative AI tool, used to create initial draft of all product descriptions and site text.
+- [Tinyfy](https://tinypng.com/ "Tnyfy - compress your images"): Used to optimize site images to reduce download time.
+- [10MinEmail](https://temp-mail.org/en/10minutemail "TempMail"): Used to obtain free, time-limited temporary email addresses for testing user actions.
+- [Heroku](https://www.heroku.com/ "Heroku"): The Heroku platform has been used in this project to host the final, [deployed web site](https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/ "Serenitea Emporium").
+
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+
+## Walkthrough
+...
+
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+## Testing
+
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
@@ -138,23 +209,55 @@ There are a number of areas where this project could be improved, and where the 
 ### Improvements to Design and Development
 
 #### Project Structure
-- Organize project MEDIA folders to separate product images from general site images (such as backgrounds), rather than the current approach of storing all images in the same folder.
+Organize project MEDIA folders to separate product images from general site images (such as backgrounds), rather than the current approach of storing all images in the same folder.
+
+#### Defensive Programming
+Currently the side administrator (superuser) is able to edit product details and delete products with a single click. Site functionality could be improved by adopting a more defensive approach to coding by including checks, asking users to actively confirm deletions and edits.
+The same approach would be adopted for registered site visitors editing their profile details.
 
 ### Future Features
+As can be seen in the Testing section, there are a number of areas where the current implementation of the site could be developed further and therefore improved. The features listed below are in addition to those previously listed future developments, and have been identified as those that would add greatest benefit to the site if implemented within the next development stage.
 
 #### Product and Company Reviews
-- Enable registered users to write and submit product reviews, editable until published to the site and visible to site visitors via the associated product details page.
+To improve communication with visitors and customers, as well as customer engagement, the first significant development would be the inclusion of customer-written, dynamic product (and company) reviews. This would include the following:
+- Enable registered users to write and submit product reviews, editable until published to the site and visible to site visitors via the associated product details page. Optional customer images of store products could be added.
 - Additional facility for site administrators to review and approve customer-written product reviews (with the option to publish immediately without any review), and remove any inappropriate reviews from the site.
-- Calculate product rating scores dynamically based on customer-entered star ratings, rather than using static start ratings stored in the backend database.
+- Calculate product rating scores dynamically based on customer-entered star ratings, rather than using static star ratings stored in the backend database.
 
 #### User Profile Improvements
+The current approach to customer access and profile management could also be developed further:
 - Extending the account login system to allow for login using social media identity authentication (oauth).
 - Enable registered users to add a profile image to their user profiles.
 
 #### Additional Site Pages
+
 - Add an autogenerated site map to provide an overview for site visitors.
 - A contact page containing a validated form, enabling visitors to send a message directly to the company from the web site.
 
+#### Improved Navigation, using Breadcrumbs
+Navigating the site could be made easier for visitors with the inclusion of [Breadcrumbs](https://getbootstrap.com/docs/5.3/components/breadcrumb/ "Bootstrap Breadcrumbs"). These would provide site visitors with a clearer pointer to their location in the site and, in particular, the product catalogue.
+
+#### Improved Site Messages
+Site messages are currently displayed in a message bar at the top of the page, under the offers carousel. This has been included to ensure visitors receive messages regardless of whether they have blocked site popups. In a future development this would be updated to be included only where popups are blocked, with toasts or other popups being used when the browser permits them. This decision has been made to support user browsing security.
+
+Site messages will also be color-coded according to the type of notification being raised (success, error, etc).
+
+#### Position of page footer and top navigation bar
+Ideally, 
+1. the footer should be at the bottom of every page, then stick the the bottom of the viewport window when the page doesn't fill the complete window, and
+2. the top navigation bar should stick to the top of the viewport window, remaining there as the site visitor scrolls down the page.
+
+At present, these two elements are positioned at the top and bottom of the page, being positioned according to the page size and page scrolling. Fixed and Sticky positioning will be employed in future to improve site usability (minimizing scrolling).
+
+
+### Bugs
+The following bugs are still present in this application:
+
+#### Adding a product
+When adding a product with a product image, the image is initially available and displayed in the product page. However, this is not persistent. After a while the image is lost. 
+
+I suspect this may be due to Heroku saving it in cache, then clearing it after some time.
+I also suspect this could be rectified by including an improved file storage option, such as AWS, or deploying the site to another platform with supports dynamic file storage.
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
@@ -175,12 +278,14 @@ The following sites were used to obtain/generate visual site content:
 
 ### Learning Resources
 The following resources were used to develop coding skills, in addition to the Code Institute learning materials:
-  - [Django 4.2](https://docs.djangoproject.com/en/4.2/) online documentation, for guidance on setting up and using the Django framework
+  - [Django 4.2](https://docs.djangoproject.com/en/4.2/) online documentation, for guidance on setting up and using the Django framework, along with the [Django Github Repo](https://github.com/django/)
   - [Django allauth](https://docs.allauth.org/en/latest/) online documentation, for tailoring and using the authentication modules
-  -[Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) documentation, to learn how to use the latest version (5.0) in Django forms
+  - [Django crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/) documentation, to learn how to use the latest version (5.0) in Django forms
+  - [Django Clearable File Input Widget](https://github.com/django/django/blob/main/django/forms/templates/django/forms/widgets/clearable_file_input.html) documentation, for implementing the file input element in the Add/Edit Product page.
   - [Stripe](https://docs.stripe.com/) online documentation, in particular the [Getting Started](https://docs.stripe.com/get-started), [Payment APIs](https://docs.stripe.com/payments/payment-intents) and [Webhooks](https://docs.stripe.com/payments/handling-payment-events) sections, in developing the checkout app,
   - [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templating engine documentation, for building dynamic web page content
   - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/) online documentation, for styling the project website
+  - [Heroku](https://github.com/heroku) github repo, for guidance and examples regarding deploying django and python.
 
 General accessibility guidance was obtained from :
   - [W3C ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/) for general guidance
