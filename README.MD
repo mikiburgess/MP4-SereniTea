@@ -72,9 +72,30 @@ The scope of this project is the design, build and deployment of a full stack on
 At the back-end it will include full CRUD functionality for one or more aspects of the site, specifically allowing site administrators to add, edit and delete store products.
 
 
+#### Site Users
+
+Three distinct users have been identified for this web application:
+- Casual Site Visitors: Individuals who may have arrived at the site through recommendations, internet search results, or links from other sites. These are those people who have not yet become a customer.
+- Store Customers: Individuals who have explored the store and decided to become a customer, either through making a purchase or just registering for a user account. These are typically returning site visitors - casual site visitors who have been converted into customers.
+- Site Administrators: Those maintaining the backed elements, in particular the product catalogue and user profiles.
 
 
+In future the 'Store Owner' would be added as another distinct user. This would entail the expansion of the system to include additional user stories relating to stock control monitoring and reporting, sales tracking and reporting, and site usage reporting to support store management decisions and actions. This area is outside scope of this version of the site and so these user requirements (stories) have not been included.
 
+
+#### User Stories
+
+##### A. Visiting the Site
+
+##### B. Store Browsing and Navigation
+
+##### C. Searching and Sorting
+
+##### D. User Registration and Accounts
+
+##### E. Purchasing and Checkout
+
+##### F. Store Management
 
 ### Structure
 <!-- How is the information structured, and is it logically grouped? -->
