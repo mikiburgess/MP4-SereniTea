@@ -72,7 +72,7 @@ The intended users of this web application are as follows:
 
 
 ### Project Goals
-The primary goal of this project is to design, develop and deploy an e-commerce site for SereniTea Emporium. This project will adopt a full stack approach to develoment, from the front end interactive web site to the back end data storage ('data at rest'), transfer ('data in motion') and manipulation ('data in use').
+The primary goal of this project is to design, develop and deploy an e-commerce site for SereniTea Emporium. This project will adopt a full stack approach to development, from the front end interactive web site to the back end data storage ('data at rest'), transfer ('data in motion') and manipulation ('data in use').
 
 
 ### Strategy
@@ -98,12 +98,12 @@ In future the '***Store Owner***' would be added as another distinct user. This 
 
 #### User Stories
 The user stories for SereniTea have been organised into 6 activity areas:
-- [A. Visiting the Site](#A.-Visiting-the-Site)
-- [B. Store Browsing and Navigation](#B.-Store-Browsing-and-Navigation)
-- [C. Searching and Sorting](#C.-Searching-and-Sorting)
-- [D. User Registration and Accounts](#D.-User-Registration-and-Accounts)
-- [E. Purchasing and Checkout](#E.-Purchasing-and-Checkout)
-- [F. Store Management](#F.-Store-Management)
+- [A. Visiting the Site](#A-Visiting-the-Site)
+- [B. Store Browsing and Navigation](#B-Store-Browsing-and-Navigation)
+- [C. Searching and Sorting](#C-Searching-and-Sorting)
+- [D. User Registration and Accounts](#D-User-Registration-and-Accounts)
+- [E. Purchasing and Checkout](#E-Purchasing-and-Checkout)
+- [F. Store Management](#F-Store-Management)
 
 
 ##### A. Visiting the Site
@@ -177,6 +177,26 @@ The user stories for SereniTea have been organised into 6 activity areas:
 
 ### Structure
 <!-- How is the information structured, and is it logically grouped? -->
+The site structure according to functionality and features (not strictly mapped to site pages) is shown in the Site Structure figure.
+All data relating to the data models will be stored by Django in the online Postgres database ElephantSQL. The structure of this backend database is illustrated in the Entity Relationship Diagram (ERD) below.
+
+
+<p align="center">
+  <a href="docs/design/site-map.png" target="_blank">
+    <img src="docs/design/site-map-small.png" alt="Site Structure">
+  </a>
+<br>
+<em>Figure: Overview of Site Structure</em>
+</p>
+
+<p align="center">
+  <a href="docs/design/schema.png" target="_blank">
+    <img src="docs/design/schema-small.png" alt="Relational Database Schema">
+  </a>
+<br>
+<em>Figure: Relational Database Schema (ERD)</em>
+</p>
+
 
 
 ### Skeleton
@@ -184,6 +204,51 @@ The user stories for SereniTea have been organised into 6 activity areas:
 
 ### Surface
 
+#### Site Icons
+
+#### Site Colors
+
+
+<p align="center">
+  <a href="docs/design/colors/color_palette_collage.jpg">
+  <img src="docs/design/colors/color_palette_collage-small.jpg" alt="Site color palette"></a>
+<br>
+<em>Figure: Site color palette</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/colors/rgb_palette.png">
+  <img src="docs/design/colors/rgb_palette-small.png" alt="Site color palette"></a>
+<br>
+<em>Figure: RGB codes for site colors</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/colors/black-on-timberwolf.png">
+  <img src="docs/design/colors/black-on-timberwolf-small.png" alt="Color contrast checker for accordion"></a>
+<br>
+<em>Figure: Site accordion and text containers - Black (#000;) on Timberwolf (#d0ccc0;)</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/colors/bistre-on-timberwolf.png">
+  <img src="docs/design/colors/bistre-on-timberwolf-small.png" alt="Color contrast checker for site footer"></a>
+<br>
+<em>Figure: Site footer - Bistre (#272111;) on Timberwolf (#d0ccc0;)</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/colors/black-on-white-small.png">
+  <img src="docs/design/colors/black-on-white-small.png" alt="Color contrast checker for general site text"></a>
+<br>
+<em>Figure: Other site text, including titles, navbar and site buttons - Black (#000;) on White (#fff;)</a></em>
+</p>
+
+
+#### Typography
+
+#### Accessibility
+Site accessibility was considered throughout the design, development and testing process. This was guided by [W3C ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/ "ARIA Guidelines"), [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA "ARIA Guidelines"), and the in-built Accessibility checker in Google's Chrome tools.
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
