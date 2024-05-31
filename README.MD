@@ -1,13 +1,26 @@
-<p align="center">
-  <img src="docs/images/serenitea_emporium_small.jpg" alt="SereniTea Emporium Company Logo">
-</p>
-
 <h1 align="center">SereniTea Emporium</h1>
-
  
 <p align="center"> This repository and the accompanying Full Stack Web Application is presented for Code Institute Milestone Project 4.</p>
 
-- - -
+
+<p align="center">
+    <img src="docs/images/serenitea-devices.png" alt="Illustration of the Honey Bee site across a variety of devices">
+</p>
+
+<p align="center"> 
+  <a href="https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/" target="_blank">Visit SereniTea Emporium on Heroku</a>
+</p>
+
+<p align="center">
+  <!-- GitHub Last Commit -->
+  <img src="https://img.shields.io/github/last-commit/mikiburgess/MP4-Serenitea?style=plastic&logo=github&logoColor=green" alt="GitHub last commit"/>
+  <!-- GitHub commit activity -->
+  <img src="https://img.shields.io/github/commit-activity/t/mikiburgess/MP4-Serenitea?style=plastic&logo=github&logoColor=yellow" alt="GitHub commit activity"/>
+  <!-- GitHub language count -->
+  <img src="https://img.shields.io/github/languages/count/mikiburgess/MP4-Serenitea?style=plastic&logo=github" alt="GitHub language count"/>
+  <!-- Website Status -->
+  <img src="https://img.shields.io/website?url=https%3A%2F%2Fmp4-serenitea-emporium-5454dc22e46f.herokuapp.com%2F&up_message=online&up_color=green&down_message=offline&down_color=red&style=plastic" alt="Website Status"/>
+</p>
 
 - - -
 
@@ -75,27 +88,92 @@ At the back-end it will include full CRUD functionality for one or more aspects 
 #### Site Users
 
 Three distinct users have been identified for this web application:
-- Casual Site Visitors: Individuals who may have arrived at the site through recommendations, internet search results, or links from other sites. These are those people who have not yet become a customer.
-- Store Customers: Individuals who have explored the store and decided to become a customer, either through making a purchase or just registering for a user account. These are typically returning site visitors - casual site visitors who have been converted into customers.
-- Site Administrators: Those maintaining the backed elements, in particular the product catalogue and user profiles.
+- ***Casual Site Visitors***: Individuals who may have arrived at the site through recommendations, internet search results, or links from other sites. These are those people who have not yet become a customer.
+- ***Store Customers***: Individuals who have explored the store and decided to become a customer, either through making a purchase or just registering for a user account. These are typically returning site visitors - casual site visitors who have been converted into customers.
+- ***Site Administrators***: Those maintaining the backed elements, in particular the product catalogue and user profiles.
 
 
-In future the 'Store Owner' would be added as another distinct user. This would entail the expansion of the system to include additional user stories relating to stock control monitoring and reporting, sales tracking and reporting, and site usage reporting to support store management decisions and actions. This area is outside scope of this version of the site and so these user requirements (stories) have not been included.
+In future the '***Store Owner***' would be added as another distinct user. This would entail the expansion of the system to include additional user stories relating to stock control monitoring and reporting, sales tracking and reporting, and site usage reporting to support store management decisions and actions. This area is outside scope of this version of the site and so these user requirements (stories) have not been included.
 
 
 #### User Stories
+The user stories for SereniTea have been organised into 6 activity areas:
+- [A. Visiting the Site](#A.-Visiting-the-Site)
+- [B. Store Browsing and Navigation](#B.-Store-Browsing-and-Navigation)
+- [C. Searching and Sorting](#C.-Searching-and-Sorting)
+- [D. User Registration and Accounts](#D.-User-Registration-and-Accounts)
+- [E. Purchasing and Checkout](#E.-Purchasing-and-Checkout)
+- [F. Store Management](#F.-Store-Management)
+
 
 ##### A. Visiting the Site
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| A.1 | Visitor | Understand the purpose of the site immediately upon visiting | Decide whether to stay on the site and become a shopper.|
+| A.2 | Visitor | Visit a site with a recognisable interface| Quickly and easily recognise the site in my bookmarks and when revisiting it in future    |
+| A.3 | Visitor | Use a responsive website| View and use the site on a variety of devices |
+| A.4 | Visitor | Learn about the company| Make an informed decision whether or not to make a purchase |
+| A.5 | Visitor | Find the company on social media| Learn more and keep up to date on products, offers, etc. |
+| A.6 | Visitor | Contact the company | Get answers to any queries that I may have |
+| A.7 | Visitor | Receive feedback when using the site| Know if my actions have been successful, without cluttering the site with additional text |
 
 ##### B. Store Browsing and Navigation
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| B.1 | Customer | Easily and intuitively navigate the site | Find what I'm looking for without using the browser buttons |
+| B.2 | Customer | View all products available | Select products for purchase. |
+| B.3 | Customer | View specific category of products | Browse all items of interest without having to look through all store products. |
+| B.4 | Customer | View all products in a group of related categories | Browse selection of items of potential interest, without having to look through all store products or each individual category. |
+| B.5 | Customer | View details of individual products | See price, description and image of product and learn more about the individual products. |
+| B.6 | Customer | See item reviews | Make an informed decision about what items to purchase. |
+| B.7 | Customer | Easily see all store offers | Take advantage of any special offers and discounts on products I'm considering purchasing. |
+| B.8 | Customer | Easily see limited edition items | Consider purchasing limited edition/special products whilst they're available. |
 
 ##### C. Searching and Sorting
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| C.1 | Customer | Sort all products into order | Easily identify the best priced and highest  rated products, and sort according to product name. |
+| C.2 | Customer | Sort products per category into order | Easily identify the best priced and highest  rated products per category, and sort items in each category by name. |
+| C.3 | Customer | Search for items by name or description | Quickly find specific items that I'm interested in |
+| C.4 | Customer | Easily see the results of my search and my search criteria | Quickly see if the item I'd like are available for purchase |
+
 
 ##### D. User Registration and Accounts
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| D.1 | Customer | Register for a user account | Have a personal profile page for this online store |
+| D.2 | Customer | Log in and out of my account | Securely access my account information |
+| D.3 | Customer | Recover my password | Regain access to my account if I lose my password |
+| D.4 | Customer | Receive an email confirmation when I've registered for an account  | Verify that my account registration has been successful |
+| D.5 | Customer | Have a personalised user profile | Save personal information for faster checkout |
+| D.6 | Customer | Update my user profile | Keep my personal details up to date |
+| D.7 | Customer | See my order history | Remind myself of previous products I've purchased       |
 
 ##### E. Purchasing and Checkout
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| E.1  | Customer | Easily add items I want to purchase to my shopping basket | Ensure I purchase the correct items |
+| E.2  | Customer | View current items in my shopping basket | Keep track of the items I'd like to purchase |
+| E.3  | Customer | Easily update the contents of my shopping basket | Update quantity of items in my bag before checkout |
+| E.4  | Customer | Delete items from my shopping basket | Remove items I don't want to purchase before checkout |
+| E.5  | Customer | Easily view the total cost of my current purchases | Keep track of my spending and not spend too much |
+| E.6  | Customer | See shipping cost of basket contents | Keep track of my spending |
+| E.7  | Customer | See how much I need to spend to get free shipping | Take advantage of free shipping offer |
+| E.8  | Customer | Complete checkout securely | Pay for items whilst knowing that no-one has access to my personal payment details |
+| E.9  | Customer | Enter my payment information | Purchase the items in my shopping bag |
+| E.10 | Customer | View order confirmation after checkout | Ensure the purchase has been successful |
+| E.11 | Customer | Receive and email confirmation after completing checkout process | Retain confirmation for my records. |
+| E.12 | Customer | Use my saved profile details during checkout | Quickly purchase items without having to re-enter my details |
+| E.13 | Customer | Purchase products without having to create an account | Avoid having to sign up to the store. |
 
 ##### F. Store Management
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| F.1 | Site Admin | Add a product | Add a new product to the items for sale through my store |
+| F.2 | Site Admin | Edit/Update a product | Change product prices, details, images and other relevant information |
+| F.3 | Site Admin | Delete a product | Removed items from the store that are no longer for sale              |
+| F.4 | Site Admin | See number of items of products in stock | Monitor stock levels to re-order as needed |
+| F.5 | Site Admin | Ensure no orders are placed for out of stock items | Be confident that the store can complete all submitted orders |
 
 ### Structure
 <!-- How is the information structured, and is it logically grouped? -->
@@ -195,16 +273,19 @@ Below is a summary of the tools and languages used during this project, from des
 #### Tools
 This section lists the tools used during this project in support of the development and deployment stages.
 - [Balsamiq Wireframes](####): Used to create the initial site wireframes during the design stage, to guide the development stage.
-- [Draw.io](####): This free online drawing tool was used to create the entity relationship diagram (ERD), describing the underlying data storage (postgres database) model.
-- [Elephant ###](####): The relational database management system (RDBMS) used to store site data, as defined by the ERD.
+- [Diagrams.net](https://app.diagrams.net/ "diagrams.net/draw.io"): This free online drawing tool (previously known as draw.io) was used to create the entity relationship diagram (ERD), describing the underlying data storage (postgres database) model.
+- [ElephantSQL](https://www.elephantsql.com/ "ElephantSQL"): The 'PostgreSQL as a Service' relational database management system (RDBMS) used to store site data, as defined by the ERD.
 - [Visual Studio Code](https://code.visualstudio.com/ "VSCode"): All code was developed using a local installation of VS Code. (Code Institute development tools were not used during this project)
 - Git & [GitHub](####): Git used for version control, with GitHub being employed as the online repository for all project work.
-- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools "DevTools"): Used throughout development to support page design, testing and accessibility. 
 - [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx "ImageFX"): Generative AI tool, used to create al product and site images.
 - [ChatGPT v3.5](https://chatgpt.com/ "ChatGPT-3.5"): Generative AI tool, used to create initial draft of all product descriptions and site text.
 - [Tinyfy](https://tinypng.com/ "Tnyfy - compress your images"): Used to optimize site images to reduce download time.
 - [10MinEmail](https://temp-mail.org/en/10minutemail "TempMail"): Used to obtain free, time-limited temporary email addresses for testing user actions.
 - [Heroku](https://www.heroku.com/ "Heroku"): The Heroku platform has been used in this project to host the final, [deployed web site](https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/ "Serenitea Emporium").
+
+#### Testing and Validation
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools "DevTools"): Used throughout development to support page design, testing and accessibility. 
+- [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/) and [AmIResponsive](https://ui.dev/amiresponsive "Bytes AmIResponsive"): Used to test UI responsiveness across a number of device sizes.
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
