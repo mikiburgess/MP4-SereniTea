@@ -4,10 +4,19 @@
 {% block head_title %}
     {% trans "Verify Your Email Address" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
+
+
+{% block allauth_inner_content_heading %}
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">    
+        <hr class="title-border">
+        {% element h1 %}
+            {% trans "Verify Your Email Address" %}
+        {% endelement %}
+        <hr class="title-border">
+{% endblock allauth_inner_content_heading %}
+
+{% block allauth_inner_content %}
     {% url 'account_email' as email_url %}
     <p>
         {% blocktrans %}This part of the site requires us to verify that
@@ -22,4 +31,4 @@ contact us if you do not receive it within a few minutes.{% endblocktrans %}
     <p>
         {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
     </p>
-{% endblock content %}
+{% endblock allauth_inner_content %}

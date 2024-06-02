@@ -235,58 +235,57 @@ Error handling will be provided throughout to ensure that user engagement is not
 
 #### Wireframes
 
+All wireframes were built upon an initial base design, comprising a standard header containing site navigation bar and offers carousel and a standard page footer.
+
 <p align="center">
   <a href="docs/design/wireframes/home.png">
   <img src="docs/design/wireframes/home-small.png" alt="Design of the site home page"></a>
 <br>
 <em>Figure: Home Page Wireframe</a></em>
 </p>
-
-The Home page (index.html)
-
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/home-menus.png">
   <img src="docs/design/wireframes/home-menus-small.png" alt="Design of the site menus"></a>
 <br>
 <em>Figure: Site Menus Wireframe</a></em>
 </p>
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/all-products.png">
   <img src="docs/design/wireframes/all-products-small.png" alt="Design of the products listing page"></a>
 <br>
 <em>Figure: Store Products listing Wireframe - with a selected product group of 'Teas'</a></em>
 </p>
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/product-items-general.png">
   <img src="docs/design/wireframes/product-items-general-small.png" alt="Design of the product details page"></a>
 <br>
 <em>Figure: Product details page Wireframe - general products</a></em>
 </p>
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/product-items-teas.png">
   <img src="docs/design/wireframes/product-items-teas-small.png" alt="Design of the product details page for teas"></a>
 <br>
 <em>Figure: Product details page Wireframe - teas</a></em>
 </p>
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/shopping-basket.png">
   <img src="docs/design/wireframes/shopping-basket-small.png" alt="Design of the shopping basket page"></a>
 <br>
 <em>Figure: Shopping Basket Wireframe</a></em>
 </p>
-
+<br>
 <p align="center">
   <a href="docs/design/wireframes/about.png">
   <img src="docs/design/wireframes/about-small.png" alt="Design of the company about us page"></a>
 <br>
 <em>Figure: Company 'About' page Wireframe</a></em>
 </p>
-
+<br>
 
 
 #### Django Structure and Apps
@@ -295,26 +294,29 @@ The Home page (index.html)
 
 | Name     | Description|
 | ---------- | ----------- |
-| 📂 Home| Main site homepage, plus additional pages 'about' and 'shipping'|
-| 📂 Basket| Shopping basket is populated with products as customer adds and removes products during store browsing.<br/>Includes page to view the contents of the current shopping basket.<br/>Basket contents are saved in session variable, which is deleted when the customer closes their browser. |
-| 📂 Checkout | App to add payment details and delivery address, then process payment to obtain projects.<br/>Includes Stripe payment, Stripe webhooks, and order confirmation email.|
-| 📂 Products | Store products, plus the facility to view all products, sort and search products, and inspect the details of each individual product.<br/>Also includes pages for a superuser to add new products to the catalogue and edit existing products.|
-| 📂 Profiles | Enable site visitors to view their user profile, along with a full history of placed orders. |
+| 📂 ```Home``` | Main site homepage, plus additional pages 'about' and 'shipping'|
+| 📂 ```Basket``` | Shopping basket is populated with products as customer adds and removes products during store browsing.<br/>Includes page to view the contents of the current shopping basket.<br/>Basket contents are saved in session variable, which is deleted when the customer closes their browser. |
+| 📂 ```Checkout``` | App to add payment details and delivery address, then process payment to obtain projects.<br/>Includes Stripe payment, Stripe webhooks, and order confirmation email.|
+| 📂 ```Products``` | Store products, plus the facility to view all products, sort and search products, and inspect the details of each individual product.<br/>Also includes pages for a superuser to add new products to the catalogue and edit existing products.|
+| 📂 ```Profiles``` | Enable site visitors to view their user profile, along with a full history of placed orders. |
 
+<br>
 
 *Table: Additional site folders*
 
 | Name      | Description|
 | --------- | ------- |
-| 📂 Media| Store for all site images, including product images.|
-| 📂 Serenitea | The main site folder containing Django settings and URLs|
-| 📂 Static| Site stylesheet and icon|
-| 📂 Templates | Resources used across the site:<br/>- 📂  allauth: all allauth templates to be employed by Django to provide common user interaction functions, such as creating accounts, login authorisation, and resetting passwords.<br/>- 📂  includes: Main (top) navigation menu & products menu, for both large and mobile devices<br/>- 📰 base.html: The foundation page which is used by all apps to ensure consistency across the site.<br/>- 📰 404.html: Tailored 'page not found' error page |
+| 📂 ```Media``` | Store for all site images, including product images.|
+| 📂 ```Serenitea``` | The main site folder containing Django settings and URLs|
+| 📂 ```Static``` | Site stylesheet and icon|
+| 📂 ```Templates``` | Resources used across the site:<br/>- 📂 ```allauth```: all allauth templates to be employed by Django to provide common user interaction functions, such as creating accounts, login authorisation, and resetting passwords.<br/>- 📂 ```includes```: Main (top) navigation menu & products menu, for both large and mobile devices<br/>- 📰 ```base.html```: The foundation page which is used by all apps to ensure consistency across the site.<br/>- 📰 ```404.html```: Tailored 'page not found' error page |
 
 
 ### Surface
+The surface design decisions were made on consideration of keeping the interface simple, intuitive, with colors associated with relaxation and teas.
 
 #### Site Icons
+[Bootstrap icons](https://icons.getbootstrap.com/ "Bootstrap Icons") was employed as the source of all site icons. Icons were selected to assist user navigation by using familiar images, including a shopping basket, person outline for the user access/profile, and edit and delete icons.
 
 #### Site Colors
 The initial site logo was developed using [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx "ImageFX") generative AI tool. After tweaking the text description a number of times, a suitable logo was generated. The final color palette was then created by using [Coolors](https://coolors.co/ "Coolors color palette generator") to generate palette suggestions based on the final logo color.
@@ -326,7 +328,6 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 <em>Figure: Site color palette</a></em>
 </p>
 <br>
-
 <p align="center">
   <a href="docs/design/colors/rgb_palette.png">
   <img src="docs/design/colors/rgb_palette-small.png" alt="Site color palette"></a>
@@ -334,7 +335,6 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 <em>Figure: RGB codes for site colors</a></em>
 </p>
 <br>
-
 <p align="center">
   <a href="docs/design/colors/black-on-timberwolf.png">
   <img src="docs/design/colors/black-on-timberwolf-small.png" alt="Color contrast checker for accordion"></a>
@@ -342,7 +342,6 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 <em>Figure: Site accordion and text containers - Black (#000;) on Timberwolf (#d0ccc0;)</a></em>
 </p>
 <br>
-
 <p align="center">
   <a href="docs/design/colors/bistre-on-timberwolf.png">
   <img src="docs/design/colors/bistre-on-timberwolf-small.png" alt="Color contrast checker for site footer"></a>
@@ -350,7 +349,6 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 <em>Figure: Site footer - Bistre (#272111;) on Timberwolf (#d0ccc0;)</a></em>
 </p>
 <br>
-
 <p align="center">
   <a href="docs/design/colors/black-on-white-small.png">
   <img src="docs/design/colors/black-on-white-small.png" alt="Color contrast checker for general site text"></a>
@@ -361,6 +359,22 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 
 
 #### Typography
+Two fonts were selected for use across the site:
+
+- Yeseva One: A soft, elegant and clean serif font, selected for use in site headers.
+- Montserrat: A sans-serif font, selected for general site content due to being crisp and readable on smaller viewports.
+
+[Google Fonts](https://fonts.google.com/) was then used as the source of these fonts for the deployed site.
+
+<br>
+<p align="center">
+  <a href="docs/design/fonts/google-fonts.png">
+  <img src="docs/design/fonts/google-fonts-small.png" alt="Google Fonts page showing the two selected fonts of Yeseva One and Montserrat"></a>
+<br>
+<em>Figure: Font selection</a></em>
+</p>
+<br>
+
 
 #### Accessibility
 Site accessibility was considered throughout the design, development and testing process. This was guided by [W3C ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/ "ARIA Guidelines"), [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA "ARIA Guidelines"), and the in-built Accessibility checker in Google's Chrome tools.
@@ -371,8 +385,7 @@ Site accessibility was considered throughout the design, development and testing
 ## Site Development
 
 ### Data Management
-...RDBMS and DB & Models
-...
+The defined relational database schema was constructed in the online Postgres database [ElephantSQL](https://www.elephantsql.com/). The process of populating and updating the database was then supported by using teh Django framework.
 
 ### Site Content
 <!-- Generation of data for the site -->
@@ -384,44 +397,88 @@ The data for SereniTea Emporium was primarily produced using AI tools:
 
 These tools were used to enable a good selection of products to be included in the store, without adversely affecting the time available for the milestone project.
 
-
 #### Populating the Product Catalogue
 
 The following describes the process for generating product catalogue data:
-1. Create set of product category definitions and export to csv file [categories.csv](docs/product-catalogue/categories.csv)
-2. Write initial product title and brief description
-3. Use description as input into [ChatGPT](https://chatgpt.com/) to generate full product description
-4. Review and edit text as required
-5. Use initial description [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx) to generate potential images
-6. Repeat image generation process until appropriate image created (complementary to other image styles in the current image set)
-7. Add all product details and image urls to a spreadsheet
-8. Spreadsheet autogenerates sku, (non-friendly) name and image filenames
-9. Export data to csv file [products.csv](docs/product-catalogue/products.csv)
+  1. Create set of product category definitions and export to csv file [categories.csv](docs/product-catalogue/categories.csv)
+  2. Write initial product title and brief description
+  3. Use description as input into [ChatGPT](https://chatgpt.com/) to generate full product description
+  4. Review and edit text as required
+  5. Use initial description [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx) to generate potential images
+  6. Repeat image generation process until appropriate image created (complementary to other image styles in the current image set)
+  7. Add all product details and image urls to a spreadsheet
+  8. Spreadsheet autogenerates sku, (non-friendly) name and image filenames
+  9. Export data to csv file [products.csv](docs/product-catalogue/products.csv)
+  10. Convert csv files to Django fixtures json format using python scripts
 
-10. Convert csv files to Django fixtures json format using python scripts 
-- [makeJsonCategories.py](docs/product-catalogue/makeJsonCategories.py) --> [categories.json](docs/product-catalogue/categories.json)
-- [makeJsonProducts.py](docs/product-catalogue/makeJsonProducts.py) --> [products.json](docs/product-catalogue/products.json)
+    - [makeJsonCategories.py](docs/product-catalogue/makeJsonCategories.py) --> [categories.json](docs/product-catalogue/categories.json)
+    - [makeJsonProducts.py](docs/product-catalogue/makeJsonProducts.py) --> [products.json](docs/product-catalogue/products.json)
+  
+  11. Add fixture files to the product app fixture folder
+  12. Finally, add the json fixture files into the project using the following CLI commands:
+  ```
+  python3 manage.py loaddata categories
+  python3 manage.py loaddata products
 
-11. Add fixture files to the product app fixture folder
-12. Finally, add the json fixture files into the project using the following CLI commands:
-```
-python3 manage.py loaddata categories
-python3 manage.py loaddata products
-
-```
+  ```
 
 #### Producing Site Text
 
 Some site text was also generated using AI.
 
-1. Write initial brief description of text requirement (for example 'description of an online store selling loose leaf teas and accessories, focussed on relaxation and wellbeing)
-2. Use description as input into [ChatGPT](https://chatgpt.com/) to generate candidate site text
-3. Review and edit text, using it as a basis for creating the final site text.
+  1. Write initial brief description of text requirement (for example 'description of an online store selling loose leaf teas and accessories, focussed on relaxation and wellbeing)
+  2. Use description as input into [ChatGPT](https://chatgpt.com/) to generate candidate site text
+  3. Review and edit text, using it as a basis for creating the final site text.
 
 
-### User Management
-Incorporating Django Allauth
-...
+### User Management - Allauth Integration
+Django Allauth version 0.60.0 was used in the SereniTea project to support user management, authorization and authentication.
+
+Within the project html files the block named ```content``` was used to wrap the page specific content:
+```
+  {% block content %}
+    <page-specific content>
+  {% endblock %}
+```
+
+Due to allauth template files also using the block name ```content```, some modifications needed to be made to the allauth templates to enable them to be used in this project.
+
+The three [main base allauth 0.60.0 templates](https://docs.allauth.org/en/latest/common/templates.html) customized for use are as follows:
+
+  - ```base.html```      <-- The overall base template for allauth pages
+  - ```entrance.html```  <-- The entrance template, extending the base template
+  - ```manage.html```    <-- The account management template, extending the base template
+
+These files were modified as follows:
+The block ```content``` section was updated to use the SereniTea container format, followed by an ```allauth_inner_content``` block for the inclusion of allauth-specific code:
+```
+  {% block allauth_inner_content %}
+    <page-specific content>
+  {% endblock allauth_inner_content%}
+```
+
+In addition, above this element was placed a block to contain the page heading, to ensure the page heading is placed and styled consistently across all pages:
+```
+  {% block allauth_inner_content_heading %}
+  {% endblock allauth_inner_content_heading %}
+```
+
+Throughout the allauth files used in this project, the ```content``` block was renamed to ```allauth_inner_content``` and page-specific header information included in a ```allauth_inner_content_heading``` block.
+
+- Registration
+  - ```signup.html```
+  - ```verification_sent.html```
+- User access
+  - ```login.html```
+  - ```logout.html```
+- Password management
+  - ```password_reset.html```
+  - ```password_reset_done.html```
+  - ```password_set.html```
+  - ```password_change.html```
+- Email Mamagement:
+  - ```email_confirm.html```
+  - ```email_change.html```
 
 ### Site Navigation
 ...

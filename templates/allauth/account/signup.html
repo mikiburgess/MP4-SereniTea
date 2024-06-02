@@ -3,10 +3,18 @@
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
+
+{% block allauth_inner_content_heading %}
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">    
+        <hr class="title-border">
+        {% element h1 %}
+            {% trans "Sign Up for a Serenitea Account" %}
+        {% endelement %}
+        <hr class="title-border">
+{% endblock allauth_inner_content_heading %}
+
+{% block allauth_inner_content  %}
     <p>
         {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
     </p>
@@ -31,4 +39,4 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-{% endblock content %}
+{% endblock allauth_inner_content %}

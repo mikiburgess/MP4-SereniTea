@@ -26,6 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
+# DEBUG = False
 
 ALLOWED_HOSTS = [
     'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com',
@@ -144,12 +145,14 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
 ACCOUNT_EMAIL_REQUIRED = True  # users must register with an email address
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
-# ACCOUNT_EMAIL_VERIFICATION = 'none'  # Set to 'none' on deployed site
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Enter email twice on registration to ensure it's correct
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # minimum allowed username length
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'SereniTea - '  # Email subject prefix text
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # num days email invite becomes invalid
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # automatically log in user upon email authentication
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # automatically log in user upon password reset
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'  # upon login, redirect to front page of store/site
-
 WSGI_APPLICATION = 'serenitea.wsgi.application'
 
 
@@ -188,11 +191,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
@@ -279,7 +281,6 @@ STORAGES = {
 # Don't store the original (un-hashed filename) version of static files, to reduce slug size:
 # https://whitenoise.readthedocs.io/en/latest/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
 WHITENOISE_KEEP_ONLY_HASHED_FILES = True
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

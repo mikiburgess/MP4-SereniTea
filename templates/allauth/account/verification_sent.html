@@ -4,11 +4,19 @@
 {% block head_title %}
     {% trans "Verify Your Email Address" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
+
+{% block allauth_inner_content_heading %}
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">    
+        <hr class="title-border">
+        {% element h1 %}
+            {% trans "Verify Your Email Address" %}
+        {% endelement %}
+        <hr class="title-border">
+{% endblock allauth_inner_content_heading %}
+
+{% block allauth_inner_content %}
     <p>
         {% blocktrans %}We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes.{% endblocktrans %}
     </p>
-{% endblock content %}
+{% endblock allauth_inner_content %}
