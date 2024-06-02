@@ -182,32 +182,142 @@ All data relating to the data models will be stored by Django in the online Post
 
 
 <p align="center">
-  <a href="docs/design/site-map.png" target="_blank">
-    <img src="docs/design/site-map-small.png" alt="Site Structure">
+  <a href="docs/design/initial-site-structure.png" target="_blank">
+    <img src="docs/design/initial-site-structure-small.png" alt="Site Structure">
   </a>
 <br>
 <em>Figure: Overview of Site Structure</em>
 </p>
 
+The site structure diagram was created with future development in mind. As such it includes sections outside the initial scope - customer reviews a page about tea and a page about relaxation & mindfulness.
+
 <p align="center">
-  <a href="docs/design/schema.png" target="_blank">
-    <img src="docs/design/schema-small.png" alt="Relational Database Schema">
+  <a href="docs/design/serenitea-data-model.jpg" target="_blank">
+    <img src="docs/design/serenitea-data-model-small.jpg" alt="Relational Database Schema">
   </a>
 <br>
 <em>Figure: Relational Database Schema (ERD)</em>
 </p>
 
-
+As well as defining the initial entities (models) relating to customers, orders and products, the database schema also includes the reviews entity. Being outside scope this hasn't yet been developed, but the Django app and resulting model will be based on this schema.
 
 ### Skeleton
 <!-- How the information should be implemented, and how the user will navigate through the info/features -->
+
+Site pages will be constructed dynamically based session data and user actions, using a ```base.html``` template file and a variety of page templates that expand upon it, supported by python scripts and Jinja2 templating.
+From the perspective of the site visitor however it will appear to be comprised of a number of distinct pages:
+
+- Information Pages
+  - Home / Welcome Page
+  - About Page
+  - Shipping & Delivery:
+- Store Contents
+  - Products page: for viewing gallery of products
+  - Product page: for viewing the details of each individual product
+- Shopping Basket:
+
+
+#### Site Navigation
+The design of this site will enable visitors to navigate around the store without using the browser buttons, but using the following site facilities:
+
+- A responsive navigation bar to access product categories, accessible at the top of the page or, on smaller viewports, via an off-canvas side menu.
+- A navigation bar at the top of every page providing access to user profile, shopping basket and search facility.
+- Page footer links to information pages, in addition to being available via the off-canvas menu.
+- Guiding site buttons, enabling the visitor to view the product catalogue and *keep shopping*.
+
+
+#### Error Handling
+Error handling will be provided throughout to ensure that user engagement is not interrupted by functional or runtime errors (or at least minimized). This error handling will be implemented as follows:
+
+- Keeping the user informed: The user will be kept informed of actions and results via the messages bar near the top of the screen. This message bar wil be used to confirm to the site user when items have been added to their basket, when their basket has been updated and when an order has been placed. It will also however display messages when something has gone wrong, such as a failed payment or if an issue has arisen trying to add a product to their basket.
+
+- Out of Scope Functionality: Until all future functionality is completed, some elements of the site will not be active. Although these are outside the scope of this project, these may cause an issue to visitors of the initial site. As such, where a page is not yet available in the site a bespoke ```404 - Page Not Found``` page has been added to the project.
+
+#### Wireframes
+
+<p align="center">
+  <a href="docs/design/wireframes/home.png">
+  <img src="docs/design/wireframes/home-small.png" alt="Design of the site home page"></a>
+<br>
+<em>Figure: Home Page Wireframe</a></em>
+</p>
+
+The Home page (index.html)
+
+
+<p align="center">
+  <a href="docs/design/wireframes/home-menus.png">
+  <img src="docs/design/wireframes/home-menus-small.png" alt="Design of the site menus"></a>
+<br>
+<em>Figure: Site Menus Wireframe</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/wireframes/all-products.png">
+  <img src="docs/design/wireframes/all-products-small.png" alt="Design of the products listing page"></a>
+<br>
+<em>Figure: Store Products listing Wireframe - with a selected product group of 'Teas'</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/wireframes/product-items-general.png">
+  <img src="docs/design/wireframes/product-items-general-small.png" alt="Design of the product details page"></a>
+<br>
+<em>Figure: Product details page Wireframe - general products</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/wireframes/product-items-teas.png">
+  <img src="docs/design/wireframes/product-items-teas-small.png" alt="Design of the product details page for teas"></a>
+<br>
+<em>Figure: Product details page Wireframe - teas</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/wireframes/shopping-basket.png">
+  <img src="docs/design/wireframes/shopping-basket-small.png" alt="Design of the shopping basket page"></a>
+<br>
+<em>Figure: Shopping Basket Wireframe</a></em>
+</p>
+
+<p align="center">
+  <a href="docs/design/wireframes/about.png">
+  <img src="docs/design/wireframes/about-small.png" alt="Design of the company about us page"></a>
+<br>
+<em>Figure: Company 'About' page Wireframe</a></em>
+</p>
+
+
+
+#### Django Structure and Apps
+
+*Table: Application Apps*
+
+| Name     | Description|
+| ---------- | ----------- |
+| 📂 Home| Main site homepage, plus additional pages 'about' and 'shipping'|
+| 📂 Basket| Shopping basket is populated with products as customer adds and removes products during store browsing.<br/>Includes page to view the contents of the current shopping basket.<br/>Basket contents are saved in session variable, which is deleted when the customer closes their browser. |
+| 📂 Checkout | App to add payment details and delivery address, then process payment to obtain projects.<br/>Includes Stripe payment, Stripe webhooks, and order confirmation email.|
+| 📂 Products | Store products, plus the facility to view all products, sort and search products, and inspect the details of each individual product.<br/>Also includes pages for a superuser to add new products to the catalogue and edit existing products.|
+| 📂 Profiles | Enable site visitors to view their user profile, along with a full history of placed orders. |
+
+
+*Table: Additional site folders*
+
+| Name      | Description|
+| --------- | ------- |
+| 📂 Media| Store for all site images, including product images.|
+| 📂 Serenitea | The main site folder containing Django settings and URLs|
+| 📂 Static| Site stylesheet and icon|
+| 📂 Templates | Resources used across the site:<br/>- 📂  allauth: all allauth templates to be employed by Django to provide common user interaction functions, such as creating accounts, login authorisation, and resetting passwords.<br/>- 📂  includes: Main (top) navigation menu & products menu, for both large and mobile devices<br/>- 📰 base.html: The foundation page which is used by all apps to ensure consistency across the site.<br/>- 📰 404.html: Tailored 'page not found' error page |
+
 
 ### Surface
 
 #### Site Icons
 
 #### Site Colors
-
+The initial site logo was developed using [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx "ImageFX") generative AI tool. After tweaking the text description a number of times, a suitable logo was generated. The final color palette was then created by using [Coolors](https://coolors.co/ "Coolors color palette generator") to generate palette suggestions based on the final logo color.
 
 <p align="center">
   <a href="docs/design/colors/color_palette_collage.jpg">
@@ -215,6 +325,7 @@ All data relating to the data models will be stored by Django in the online Post
 <br>
 <em>Figure: Site color palette</a></em>
 </p>
+<br>
 
 <p align="center">
   <a href="docs/design/colors/rgb_palette.png">
@@ -222,6 +333,7 @@ All data relating to the data models will be stored by Django in the online Post
 <br>
 <em>Figure: RGB codes for site colors</a></em>
 </p>
+<br>
 
 <p align="center">
   <a href="docs/design/colors/black-on-timberwolf.png">
@@ -229,6 +341,7 @@ All data relating to the data models will be stored by Django in the online Post
 <br>
 <em>Figure: Site accordion and text containers - Black (#000;) on Timberwolf (#d0ccc0;)</a></em>
 </p>
+<br>
 
 <p align="center">
   <a href="docs/design/colors/bistre-on-timberwolf.png">
@@ -236,6 +349,7 @@ All data relating to the data models will be stored by Django in the online Post
 <br>
 <em>Figure: Site footer - Bistre (#272111;) on Timberwolf (#d0ccc0;)</a></em>
 </p>
+<br>
 
 <p align="center">
   <a href="docs/design/colors/black-on-white-small.png">
@@ -243,6 +357,7 @@ All data relating to the data models will be stored by Django in the online Post
 <br>
 <em>Figure: Other site text, including titles, navbar and site buttons - Black (#000;) on White (#fff;)</a></em>
 </p>
+<br>
 
 
 #### Typography
@@ -344,6 +459,7 @@ This section lists the tools used during this project in support of the developm
 - Git & [GitHub](####): Git used for version control, with GitHub being employed as the online repository for all project work.
 - [ImageFX](https://aitestkitchen.withgoogle.com/tools/image-fx "ImageFX"): Generative AI tool, used to create al product and site images.
 - [ChatGPT v3.5](https://chatgpt.com/ "ChatGPT-3.5"): Generative AI tool, used to create initial draft of all product descriptions and site text.
+- [Coolors](https://coolors.co/ "Coolors color palette generator"): used to generate site color palette based on site logo.
 - [Tinyfy](https://tinypng.com/ "Tnyfy - compress your images"): Used to optimize site images to reduce download time.
 - [10MinEmail](https://temp-mail.org/en/10minutemail "TempMail"): Used to obtain free, time-limited temporary email addresses for testing user actions.
 - [Heroku](https://www.heroku.com/ "Heroku"): The Heroku platform has been used in this project to host the final, [deployed web site](https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/ "Serenitea Emporium").
@@ -475,6 +591,10 @@ Although some errors arose with incompatibility of package versions (in particul
 A compromise was reached for package incompatibilities by downgrading Django from version 5. 
 
 No solution was found for incorporating AWS within the available time limit. Instead, [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/WhiteNoise) was used to enable Django use of static files for the purpose of deploying this project. 
+
+#### BUG: Failing to render 404
+A tailored ```404 - Page Not Found``` html page has been created and added to the templates folder, to be displayed by Django in place of its standard 404 page. Unfortunately (and ironically), this is not currently functional.
+This would be a good feature to include to ensure when there is an error the site informs the visitor politely that something has happened and provides them with a mechanism for returning to the home page. However, adding this to the live site has not been moved to a future development stage, along with the creation of other HTTP error handlers.
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
