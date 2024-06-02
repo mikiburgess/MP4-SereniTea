@@ -375,12 +375,52 @@ There are a number of areas where this project could be improved, and where the 
 
 ### Improvements to Design and Development
 
-#### Project Structure
-Organize project MEDIA folders to separate product images from general site images (such as backgrounds), rather than the current approach of storing all images in the same folder.
-
 #### Defensive Programming
 Currently the side administrator (superuser) is able to edit product details and delete products with a single click. Site functionality could be improved by adopting a more defensive approach to coding by including checks, asking users to actively confirm deletions and edits.
 The same approach would be adopted for registered site visitors editing their profile details.
+
+
+#### Project Structure
+Organize project MEDIA folders to separate product images from general site images (such as backgrounds), rather than the current approach of storing all images in the same folder. This would be undertaken in order to also support responsive images.
+
+
+#### Responsive Images
+The most significant issue with the current implementation is with product image management.
+Currently all product images are saved in jpeg format, with a single image saved for each product. As such, the product database saves a single image full name for each product. For example, a product image attribute for a product named *Yorkshire Tea* would currently be ```yorkshire_tea.jpg```. This decision was made during the early design stage as a simple solution to storing product images.
+
+There are a number of issues with this approach:
+- More appropriate image formats are available, for smaller device screens, to reduce network capacity requirements and therefore reduce page load times.
+- This approach doesn't allow for thumbnail, page-sized and larger (product zoom) images, each sized according to the page requirements.
+
+This approach is therefore inefficient, and adversely impacts site performance. An important future development is therefore to
+- store images in a more appropriate format: such as WebP;
+- allow for multiple image sizes: thumbnail, large/zoomed, and 'standard' product images according to viewport size and managed using media queries; 
+- include a function to automatically generate these images from a single image when a new product is added to the catalogue.
+
+In future:
+
+1. Product image names will be stored in the database without explicit file extension. Eg, ```yorkshire_tea.jpg``` would be saved as just ```yorkshire_tea```. This allows for multiple file formats and sizes to be generated, then used as appropriate using different name postfix additions (```_thumbnail``` ```_bs_sm``` ```_bs_xl``` etc) and extensions (```.webp``` ```.jpg```).
+
+2. Product images would be initially added in jpeg or png formats. Alternative images would then be created automatically using a to-be-developed function to convert and resize, as far as possible (for example, a small image wouldn't be enlarged, but a large image could be reduced).
+
+3. WebP images would be served by changing the current img tags from the current approach to static jpeg serving:
+
+```
+<img src="yorkshire_tea.jpg" alt=" ... ">
+```
+
+to a responsive approach:
+```
+<picture>
+	<source type="image/webp" srcset="yorkshire_tea.webp">
+	<source type="image/jpeg" srcset="yorkshire_tea.jpg">
+	<img src="yorkshire_tea.jpg" alt="">
+</picture>
+```
+This approach uses 'picture' to allow for multiple image options, with source tags listing the potential images with the first available being the one that's served. The img tag would then only be used as the last resort, for when no other images exist, or when the browser doesn't support the responsive approach.
+
+More details regarding this approach can be found at [web.dev - Use WebP Images](https://web.dev/articles/serve-images-webp).
+
 
 ### Future Features
 As can be seen in the Testing section, there are a number of areas where the current implementation of the site could be developed further and therefore improved. The features listed below are in addition to those previously listed future developments, and have been identified as those that would add greatest benefit to the site if implemented within the next development stage.
@@ -417,14 +457,25 @@ Ideally,
 At present, these two elements are positioned at the top and bottom of the page, being positioned according to the page size and page scrolling. Fixed and Sticky positioning will be employed in future to improve site usability (minimizing scrolling).
 
 
-### Bugs
-The following bugs are still present in this application:
+### Challenges and Bugs
+The following issues are still present in this application:
 
-#### Adding a product
+#### BUG: Adding a product
 When adding a product with a product image, the image is initially available and displayed in the product page. However, this is not persistent. After a while the image is lost. 
 
 I suspect this may be due to Heroku saving it in cache, then clearing it after some time.
 I also suspect this could be rectified by including an improved file storage option, such as AWS, or deploying the site to another platform with supports dynamic file storage.
+
+#### CHALLENGE: Deployment & AWS
+Deployment of the site through Heroku was problematic. I decided early on to try to use the most current versions possible of tools, packages and libraries in this project to expand my learning. However, this appears to have resulted in a situation where the course instructions for deployment do not work.
+
+Several days were spent trying to debug the Heroku build errors using the Django, Heroku and AWS documentation, StackOverflow, and experimentation.
+Although some errors arose with incompatibility of package versions (in particular - ```django``` and ```boto3```), linking Heroku, Django and AWS was particularly problematic. 
+
+A compromise was reached for package incompatibilities by downgrading Django from version 5. 
+
+No solution was found for incorporating AWS within the available time limit. Instead, [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/WhiteNoise) was used to enable Django use of static files for the purpose of deploying this project. 
+
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
