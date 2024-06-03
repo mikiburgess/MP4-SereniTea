@@ -26,7 +26,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
-# DEBUG = False
 
 ALLOWED_HOSTS = [
     'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com',
@@ -38,7 +37,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    # Use WhiteNoise's runserver implementation instead of the Django default, for dev-prod parity.
+    # Use WhiteNoise's runserver implementation instead of the Django default,
     "whitenoise.runserver_nostatic",
 
     'django.contrib.admin',
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',  # allauth itself
     'allauth.account',  # app that allows basic user accounts
-    # 'allauth.socialaccount',  # support login in using social media accounts
 
     # Additional third-party apps
     'crispy_forms',
