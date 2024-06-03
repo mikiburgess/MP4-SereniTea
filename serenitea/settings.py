@@ -126,13 +126,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# if 'DEVELOPMENT' in os.environ:
-#     # Log emails to the console during development
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#     DEFAULT_FROM_EMAIL = 'serenitea.project.email@localhost.com'
-# else:
-    # Send emails from registered email address during production
+# Email details
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
@@ -159,18 +153,8 @@ WSGI_APPLICATION = 'serenitea.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
+DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    print('local database')
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
     }
 
 # Password validation
@@ -207,38 +191,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
-# # AWS Access settings
-# if 'USE_AWS' in os.environ:
-#     # Bucket configuration
-#     AWS_STORAGE_BUCKET_NAME = 'mp4-serenitea-emporium'
-#     AWS_S3_REGION_NAME = 'eu-north-1'
-#     AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-#     AWS_SECRET_KEY = os.environ.get("AWS_SECRET_KEY")
-#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-#     AWS_S3_OBJECT_PARAMETERS = {
-#         'CacheControl': 'max-age=86400',
-#     }
-#     STATIC_HOST = AWS_S3_CUSTOM_DOMAIN
-#     # Static and media files
-#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-#     STATICFILES_LOCATION = 'static'
-#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-#     MEDIAFILES_LOCATION = 'media'
-#     # Override static and media URLs in production
-#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-#     PRODUCT_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/products/'
-#     SITE_IMAGES = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/images/'
-# else:
-#     STATIC_URL = '/static/'
-#     STATICFILESDIRECT_URL = '/static/'
-#     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-#     MEDIA_URL = '/media/'
-#     PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
-#     SITE_IMAGES = os.path.join(MEDIA_URL, 'images/')
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # WITHOUT AWS
 STATIC_URL = '/static/'
