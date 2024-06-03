@@ -53,20 +53,6 @@
 
 <!-- Sorting Options -->
 <div id="product-sort" class="row w-100">
-    <!-- <div class=" col-4 offset-4 offset-md-7 d-flex mt-2"> 
-        <select class="form-select" aria-label="Select product ordering">
-            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price [Low to High]</option>
-            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price [High to Low]</option>
-            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name [A-Z]</option>
-            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name [Z-A]</option>
-            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category [A-Z]</option>
-            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category [Z-A]</option>
-            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating [Low to High]</option>
-            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating [High to Low]</option>
-        </select>       
-    </div> -->
-
     <div class="dropdown product-sort col-4 offset-8 d-flex mt-2">
         <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" 
             id="product-sort-selection" aria-haspopup="true" aria-expanded="false">
@@ -92,7 +78,6 @@
                 {% if products %}
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                         {% for product in products %}
-                            <!-- <div class="col-10 col-sm-6 col-md-4 col-lg-3"> -->
                             <div class="col">
                                 <div class="card product-card h-100">
                                 {% if product.image %}

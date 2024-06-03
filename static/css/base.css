@@ -162,8 +162,6 @@ body {
 }
 
 footer > .row {
-    /* display: flex;
-    justify-content: flex-start; */
     background-color: var(--timberwolf-pale);
     padding-top: 12px;
 }

@@ -16,7 +16,6 @@ from .forms import ProductForm
 
 def all_products(request):
     """ View to show all products """
-    print(request)
     products = Product.objects.all()  # retrieve all products from database
     categories = None  # initialise current selected product categories to None (i.e. unspecified)
     group = None  # initialise current selected product group to None (i.e. unspecified)
@@ -52,22 +51,16 @@ def all_products(request):
 
         # Handle user submitting request to view products in specific category
         if 'category' in request.GET:
-            print(f'Request: {request}')
             categories = request.GET['category'].split(',')  # allow for multiple categories
-            print(f'Categories: {categories}')
             products = products.filter(category__name__in=categories)
-            print(f'Products: {products}')
             # get category objects to enable access to category fields
             categories = Category.objects.filter(name__in=categories)
-            print(f'Categories: {categories}')
 
         # Handle user submitting request to view all products in a specific category group
         if 'group' in request.GET:
             group = request.GET['group']
-            print(f'Group: {group}')
             # obtain all Category objects where Category.group = requested group
             categories = Category.objects.filter(group__iexact=group)
-            print(f'Categories: {categories}')
             # iterate through the group categories to extract list of category names
             names = []
             for category in categories:
