@@ -45,6 +45,7 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_id = pid
             order.original_basket = json.dumps(basket)
+            print(f'Saving order {order.stripe_id }')
             order.save()
 
             # Iterate through all items in the basket to create each
