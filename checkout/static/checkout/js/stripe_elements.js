@@ -53,7 +53,6 @@ card.addEventListener('change', function(event) {
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
-    console.log("Submit function running")
     // stop default action on 'submit'
     ev.preventDefault();
     // disable card element and submit button to stop multiple submissions

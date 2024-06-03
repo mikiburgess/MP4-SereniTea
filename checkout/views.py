@@ -45,7 +45,6 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_id = pid
             order.original_basket = json.dumps(basket)
-            print(f'Saving order {order.stripe_id }')
             order.save()
 
             # Iterate through all items in the basket to create each
@@ -63,7 +62,7 @@ def checkout(request):
                 except Product.DoesNotExist:
                     # In case of error, handle gracefully
                     messages.error(request, (
-                        "One of the products in your basket wasn't found. "
+                        "Oops! One of the products in your basket wasn't found. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -71,7 +70,7 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:  # form is not valid
-            messages.error(request, f'There was an error with your form. \
+            messages.error(request, f'Oops! There was an error with your form. \
                            Please double check your information. \
                            Error: {order_form.errors}')
     else:
@@ -120,7 +119,7 @@ def checkout(request):
 
     # Check public key has been set
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
+        messages.warning(request, 'Oops! Stripe public key is missing. \
                          Did you forget to set it in your environment?')
 
     # Initialise checkout page

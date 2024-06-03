@@ -23,7 +23,6 @@ class StripeWH_Handler:
 
     def _send_order_confirmation_email(self, order):
         """ Send the user a confirmation email upon order completion """
-        print("\n Sending email ... \n")
         customer_email = order.email
         email_subject = render_to_string(
             'checkout/confirmation_emails/order_confirmation_email_subject.txt',
@@ -37,7 +36,6 @@ class StripeWH_Handler:
             email_body,
             settings.DEFAULT_FROM_EMAIL,
             [customer_email],
-            fail_silently=False,
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -47,14 +45,9 @@ class StripeWH_Handler:
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
 
-        # Get the Charge object
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
-
-        billing_details = stripe_charge.billing_details
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the shipping details (replace empty string with null)
         for field, value in shipping_details.address.items():
@@ -82,7 +75,6 @@ class StripeWH_Handler:
         # max 5 attempts to retrieve order, to allow for syncronisation issues
         attempt = 1
         while attempt <= 5:
-            print(f'Stripe attempt {attempt}')
             try:
                 order = Order.objects.get(
                     # iexact -> exact match but case insensitive
@@ -105,13 +97,11 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            print('Order exists. Sending confirmation email')
             self._send_order_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'[Serenitea] Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
-            print('Order does not exist, so creating order')
             order = None
             try:
                 order = Order.objects.create(
@@ -141,11 +131,11 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    content=f'[Serenitea] Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         self._send_order_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Order created by webhook handler',
+            content=f'[Serenitea] Webhook received: {event["type"]} | SUCCESS: Order created by webhook handler',
             status=200
         )
 
@@ -154,12 +144,12 @@ class StripeWH_Handler:
         Handle the payment_intent.payment_failed webhook from Stripe
         """
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'[Serenitea] Webhook received: {event["type"]}',
             status=200)
 
     def handle_event(self, event):
         """ Handle a generic/unknown/unexpected webhook event """
         return HttpResponse(
-            content=f'Unhandled webhook received by Serenitea Webhook Handler: {event["type"]}',
+            content=f'[Serenitea] Unhandled webhook received: {event["type"]}',
             status=200
         )
