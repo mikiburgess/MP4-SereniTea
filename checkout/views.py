@@ -1,3 +1,7 @@
+"""
+Checkout Views for "SERENITEA EMPORIUM"
+- - - - - - - - - - - - - - - - - - - -
+"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -62,16 +66,17 @@ def checkout(request):
                 except Product.DoesNotExist:
                     # In case of error, handle gracefully
                     messages.error(request, (
-                        "Oops! One of the products in your basket wasn't found. "
+                        "Oops! One of the items in your basket wasn't found."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:  # form is not valid
-            messages.error(request, f'Oops! There was an error with your form. \
-                           Please double check your information. \
+            messages.error(request, f'Oops! There was an error with your  \
+                           form. Please double check your information. \
                            Error: {order_form.errors}')
     else:
         # Handle GET Requests

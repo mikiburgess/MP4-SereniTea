@@ -1,3 +1,8 @@
+"""
+Checkout App - Webhook Handler
+- - - - - - - - - - - - - - - - - - - -
+"""
+
 # Django imports
 from django.http import HttpResponse
 from django.conf import settings
@@ -54,8 +59,8 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
-        #  Handle user profile in same way as in usual checkout process 
-        #  Update profile information is user has checked the 'save_info' option
+        #  Handle user profile in same way as in usual checkout process
+        #  Update profile if user has checked the 'save_info' option
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -72,7 +77,7 @@ class StripeWH_Handler:
 
         # Check if order already exists
         order_exists = False
-        # max 5 attempts to retrieve order, to allow for syncronisation issues
+        # max 5 attempts to retrieve order, to allow for synchronization issues
         attempt = 1
         while attempt <= 5:
             try:
@@ -99,7 +104,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_order_confirmation_email(order)
             return HttpResponse(
-                content=f'[Serenitea] Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'[Serenitea] Webhook received: {event["type"]} \
+                    | SUCCESS: Verified order already in database',
                 status=200)
         else:
             order = None
@@ -131,11 +137,13 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'[Serenitea] Webhook received: {event["type"]} | ERROR: {e}',
+                    content=f'[Serenitea] Webhook received: {event["type"]} \
+                        | ERROR: {e}',
                     status=500)
         self._send_order_confirmation_email(order)
         return HttpResponse(
-            content=f'[Serenitea] Webhook received: {event["type"]} | SUCCESS: Order created by webhook handler',
+            content=f'[Serenitea] Webhook received: {event["type"]} \
+                | SUCCESS: Order created by webhook handler',
             status=200
         )
 

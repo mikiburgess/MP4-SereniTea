@@ -1,5 +1,5 @@
 """
-Product admin form for "SERENITEA EMPORIUM"
+Product forms for "SERENITEA EMPORIUM"
 - - - - - - - - - - - - - - - - - - - -
 """
 from django import forms
@@ -13,12 +13,14 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
-        friendly_names = [(category.id, category.get_friendly_name()) for category in categories]
+        friendly_names = [(category.id, category.get_friendly_name())
+                          for category in categories]
 
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():

@@ -17,11 +17,12 @@ from .forms import ProductForm
 def all_products(request):
     """ View to show all products """
     products = Product.objects.all()  # retrieve all products from database
-    categories = None  # initialise current selected product categories to None (i.e. unspecified)
-    group = None  # initialise current selected product group to None (i.e. unspecified)
-    sort = None  # initialise product sorting element to None (i.e. unspecified)
-    direction = None  # initialise product sorting order to None (i.e. unspecified)
-    query = None  # initialise query search term to None (i.e. unspecified)
+    # initialise initial view selectors to None (i.e. unspecified)
+    categories = None
+    group = None
+    sort = None
+    direction = None
+    query = None
 
     if request.GET:
         # Handle user submitting a sort request
@@ -45,23 +46,24 @@ def all_products(request):
                                ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
 
-            # Filter if search term present in product name OR product description
+            # Filter if search term present in product name OR description
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(alt_text__icontains=query)
             products = products.filter(queries)
 
         # Handle user submitting request to view products in specific category
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')  # allow for multiple categories
+            # allow for multiple categories
+            categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             # get category objects to enable access to category fields
             categories = Category.objects.filter(name__in=categories)
 
-        # Handle user submitting request to view all products in a specific category group
+        # Handle user submitting request to view all products in group
         if 'group' in request.GET:
             group = request.GET['group']
-            # obtain all Category objects where Category.group = requested group
+            # obtain all categories where Category.group = requested group
             categories = Category.objects.filter(group__iexact=group)
-            # iterate through the group categories to extract list of category names
+            # iterate through the group categories to extract list of names
             names = []
             for category in categories:
                 names.append(category.name)
@@ -107,12 +109,12 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request,
-                             'New product successfully added to store catalogue.')
+            messages.success(request, 'New product successfully added \
+                             to store catalogue.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request,
-                           'Failed to add product. Please check the form is valid.')
+            messages.error(request, 'Failed to add product. Please check \
+                           the form is valid.')
     else:
         # Handle GET requests
         form = ProductForm()
@@ -129,8 +131,8 @@ def edit_product(request, product_id):
     """ Update details of an existing store product """
     # Check user has permission to access this feature
     if not request.user.is_superuser:
-        messages.error(request,
-                       'Oops! You are not authorized to access that page.')
+        messages.error(request, 'Oops! You are not authorized to \
+                       access that page.')
         return redirect(reverse('home'))
 
     # retrieve details of the selected product
@@ -140,12 +142,12 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request,
-                             'Product successfully updated in store catalogue.')
+            messages.success(request, 'Product successfully updated in \
+                             store catalogue.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request,
-                           'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. Please \
+                           ensure the form is valid.')
     else:
         # Handle GET requests
         form = ProductForm(instance=product)

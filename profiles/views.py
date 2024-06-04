@@ -1,3 +1,9 @@
+"""
+    Profiles --> views.py
+    - Adapted from Boutique Ado
+- - - - - - - - - - - - - - - - - - - -
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -20,10 +26,11 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully.')
         else:
-            messages.error(request, 'Profile update failed. Please check the form.')
+            messages.error(request,
+                           'Profile update failed. Please check the form.')
 
     # Handle GET - user request to view their profile details
-    form = UserProfileForm(instance=profile)  # populate form with current user profile information
+    form = UserProfileForm(instance=profile)  # populate from user profile
     orders = profile.orders.all().order_by("date").reverse()
 
     template = "profiles/profile.html"

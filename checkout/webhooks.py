@@ -1,6 +1,6 @@
 """
-Webhooks for "SERENITEA EMPORIUM"
-   - based on Boutique Ado
+Checkout App - Stripe Webhooks
+ - based on Boutique Ado
 - - - - - - - - - - - - - - - - - - - -
 """
 

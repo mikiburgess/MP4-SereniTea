@@ -17,7 +17,7 @@ var style = {
         color: 'rgb(220, 53, 69)',
         iconColor: 'rgb(220, 53, 69)'
     }
-}
+};
 
 // Get keys from template using JQuery, stripping the first and last characters to remove quotation marks
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
@@ -126,5 +126,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // just reload the page, the error will be in django messages
         location.reload();
-    })
+    });
 });

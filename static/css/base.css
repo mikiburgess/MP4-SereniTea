@@ -74,7 +74,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     border-radius: 0;
-    padding: 0 2;
+    padding: 0 2px;
 }
 
 .site-btn {
@@ -83,7 +83,6 @@ body {
 
 .accordion-button,
 .browse-btn {
-    padding: auto;
     margin: auto;
     background-color: var(--timberwolf);
 }
@@ -180,7 +179,6 @@ footer > .row > p {
   
 .montserrat-regular {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
 }
@@ -219,7 +217,6 @@ title,
 .btn,
 p {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     color: black;
 }
@@ -241,7 +238,6 @@ p {
 
 .message-text {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-size: 0.90rem;
     font-weight: 100;
     font-style: normal;
@@ -257,7 +253,6 @@ p {
 
 .product-name {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
     color: black;
@@ -274,7 +269,6 @@ p {
 
 .welcome-container > p {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     margin-left: 5%;
@@ -342,7 +336,7 @@ a,
 }
 
 .form-select {
-    border: 2 solid black;
+    border: 2px solid black;
     border-radius: 0;
     color: var(--bistre);
     background-color: white;
@@ -377,7 +371,6 @@ a,
 .footer-link {
     font-family: "Montserrat", sans-serif;
     font-size: 0.75rem;
-    font-optical-sizing: auto;
     font-style: normal;
     color: var(--bistre);
 }
