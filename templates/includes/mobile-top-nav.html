@@ -29,7 +29,7 @@
     <li class="list-inline-item dropdown">
         <!-- User Account menu icon -->
         <a class="text-black nav-link d-block d-lg-none" href="#" 
-                id="user-options" data-bs-toggle="dropdown"
+                id="mobile-user-options" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="bi bi-person-fill"></i></div>
@@ -37,7 +37,7 @@
             </div>
         </a>
         <!-- User Account dropdown menu -->
-        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+        <div class="dropdown-menu border-0" aria-labelledby="mobile-user-options">
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <a href="{{ BASE_URL }}admin/" class="dropdown-item">Site Administration</a>
