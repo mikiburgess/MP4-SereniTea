@@ -30,9 +30,18 @@ This document describes the testing process and results for Milestone Project 4.
 
 ## Tools
 
+The following tools were used during the testing and validation of the SereniTea Emporium full stack e-commerce application:
 - [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools "DevTools"): Used throughout development to support page design, testing and accessibility. 
 - [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/) and [AmIResponsive](https://ui.dev/amiresponsive "Bytes AmIResponsive"): Used to test UI responsiveness across a number of device sizes.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/): CSS stylesheet validation by direct input.
+- [JSHint](https://jshint.com/): JavaScript validation by direct input.
+- [CI Python Linter](https://pep8ci.herokuapp.com/): Python code validation by direct input.
+- [W3C Markup Validation Service](https://validator.w3.org/): Validation of dynamically constructed and rendered HTML pages of the deployed application.
 
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
 
 ## Browser Compatibility
 
@@ -56,24 +65,43 @@ Responsiveness tests were undertaken using [Google Chrome Developer Tools](https
 All tests were conducted using a MacBook.
 
 <p align="center">
-    <img src="testing/am-i-responsive.png" alt="Illustration of the SereniTea Emporium site across a variety of devices">
+    <img src="testing/responsiveness/am-i-responsive.png" alt="Illustration of the SereniTea Emporium site across a variety of devices">
     <br>
     <em>Figure: Result of running deployed e-commerce application through <a href="https://ui.dev/amiresponsive" target="_blank">AmIResponsive</a></em>
 </p>
 
 
-Due to lack of access to multiple devices, all device responsiveness tests were completed using the [Google Chrome DevTools simulation tool](https://developer.chrome.com/docs/devtools/device-mode/). Before professional site deployment, responsiveness would need to be tested on real devices.
+Due to lack of access to multiple devices, individual device responsiveness tests were simulated using the [Google Chrome DevTools simulation tool](https://developer.chrome.com/docs/devtools/device-mode/) and [Responsive Design Checker](https://responsivedesignchecker.com/). Before professional site deployment, responsiveness would need to be tested on real devices.
+
+### Selection of results from the [Responsive Design Checker](https://responsivedesignchecker.com/)
+
+- Mobile: 
+    - Google Pixel
+    - Apple iPhone 6
+- Tablet: 
+    - Amazon Kindle Fire
+    - Apple iPad Mini
+- Computer: 
+    - 13 inch notebook
+    - 20 inch desktop
+    - 24 inch desktop
+
+
 
 - - -
 
 ## Code Validation
 
+Two approaches were adopted for code validation:
+- *Direct File Input*: Where code was pasted into the online validation tool
+- *Deployed Site*: Where the validator was provided with the URL of the deployed site.
+
 ### Direct File Input
 
 *Table 2: Code Validation*
 
-| App      | File               | Tool              | Result |
-|----------|--------------------|-------------------| ----- |
+| *APP* | *FILE* | *TOOL* | *RESULT* |
+|----------|------------|-------------| ----- |
 | Basket   | views.py | CI Python Linter  | [No issues](testing/code-validation/basket-views_py.png) |
 | Checkout | stripe-elements.js | JSHint            | [Warning](testing/code-validation/checkout-stripe_elements_js.png) that template literals are only avaialble in ES6.<br/>Code would therefore need to be updated before official store launch. |
 | Checkout | views.py | CI Python Linter  | [Import line too long](testing/code-validation/checkout-views_py.png).<br/>To comply with PEP8 good practice this shold be reduced to 79 characters (max) |
@@ -93,7 +121,7 @@ The results of this validation, along withs creenshots of the results, are liste
 
 *Table 3: Deployed validation*
 
-| Site Page| Results|
+| *SITE PAGE* | *RESULTS* |
 | ------ | ------ |
 | Home page| [No issues](testing/code-validation/homepage.png) |
 | View all products| [Issue identified with Image ID attributes](testing/code-validation/view-all-products.png)<br>Duplicate 'product-img' id's due to every product currently being given the same id value when the page is generated. This was done to enable consistent styling across all project images. <br/>Based on the experience of working on this project, a better solution to this would be to use classes only for styling. Due to time limitations this modification will be an element for future work. |
@@ -107,3 +135,60 @@ The results of this validation, along withs creenshots of the results, are liste
 
 - - -
 
+## Lighthouse Testing
+The [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) tool in Google Chrome was used to test site performance, accessibility and best practice of the deployed application. An overview of the results of the Lighthouse testing are listed in Table 4, along with links to summary reports.
+
+*Table 4: Lighthouse Testing Results*
+
+| *PAGE* | *RESULT* | *REPORT* |
+| :--- | :---: | :---: |
+| Home page | ![Home page result](testing/lighthouse/lighthouse-desktop-homepage.png) | [pdf](testing/lighthouse-reports/lighthouse-home-page.pdf) |
+| page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) |
+| page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) |
+
+Table 4 shows the results of testing a selection of site pages, using the desktop views. A number of lessons have been learned and actions identified:
+
+- Performance: Improve by enabling text compression and storing all images in next gen format (WebP). (This would significantly improve performance for mobile devices.)
+- Accessibility: Improve by adding supportive text to links. 
+- SEO: Could be improved by adding a more considered and comprehensive set of metadata.
+
+The next development stage would include implementing these changes then repeating the above tests, and expanding the testing to also consider mobile performance.
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+## User Stories
+
+
+*Table 5: User Story Validation*
+
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+## Features
+
+Site features have been manually tested and are demonstrated in the accompanying WALKTHROUGH section.
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+## Issues
+
+The following tests could not be undertaken within the project timeframe, but would be completed in the next phase of development:
+
+- User testing with a selection of volunteers, covering testing of anonymous and registered customers as well as obtaining feedback from a store owner (based on their experience of running a real-world store).
+- Responsiveness testing using Google Chrome DevTools for simulated mobile devices.
+- Lighthouse testing for mobile devices.
+- Testing on a selection of physical devices.
+- Production of illustrations of testing results for each user story.
+- Production of illustrations of testing site across a range of browsers.
+- Inclusion of automated testing.
+
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
