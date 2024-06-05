@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/serenitea_emporium_small.jpg" alt="SereniTea Emporium Company Logo">
+</p>
+
 <h1 align="center">Application Testing</h1>
 
 This document provides an overview of the testing of Milestone Project 4 - the SereniTea Emporium full stack web application project.
