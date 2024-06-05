@@ -354,7 +354,7 @@ The initial site logo was developed using [ImageFX](https://aitestkitchen.withgo
 </p>
 <br>
 <p align="center">
-  <a href="docs/design/colors/black-on-white-small.png">
+  <a href="docs/design/colors/black-on-white.png">
   <img src="docs/design/colors/black-on-white-small.png" alt="Color contrast checker for general site text"></a>
 <br>
 <em>Figure: Other site text, including titles, navbar and site buttons - Black (#000;) on White (#fff;)</a></em>
@@ -490,7 +490,7 @@ Throughout the allauth files used in this project, the ```content``` block was r
   - ```password_reset_done.html```
   - ```password_set.html```
   - ```password_change.html```
-- Email Mamagement:
+- Email Management:
   - ```email_confirm.html```
   - ```email_change.html```
 
@@ -575,18 +575,6 @@ The top menu/navigation bar is responsive across users and device sizes.
 
 <br>
 <p align="center">
-  <a href="docs/design/colors/black-on-white-small.png">
-  <img src="docs/design/colors/black-on-white-small.png" alt="Color contrast checker for general site text"></a>
-<br>
-<em>Figure: Other site text, including titles, navbar and site buttons - Black (#000;) on White (#fff;)</a></em>
-</p>
-<br>
-
-
-
-
-<br>
-<p align="center">
   <img src="docs/images/site-navigation/mobile-topnav.png" alt="mobile top navigation" width="350">
 <br>
 <em>Figure: Top navigation bar on mobile devices</em>
@@ -662,7 +650,7 @@ Like the navigation system, the site search facility is also responsive across u
 
 <br>
 <p align="center">
-  <img src="docs/images/item-search/desktop-search-bar.png" alt="desktop search facility" width="350">
+  <img src="docs/images/item-search/desktop-search-bar.png" alt="desktop search facility" width="400">
 <br>
 <em>Figure: Search facility on desktop devices</em>
 </p>
@@ -670,7 +658,7 @@ Like the navigation system, the site search facility is also responsive across u
 
 <br>
 <p align="center">
-  <img src="docs/images/item-search/desktop-search-results.png" alt="desktop search results" width="350">
+  <img src="docs/images/item-search/desktop-search-results.png" alt="desktop search results" width="400">
 <br>
 <em>Figure: Search results screen on desktop devices</em>
 </p>
