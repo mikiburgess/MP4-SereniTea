@@ -167,6 +167,9 @@ The next development stage would include implementing these changes then repeati
 
 ## Stripe Payments
 
+In order to test the payment functionality, a selection of [Stripe simulated payment options](https://docs.stripe.com/testing?testing-method=card-numbers) were selected to test stripe integration with the SereniTea e-commerce site.
+
+The results of these tests are presented in the following table.
 
 *Table 5: Stripe Payment Testing*
 
@@ -195,9 +198,7 @@ The next development stage would include implementing these changes then repeati
 
 ## User Stories
 
-
-*Table 6: User Story Validation*
-
+The initial user stories were revisited and evaluated. The results can be found in the accompanying [User Stories Table](testing/user-stories-table.md).
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 
