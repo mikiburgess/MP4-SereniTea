@@ -34,17 +34,21 @@
   - [Structure](#Structure)
   - [Skeleton](#Skeleton)
   - [Surface](#Surface)
-- [Site Functionality](#Site-Functionality)
 - [Site Development](#Site-Development)
-  - [Underlying Site Data](#Underlying-Site-Data)
+  - [Data Management](#Data-Management)
   - [Site Content](#Site-Content)
-  - [User Management](#User-Management)
-  - [Site Navigation](#Site-Navigation)
+  - [User Management using Allauth](#User-Management-using-Allauth)
   - [Tools & Technologies](#Tools-&-Technologies)
-- [Walkthrough](#Walkthrough)
+- [Site Functionality](#Site-Functionality)
+  - [Responsive Site Navigation](#Site-Navigation)
+  - [Product Search Facility](#Product-Search-Facility)
+  - [Application Walkthroughs](#Application-Walkthroughs)
 - [Testing](#Testing)
-- [Guide to Deployment and Development](#Guide-to-Deployment-and-Development)
+- [Guide to Development and Deployment](#Guide-to-Development_and-Deployment)
 - [Project Review and Reflection](#Project-Review-and-Reflection)
+  - [Improvements to Design and Development](#Improvements-to-Design-and-Development)
+  - [Future Features](#Future-Features)
+  - [Challenges and Bugs](#Challenges-and-Bugs)
 - [Project Credits and Acknowledgements](#Project-Credits-and-Acknowledgements)
 
 - - -
@@ -384,6 +388,8 @@ Site accessibility was considered throughout the design, development and testing
 
 ## Site Development
 
+In the following section we look at the key areas of decisions and actions relating to developing the web application, according go the designs and approaches covered above.
+
 ### Data Management
 The defined relational database schema was constructed in the online Postgres database [ElephantSQL](https://www.elephantsql.com/). The process of populating and updating the database was then supported by using teh Django framework.
 
@@ -411,8 +417,8 @@ The following describes the process for generating product catalogue data:
   9. Export data to csv file [products.csv](docs/product-catalogue/products.csv)
   10. Convert csv files to Django fixtures json format using python scripts
 
-    - [makeJsonCategories.py](docs/product-catalogue/makeJsonCategories.py) --> [categories.json](docs/product-catalogue/categories.json)
-    - [makeJsonProducts.py](docs/product-catalogue/makeJsonProducts.py) --> [products.json](docs/product-catalogue/products.json)
+  - [makeJsonCategories.py](docs/product-catalogue/makeJsonCategories.py) --> [categories.json](docs/product-catalogue/categories.json)
+  - [makeJsonProducts.py](docs/product-catalogue/makeJsonProducts.py) --> [products.json](docs/product-catalogue/products.json)
   
   11. Add fixture files to the product app fixture folder
   12. Finally, add the json fixture files into the project using the following CLI commands:
@@ -431,7 +437,7 @@ Some site text was also generated using AI.
   3. Review and edit text, using it as a basis for creating the final site text.
 
 
-### User Management - Allauth Integration
+### User Management using Allauth
 Django Allauth version 0.60.0 was used in the SereniTea project to support user management, authorization and authentication.
 
 Within the project html files the block named ```content``` was used to wrap the page specific content:
@@ -480,12 +486,8 @@ Throughout the allauth files used in this project, the ```content``` block was r
   - ```email_confirm.html```
   - ```email_change.html```
 
-### Site Navigation
-...
-
 ### Tools & Technologies
 Below is a summary of the tools and languages used during this project, from design through to development and testing.
-
 
 #### Coding
 - [Django v4.2](https://www.djangoproject.com/ "Django"): The Web Framework underpinning this Full Stack Web Application.
@@ -522,23 +524,59 @@ This section lists the tools used during this project in support of the developm
 - [Heroku](https://www.heroku.com/ "Heroku"): The Heroku platform has been used in this project to host the final, [deployed web site](https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/ "Serenitea Emporium").
 
 #### Testing and Validation
+Testing and Validation tools used throughout the development and testing stages include the following:
 - [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools "DevTools"): Used throughout development to support page design, testing and accessibility. 
 - [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/) and [AmIResponsive](https://ui.dev/amiresponsive "Bytes AmIResponsive"): Used to test UI responsiveness across a number of device sizes.
+
+All other tools employed during the Testing and Validation stage, are listed in the accompanying document [TESTING.MD](docs/TESTING.MD).
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 
 - - -
 
+## Site Functionality
 
-## Walkthrough
-...
+This section provides an overview of web application functionality. 
 
+Information Pages - Home/Landing, About Serenitea, Shipping & Delivery
+
+User access - Account Registration, Sign In, Sign Out, Profile Page
+
+Store Products - All Products, Product Category, Product Details
+
+Superuser Product Management - All Products, Product Details, Edit Product, Add New Product
+
+Shopping Basket - Shopping Basket, Checkout Process, Checkout Completed
+
+
+### Responsive Site Navigation
+
+The top menu/navigation bar is responsive across users and device sizes.
+
+Mobile devices:
+
+Desktop devices:
+
+### Product Search Facility
+
+
+### Application Walkthroughs
+ A selection of application walkthroughs, demonstrating functionality and features, can be found in [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD)
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
 ## Testing
+
+Full overview and results of site testing can be found in [TESTING.MD](docs/TESTING.MD).
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+## Guide to Development and Deployment
+
+Guidance for how to use the SereniTea Emporium project repository for undertaking further development or deploying the application to Heroku can be found in [DEPLOYMENT.MD](docs/DEPLOYMENT.MD).
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
@@ -595,6 +633,17 @@ This approach uses 'picture' to allow for multiple image options, with source ta
 More details regarding this approach can be found at [web.dev - Use WebP Images](https://web.dev/articles/serve-images-webp).
 
 
+#### Improved Security
+Site security is currently controlled by user roles, with superusers/administrators being permitted greater access that standard visitors and customers. This includes the ability to add new products to the store catalogue.
+In this initial version of the store application, product descriptions are stored in the database in HTML form, which is then rendered in the product detail page when selected for viewing.
+As such, the 'add product' form allows for entry of a HTML formatted item description.
+
+If access security was breached, this would allow for malicious code injection attacks whereby code could be sent to the database ([SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection "OWASP - SQL Injection")) and/or executed when the specific product detail page is loaded ([XSS](https://owasp.org/www-community/attacks/xss/ "OSAWP - XSS")). 
+An important future development would therefore be to sanitize data input to remove all code elements to remove this security weakness.
+
+Improving security would be of high priority if this site were developed further and deployed as a fully functional e-commerce store, being essential to complete before store launch.
+
+
 ### Future Features
 As can be seen in the Testing section, there are a number of areas where the current implementation of the site could be developed further and therefore improved. The features listed below are in addition to those previously listed future developments, and have been identified as those that would add greatest benefit to the site if implemented within the next development stage.
 
@@ -610,7 +659,6 @@ The current approach to customer access and profile management could also be dev
 - Enable registered users to add a profile image to their user profiles.
 
 #### Additional Site Pages
-
 - Add an autogenerated site map to provide an overview for site visitors.
 - A contact page containing a validated form, enabling visitors to send a message directly to the company from the web site.
 
