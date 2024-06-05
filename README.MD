@@ -218,7 +218,14 @@ From the perspective of the site visitor however it will appear to be comprised 
 - Store Contents
   - Products page: for viewing gallery of products
   - Product page: for viewing the details of each individual product
-- Shopping Basket:
+- Shopping Basket
+- Checkout
+- My Profile
+  - Registration
+  - Sign in + Sign out
+  - View/Edit profile
+
+Site administrators will also have access to pages for modifying the store catalogue.
 
 
 #### Site Navigation
@@ -554,18 +561,13 @@ All other tools employed during the Testing and Validation stage, are listed in 
 
 ## Site Functionality
 
-This section provides an overview of web application functionality. 
-
-Information Pages - Home/Landing, About Serenitea, Shipping & Delivery
-
-User access - Account Registration, Sign In, Sign Out, Profile Page
-
-Store Products - All Products, Product Category, Product Details
-
-Superuser Product Management - All Products, Product Details, Edit Product, Add New Product
-
-Shopping Basket - Shopping Basket, Checkout Process, Checkout Completed
-
+This section provides an overview of the SereniTea Emporium e-commerce web application functionality:
+- *Information Pages* - Home/Landing, About Serenitea, Shipping & Delivery
+- *User access* - Account Registration, Sign In, Sign Out, Profile Page
+- *Store Products* - All Products, Product Category, Product Details
+- *Superuser Product Management* - All Products, Product Details, Edit Product, Add New Product
+- *Shopping Basket* - Shopping Basket, Checkout Process, Checkout Completed
+Illustrations of these functionalities are also demonstrated in the [Walkthroughs](docs/WALKTHROUGHS.MD) and [Testing](docs/TESTING.MD) documents.
 
 ### Responsive Site Navigation
 
