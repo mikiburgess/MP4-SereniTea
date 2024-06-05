@@ -28,6 +28,12 @@ This document describes the testing process and results for Milestone Project 4.
 
 - - -
 
+<p align="center">
+  <img src="images/docs-additional/tea-1284366_640.jpg" alt="document decoration image" width="300">
+</p>  
+
+- - -
+
 ## Tools
 
 The following tools were used during the testing and validation of the SereniTea Emporium full stack e-commerce application:
@@ -76,16 +82,15 @@ Due to lack of access to multiple devices, individual device responsiveness test
 ### Selection of results from the [Responsive Design Checker](https://responsivedesignchecker.com/)
 
 - Mobile: 
-    - Google Pixel
-    - Apple iPhone 6
+    - [Google Pixel](testing/responsiveness/mobile-google-pixel.png)
+    - [Apple iPhone 6](testing/responsiveness/mobile-iphone-6.png)
 - Tablet: 
-    - Amazon Kindle Fire
-    - Apple iPad Mini
+    - [Amazon Kindle Fire](testing/responsiveness/tablet-amazon-kindle-fire.png)
+    - [Apple iPad Mini](testing/responsiveness/tablet-ipad-mini.png)
 - Computer: 
-    - 13 inch notebook
-    - 20 inch desktop
-    - 24 inch desktop
-
+    - [13 inch notebook](testing/responsiveness/computer-13-inch-notebook.png)
+    - [20 inch desktop](testing/responsiveness/computer-20-inch-desktop.png)
+    - [24 inch desktop](testing/responsiveness/computer-24-inch-desktop.png)
 
 
 - - -
@@ -103,21 +108,21 @@ Two approaches were adopted for code validation:
 | *APP* | *FILE* | *TOOL* | *RESULT* |
 |----------|------------|-------------| ----- |
 | Basket   | views.py | CI Python Linter  | [No issues](testing/code-validation/basket-views_py.png) |
-| Checkout | stripe-elements.js | JSHint            | [Warning](testing/code-validation/checkout-stripe_elements_js.png) that template literals are only avaialble in ES6.<br/>Code would therefore need to be updated before official store launch. |
-| Checkout | views.py | CI Python Linter  | [Import line too long](testing/code-validation/checkout-views_py.png).<br/>To comply with PEP8 good practice this shold be reduced to 79 characters (max) |
+| Checkout | stripe-elements.js | JSHint | [Warning](testing/code-validation/checkout-stripe_elements_js.png) that template literals are only available in ES6.<br/>Code would therefore need to be updated before official store launch. |
+| Checkout | views.py | CI Python Linter  | [Import line too long](testing/code-validation/checkout-views_py.png).<br/>To comply with PEP8 good practice this should be reduced to 79 characters (max) |
 | Checkout | webhook-handler.py | CI Python Linter  | [Three lines too long](testing/code-validation/checkout-webhook_handler_py.png).<br/>To comply with PEP8 good practice these should be reduced to 79 characters (max) |
 | Checkout | webhooks.py | CI Python Linter  | [No issues](testing/code-validation/checkout-webhooks_py.png) |
-| Home     | views.py | CI Python Linter  | [No issues](testing/code-validation/home-views_py.png) |
+| Home | views.py | CI Python Linter  | [No issues](testing/code-validation/home-views_py.png) |
 | Products | views.py | CI Python Linter  | [One line (search query) too long](testing/code-validation/products-views_py.png).<br/>To comply with PEP8 good practice this should be reduced to 79 characters (max) |
 | Products | admin.py | CI Python Linter  | [No issues](testing/code-validation/products-admin_py.png) |
 | Products | forms.py | CI Python Linter  | [No issues](testing/code-validation/products-forms_py.png) |
 | Profiles | profile.css | W3C CSS Validator | [No issues](testing/code-validation/profile-profile_css.png) |
 | Profiles | views.py | CI Python Linter  | [No issues](testing/code-validation/profile-views_py.png) |
-| Project  | base.css | W3C CSS Validator | [No errors](testing/code-validation/serenitea-base_css.png). [3 warninings](testing/code-validation/serenitea-base_css-warnings.png).<br/>Warnings flag intentional decisions and so haven't been changed. |
+| Project  | base.css | W3C CSS Validator | [No errors](testing/code-validation/serenitea-base_css.png). [3 warnings](testing/code-validation/serenitea-base_css-warnings.png).<br/>Warnings flag intentional decisions and so haven't been changed. |
 
 ### Deployed Site
 The site as [deployed to Heroku](https://mp4-serenitea-emporium-5454dc22e46f.herokuapp.com/) was validated using the [W3C Markup Validation Service](https://validator.w3.org/). 
-The results of this validation, along withs creenshots of the results, are listed in the table below.
+The results of this validation, along with screenshots of the results, are listed in the table below.
 
 *Table 3: Deployed validation*
 
@@ -173,28 +178,32 @@ The results of these tests are presented in the following table.
 
 *Table 5: Stripe Payment Testing*
 
-
-| TEST| CARD NUMBER| CVC  | DATE  | EXPECTED RESULTS | TEST RESULT |
-| ----- |----- |----- |----- |------ |----- |
-| Visa (credit) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| Visa (debit) | 4000056655665556 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| Mastercard (credit) | 5555555555554444 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| American Express | 378282246310005  | 1234 | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| United States (US) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| Norway (NO) | 4000005780000007 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| United Kingdom (GB) | 5555558265554449 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
-| Generic decline | 4000000000000002 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." |
-| Insufficient Funds | 4000000000009995 | 123  | 02/25 | Declined | Payment declined with message "Your card has insufficient funds." |
-| Incorrect CSV | 4000000000000127 | 123  | 02/25 | Declined | Payment declined with message "Your card's security code is incorrect." |
-| Fraud Protection - Always Blocked | 4100000000000019 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." |
-| Fraudulent | 4000000000000259 | 123  | 02/25 | Declined | Payment Intent succeeded. Order successful - fraudulent-success-email.png & fraudulent-initial-success.png. <br/>Stripe dispute raised, viewed in dashboard fraudulent-stripe-dispute.png. <br/>Payment eventually declined and withdrawn - fraudulent-funds-withdrawn-top.png, fraudulent-funds-withdrawn-reason.png |
-| Always Authenticate | 4000002760003184 | 123  | 02/25 | Payment Success when Authenticate | On placing the order the authentication notice is displayed. When clicking 'complete' the order is successful. |
-| Always Authenticate | 4000002760003184 | 123  | 02/25 | Declined when Not Authenticated   | On placing the order the authentication notice is displayed. When clicking 'fail' the payment is declined. |
+| TEST| CARD NUMBER| CVC  | DATE  | EXPECTED RESULTS | TEST RESULT | EVIDENCE |
+| ----- | ----- | ----- | ----- | ------ | ----- | ----- |
+| Visa (credit) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [card](testing/stripe-payments/success-visacredit-cardinfo.png), [order](testing/stripe-payments/success-visacredit-order.png), [stripe](testing/stripe-payments/success-visacredit-stripe.png) |
+| Visa (debit) | 4000056655665556 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [card](testing/stripe-payments/success-visadebit-cardinfo.png), [order](testing/stripe-payments/success-visadebit-order.png), [stripe](testing/stripe-payments/success-visadebit-stripe.png) |
+| Mastercard (credit) | 5555555555554444 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [card](testing/stripe-payments/success-mastercard-cardinfo.png), [order](testing/stripe-payments/success-mastercard-credit-order.png), [stripe](testing/stripe-payments/success-mastercard-credit-stripe.png) |
+| American Express | 378282246310005  | 1234 | 02/25 | Payment Success | Order is successful and payment processed by stripe | [card](testing/stripe-payments/success-amex-cardinfo.png), [order](testing/stripe-payments/success-amex-order.png), [stripe](testing/stripe-payments/success-amex-stripe.png) |
+| United States (US) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [order](testing/stripe-payments/success-us-order.png), [stripe](testing/stripe-payments/success-us-stripe.png) |
+| Norway (NO) | 4000005780000007 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [order](testing/stripe-payments/success-no-order.png), [stripe](testing/stripe-payments/success-no-stripe.png) |
+| United Kingdom (GB) | 5555558265554449 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe | [order](testing/stripe-payments/success-gb-order.png), [stripe](testing/stripe-payments/success-gb-stripe.png) |
+| Generic decline | 4000000000000002 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." | [declined](testing/stripe-payments/generic-decline.png) |
+| Insufficient Funds | 4000000000009995 | 123  | 02/25 | Declined | Payment declined with message "Your card has insufficient funds." | [declined](testing/stripe-payments/insufficient-funds.png) |
+| Incorrect CSV | 4000000000000127 | 123  | 02/25 | Declined | Payment declined with message "Your card's security code is incorrect." | [declined](testing/stripe-payments/incorrect-csv.png) |
+| Fraud Protection - Always Blocked | 4100000000000019 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." | [declined](testing/stripe-payments/fraud-protection-always-decline.png) |
+| Fraudulent | 4000000000000259 | 123  | 02/25 | Declined | Payment Intent succeeded. Order successful - confirmation [img](testing/stripe-payments/fraudulent-initial-success.png) with email [img](testing/stripe-payments/fraudulent-success-email.png)<br/>Stripe dispute raised, viewable in dashboard [img](testing/stripe-payments/fraudulent-stripe-dispute.png). <br/>Payment eventually declined [img](testing/stripe-payments/fraudulent-funds-withdrawn-top.png) and withdrawn [img](testing/stripe-payments/fraudulent-funds-withdrawn-reason.png) | [Order Successful](testing/stripe-payments/fraudulent-initial-success.png) with [Email](testing/stripe-payments/fraudulent-success-email.png), [Stripe dispute](testing/stripe-payments/fraudulent-stripe-dispute.png), [Fund withdrawn](testing/stripe-payments/fraudulent-funds-withdrawn-top.png) with [Reason](testing/stripe-payments/fraudulent-funds-withdrawn-reason.png) |
+| Always Authenticate - successful | 4000002760003184 | 123  | 02/25 | Payment Success when Authenticate | On placing the order the authentication notice is displayed. When clicking 'complete' the order is successful. | [card](testing/stripe-payments/authenticate-1-cardinfo.png), [authentication](testing/stripe-payments/authenticate-2-authentication-required.png), [order](testing/stripe-payments/authenticate-3-order.png), [stripe](testing/stripe-payments/authenticate-4-stripe.png) |
+| Always Authenticate -0 declined | 4000002760003184 | 123  | 02/25 | Declined when Not Authenticated   | On placing the order the authentication notice is displayed. When clicking 'fail' the payment is declined. | [card](testing/stripe-payments/authfail-1-cardinfo.png), [authentication](testing/stripe-payments/authfail-2-authentication.png), [failed](testing/stripe-payments/authfail-3-clicked-fail.png), [stripe](testing/stripe-payments/authfail-4-stripe.png) |
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 
 - - -
 
+<p align="center">
+  <img src="images/docs-additional/girl-2626753_640.jpg" alt="document decoration image" width="300">
+</p>  
+
+- - -
 
 ## User Stories
 
@@ -226,5 +235,11 @@ The following tests could not be undertaken within the project timeframe, but wo
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+<p align="center">
+  <img src="images/docs-additional/tea-1132529_640.jpg" alt="document decoration image" width="300">
+</p>  
 
 - - -
