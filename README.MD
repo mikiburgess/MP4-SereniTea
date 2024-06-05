@@ -814,7 +814,7 @@ Several days were spent trying to debug the Heroku build errors using the Django
 Although some errors arose with incompatibility of package versions (in particular - ```django``` and ```boto3```), linking Heroku, Django and AWS was particularly problematic. 
 
 Due to not using the Code Institute online tools (due to the unreliability of Code Anywhere and loosing too many study days being unable to access my work, resulting in switching to developing in a local environment) support from the Code Institute tutors wasn't available to me. During the debugging process I therefore 
-1. Sought assistance from my colleague, Dr N Caine, to see if deployment from their machine was also an issue. This was achieved by creating a git branch to use on their computer to test if their environment worked. It didn't. The same issues arose.
+1. Sought assistance from my colleague, Dr N Caine, to see if deployment from their machine was also an issue. This was achieved by creating a git branch to use on their computer to test if their environment worked. It didn't. The same issues arose. (*Note: an accidental push from their machine ended up adding them as a contributor to this project. This was a one-off accident; they were not involved in the project work; Github history cah be reviewed to support this*)
 2. Created a number of text branches for me to experiment with Django and associated libraries.
 
 A compromise was reached for package incompatibilities by downgrading Django from version 5. 
