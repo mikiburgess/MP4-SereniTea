@@ -571,12 +571,110 @@ Shopping Basket - Shopping Basket, Checkout Process, Checkout Completed
 
 The top menu/navigation bar is responsive across users and device sizes.
 
-Mobile devices:
+#### Mobile devices
 
-Desktop devices:
+<br>
+<p align="center">
+  <a href="docs/design/colors/black-on-white-small.png">
+  <img src="docs/design/colors/black-on-white-small.png" alt="Color contrast checker for general site text"></a>
+<br>
+<em>Figure: Other site text, including titles, navbar and site buttons - Black (#000;) on White (#fff;)</a></em>
+</p>
+<br>
 
-### Product Search Facility
 
+
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/mobile-topnav.png" alt="mobile top navigation" width="350">
+<br>
+<em>Figure: Top navigation bar on mobile devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/mobile-off-canvas.png" alt="mobile off-canvas navigation" width="300">
+<br>
+<em>Figure: Off-canvas navigation bar on mobile devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/mobile-my-account.png" alt="mobile profile menu" width="350">
+<br>
+<em>Figure: User account menu on mobile devices</em>
+</p>
+<br>
+
+#### Desktop devices
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/large-topnav.png" alt="desktop top navigation" width="350">
+<br>
+<em>Figure: Top navigation bar on desktop devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/large-products.png" alt="desktop products navigation" width="350">
+<br>
+<em>Figure: Products navigation on desktop devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/site-navigation/large-my-account.png" alt="desktop profile menu" width="350">
+<br>
+<em>Figure: User account menu on desktop devices</em>
+</p>
+<br>
+
+
+### Site Search Facility
+
+Like the navigation system, the site search facility is also responsive across users and device sizes.
+
+#### Mobile devices
+
+<br>
+<p align="center">
+  <img src="docs/images/item-search/mobile-search-bar.png" alt="mobile search facility" width="300">
+<br>
+<em>Figure: Search facility on mobile devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/item-search/mobile-search-results.png" alt="mobile search results" width="300">
+<br>
+<em>Figure: Search results screen on mobile devices</em>
+</p>
+<br>
+
+#### Desktop devices
+
+<br>
+<p align="center">
+  <img src="docs/images/item-search/desktop-search-bar.png" alt="desktop search facility" width="350">
+<br>
+<em>Figure: Search facility on desktop devices</em>
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="docs/images/item-search/desktop-search-results.png" alt="desktop search results" width="350">
+<br>
+<em>Figure: Search results screen on desktop devices</em>
+</p>
+<br>
 
 ### Application Walkthroughs
  A selection of application walkthroughs, demonstrating functionality and features, can be found in [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD)
