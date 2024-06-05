@@ -79,7 +79,7 @@
                     <div class="form-row">
                         <div class="col-12">
                             <p class="mt-2"><strong>Quantity:</strong></p>
-                            <div class="form-group mt-2 w-50">
+                            <div class="form-group mt-2 w-50 d-flex flex-md-row">
                                 <div class="input-group">
                                     {% if product.stock_level == 0 %}
                                     <input class="form-control qty_input" type="number"
@@ -93,7 +93,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col-12 d-flex flex-column-reverse flex-md-row gap-1">
                             <a href="{% url 'products' %}" class="site-btn btn mt-2">
                                 <span class="icon">
                                     <i class="bi bi-arrow-left-circle"></i>
