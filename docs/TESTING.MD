@@ -143,8 +143,15 @@ The [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) tool in
 | *PAGE* | *RESULT* | *REPORT* |
 | :--- | :---: | :---: |
 | Home page | ![Home page result](testing/lighthouse/lighthouse-desktop-homepage.png) | [pdf](testing/lighthouse-reports/lighthouse-home-page.pdf) |
-| page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) |
-| page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) || page | ![Products page result](testing/lighthouse) | [pdf](testing/lighthouse/summary-reports) |
+| About SereniTea | ![About page result](testing/lighthouse/lighthouse-desktop-about.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-about-summary.pdf) |
+| All Products | ![Products page result](testing/lighthouse/lighthouse-desktop-products.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-products-summary.pdf) |
+| Single product item - Gold Rim Mug | ![Gold Rim Mug page result](testing/lighthouse/lighthouse-desktop-product-gold-rim-mug.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-product-gold-rim-mug-summary.pdf) |
+| Single product item - Gold Assam Sunset Tea | ![Gold Assam Sunset Tea page result](testing/lighthouse/lighthouse-desktop-product-golden-assam-sunset.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-product-golden-assam-sunset.pdf) |
+| Single product item - Leaf Tea Selection Box | ![Leaf Tea Selection Box page result](testing/lighthouse/lighthouse-desktop-product-leaf-tea-selection-box.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-product-leaf-tea-selection-box-summary.pdf) |
+| Shopping Basket with 1 Item | ![Single Item shopping basket result](testing/lighthouse/lighthouse-desktop-basket-one-item.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-basket-one-item-summary.pdf) |
+| Shopping Basket with 4 Items | ![Single Item shopping basket result](testing/lighthouse/lighthouse-desktop-basket-four-items.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-basket-four-items-summary.pdf) |
+| Checkout page | ![Checkout page result](testing/lighthouse/lighthouse-desktop-checkout.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-checkout-summary.pdf) |
+| Checkout Confirmation | ![Checkout Confirmation page result](testing/lighthouse/lighthouse-desktop-checkout-success.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-checkout-success-summary.pdf) |
 
 Table 4 shows the results of testing a selection of site pages, using the desktop views. A number of lessons have been learned and actions identified:
 
@@ -158,10 +165,38 @@ The next development stage would include implementing these changes then repeati
 
 - - -
 
+## Stripe Payments
+
+
+*Table 5: Stripe Payment Testing*
+
+
+| TEST| CARD NUMBER| CVC  | DATE  | EXPECTED RESULTS | TEST RESULT |
+| ----- |----- |----- |----- |------ |----- |
+| Visa (credit) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| Visa (debit) | 4000056655665556 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| Mastercard (credit) | 5555555555554444 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| American Express | 378282246310005  | 1234 | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| United States (US) | 4242424242424242 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| Norway (NO) | 4000005780000007 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| United Kingdom (GB) | 5555558265554449 | 123  | 02/25 | Payment Success | Order is successful and payment processed by stripe |
+| Generic decline | 4000000000000002 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." |
+| Insufficient Funds | 4000000000009995 | 123  | 02/25 | Declined | Payment declined with message "Your card has insufficient funds." |
+| Incorrect CSV | 4000000000000127 | 123  | 02/25 | Declined | Payment declined with message "Your card's security code is incorrect." |
+| Fraud Protection - Always Blocked | 4100000000000019 | 123  | 02/25 | Declined | Payment declined with message "Your card has been declined." |
+| Fraudulent | 4000000000000259 | 123  | 02/25 | Declined | Payment Intent succeeded. Order successful - fraudulent-success-email.png & fraudulent-initial-success.png. <br/>Stripe dispute raised, viewed in dashboard fraudulent-stripe-dispute.png. <br/>Payment eventually declined and withdrawn - fraudulent-funds-withdrawn-top.png, fraudulent-funds-withdrawn-reason.png |
+| Always Authenticate | 4000002760003184 | 123  | 02/25 | Payment Success when Authenticate | On placing the order the authentication notice is displayed. When clicking 'complete' the order is successful. |
+| Always Authenticate | 4000002760003184 | 123  | 02/25 | Declined when Not Authenticated   | On placing the order the authentication notice is displayed. When clicking 'fail' the payment is declined. |
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+
+- - -
+
+
 ## User Stories
 
 
-*Table 5: User Story Validation*
+*Table 6: User Story Validation*
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
