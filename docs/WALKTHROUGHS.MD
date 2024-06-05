@@ -8,18 +8,20 @@
 
 ## Table of Contents
 
-- Anonymous Visitor Walkthroughs
-    - Browsing the store catalogue
-    - Making an anonymous purchase
-- Customer Walkthroughs
-    - Registering as a new customer
-    - Sign in and Sign out
-    - Adding a delivery address to a customer account
-    - Purchasing items
-- Administrator Walkthroughs
-    - Editing store products
-    - Adding a new product
-    - Deleting a product
+- [Anonymous Visitor Walkthroughs](#anonymous-visitor-walkthroughs)
+  - [Browsing the store catalogue](#browsing-the-store-catalogue)
+  - [Making an anonymous purchase](#making-an-anonymous-purchase)
+- [Customer Walkthroughs](#customer-walkthroughs)
+  - [Registering as a new customer](#registering-as-a-new-customer)
+  - [Signing Out](#signing-out)
+  - [Making a store purchase](#making-a-store-purchase)
+  - [Reviewing all orders](#reviewing-all-orders)
+  - [Order confirmation emails (inc Stripe)](#order-confirmation-emails-inc-stripe)
+  - [Using an iPhone](#using-an-iphone)
+- [Administrator Walkthroughs](#administrator-walkthroughs)
+  - [Adding a new product](#adding-a-new-product)
+  - [Editing a store product](#editing-a-store-product)
+  - [Deleting a store product](#deleting-a-store-productå)
 
 - - -
 
@@ -263,7 +265,7 @@ To then review the order ...
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
-### Order confirmation emails, with Stripe
+### Order confirmation emails (inc Stripe)
 Using a new registered customer, named Sasha.
 Walkthough includes email and checking Stripe payment status (accessible by admin only - not store customers).
 
@@ -406,7 +408,7 @@ Adding a new offer - *Mystery Gift!*
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
-### Editing store products
+### Editing a store product
 Updating the stock level of an item that has sold out - *Popart Lady Cat*
 
 **Step 1. Select the product to be edited, and click the green edit option**
@@ -440,7 +442,7 @@ Updating the stock level of an item that has sold out - *Popart Lady Cat*
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
-### Deleting a product
+### Deleting a store product
 Deleting an item that is no longer to be stocked in the store - *Russian Caravan Black Tea*
 
 **Step 1. Locate the product to be deleted**
@@ -462,4 +464,10 @@ Deleting an item that is no longer to be stocked in the store - *Russian Caravan
 </p>
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+<p align="center">
+  <img src="images/docs-additional/tea-1132529_640.jpg" alt="document decoration image" width="300">
+</p>  
+
 - - -
