@@ -26,17 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get("DEBUG")
-# DEBUG = os.environ.get("DEVELOPMENT")
 DEBUG = False
 
+# Application accessible only from these hosts:
 ALLOWED_HOSTS = [
     'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com',
     '127.0.0.1',
     'localhost',
 ]
-
-# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -154,14 +151,12 @@ WSGI_APPLICATION = 'serenitea.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -179,26 +174,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-gb'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-# WITHOUT AWS
-
-STATIC_ROOT = BASE_DIR / "staticfiles"   # For Whitenoise
+STATIC_ROOT = BASE_DIR / "staticfiles"   # For WhiteNoise
 STATIC_URL = '/static/'
-# STATICFILESDIRECT_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
@@ -225,14 +210,12 @@ STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
-    # Enable WhiteNoise's GZip and Brotli compression of static assets:
+    # Enable WhiteNoise's GZip and Brotli compression of static assets, without caching:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-
 
 # Don't store the original (un-hashed filename) version of static files, to reduce slug size:
 # https://whitenoise.readthedocs.io/en/latest/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
@@ -240,11 +223,10 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# DATA LOGGING DURING DEVELOPMENT
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
