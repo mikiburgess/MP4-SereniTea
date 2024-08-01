@@ -9,6 +9,7 @@ from pathlib import Path
 from decimal import Decimal
 import os
 import dj_database_url
+from whitenoise import WhiteNoise
 
 # import environment variables from env.py, if present
 if os.path.exists("env.py"):
@@ -26,14 +27,16 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG")
-DEBUG = 'DEVELOPMENT' in os.environ
-
+# DEBUG = os.environ.get("DEVELOPMENT")
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'mp4-serenitea-emporium-5454dc22e46f.herokuapp.com',
     '127.0.0.1',
     'localhost',
 ]
+
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -192,8 +195,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # WITHOUT AWS
+
 STATIC_URL = '/static/'
-STATICFILESDIRECT_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"   # For Whitenoise
+# STATICFILESDIRECT_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 PRODUCT_IMAGES = os.path.join(MEDIA_URL, 'products/')
@@ -214,8 +219,6 @@ STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
 
-# For Whitenoise
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # For Whitenoise
 STORAGES = {
@@ -228,6 +231,8 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 
 # Don't store the original (un-hashed filename) version of static files, to reduce slug size:
 # https://whitenoise.readthedocs.io/en/latest/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
@@ -238,3 +243,18 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+}
