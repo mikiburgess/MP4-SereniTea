@@ -23,12 +23,17 @@
                 <div class="col-10 offset-1 col-md-5 offset-md-1">
                     <div class="image-container my-5 text-center">
                         {% if product.image %}
-                            <a href="{{ product.image.url }}" target="_blank">
-                                <img id="product-img" class="card-img-top img-fluid product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            
+                        
+                            <a href="{% static 'media/' %}{{ product.image }}" target="_blank">
+                                <img id="product-img" class="card-img-top img-fluid product-img" 
+                                src="{% static 'media/' %}{{ product.image }}" 
+                                alt="{{ product.name }}">
                             </a>
+                            <p>{% static 'media/' %}{{ product.image }}</p>
                         {% else %}
-                            <a href="{{MEDIA_URL}}noimage.png" target="_blank">
-                                <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            <a href="{% static 'media/noimage.png' %}" target="_blank">
+                                <img class="card-img-top img-fluid product-img" src="{% static 'media/noimage.png' %}" alt="{{ product.name }}">
                             </a>
                         {% endif %}
                     </div>
@@ -197,7 +202,7 @@
 
         // If unable to load product image, display 'noimage.png' instead
         $('#product-img').on("error", function () {
-            $('#product-img').attr('src', '{{ MEDIA_URL }}noimage.png')
+            $('#product-img').attr('src', "{% static 'media/leaf.jpg' %}")
         })      
     </script>
 {% endblock %}

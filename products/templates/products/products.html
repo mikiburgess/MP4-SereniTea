@@ -82,11 +82,11 @@
                                 <div class="card product-card h-100">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}" >
-                                        <img id="product-img" class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                        <img id="product-img" class="card-img-top img-fluid" src="{% static 'media/' %}{{ product.image }}" alt="{{ product.name }}">
                                     </a>
                                 {% else %}    
                                     <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        <img class="card-img-top img-fluid" src="{% static 'media/noimage.png' %}" alt="{{ product.name }}">
                                     </a>
                                 {% endif %} 
                                     <div class="card-body px-2 py-2">
@@ -152,8 +152,9 @@
     {{ block.super }}
     <script>
         // If unable to load product image, display 'noimage.png' instead
+        var missing = "{% static 'media/noimage.png' %}";
         $('#product-img').on("error", function () {
-            $('#product-img').attr('src', '{{ MEDIA_URL }}noimage.png')
+            $('#product-img').attr('src',  missing)
         })   
     </script>
 {% endblock %}
