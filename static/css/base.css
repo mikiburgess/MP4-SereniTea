@@ -12,11 +12,11 @@
 
 /* --------------------------------------- IMAGES and EFFECTS */
 .plantation-meditation-img {
-    background-image: url('/media/plantation-meditation.jpg');
+    background-image: url('../media/plantation-meditation.jpg');
 }
 
 .calm-plantation-img {
-    background-image: url('/media/calm_tea_plantation.jpg');
+    background-image: url('../media/calm_tea_plantation.jpg');
 }
 
 .parallax {
