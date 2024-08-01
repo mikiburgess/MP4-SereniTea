@@ -196,9 +196,10 @@ USE_TZ = True
 
 # WITHOUT AWS
 
-STATIC_URL = '/static/'
+
 STATIC_ROOT = BASE_DIR / "staticfiles"   # For Whitenoise
-# STATICFILESDIRECT_URL = '/static/'
+STATIC_URL = '/static/'
+STATICFILESDIRECT_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
