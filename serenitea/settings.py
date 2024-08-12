@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG')
 
 # Application accessible only from these hosts:
 ALLOWED_HOSTS = [
@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
-
+    'reviews',
 ]
 
 MIDDLEWARE = [
@@ -136,13 +136,13 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # Settings for allauth account authentication
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login using username or email
-ACCOUNT_EMAIL_REQUIRED = True  # users must register with an email address
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
+ACCOUNT_EMAIL_REQUIRED = False  # users must register with an email address
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # registration only confirmed upon email verification
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Enter email twice on registration to ensure it's correct
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # minimum allowed username length
 ACCOUNT_EMAIL_SUBJECT_PREFIX = 'SereniTea - '  # Email subject prefix text
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # num days email invite becomes invalid
-ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # automatically log in user upon email authentication
+# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1  # num days email invite becomes invalid
+# ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # automatically log in user upon email authentication
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # automatically log in user upon password reset
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'  # upon login, redirect to front page of store/site
