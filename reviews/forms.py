@@ -11,8 +11,7 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         # only show the fields user needs to edit
-        fields = ('product',
-                  'stars',
+        fields = ('stars',
                   'comment',
                   'name',)
 
@@ -21,11 +20,10 @@ class ReviewForm(forms.ModelForm):
             Add placeholders and classes, remove auto-generated
             labels, and set autofocus on first field
         """
-        # st up form in usual, default way
+        # set up form in usual, default way
         super().__init__(*args, **kwargs)
         # define dictionary of field placeholders to be used in place of labels
         placeholders = {
-            'product': 'Product name',
             'stars': 'Star rating',
             'comment': 'Your review',
             'name': 'Your name',
@@ -38,6 +36,6 @@ class ReviewForm(forms.ModelForm):
         for field in self.fields:
             placeholder = f'{placeholders[field]}'
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].widget.attrs['autocomplete'] = 'on'
             self.fields[field].label = False
