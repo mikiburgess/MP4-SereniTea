@@ -1,0 +1,62 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+- Write a Product Review
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">Write a Product Review</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+<!-- Product Review Form -->
+<div class="review-product-page container">
+    <div class="row mx-auto">
+        <!-- Review Form -->
+        <div class="col-10 offset-1 my-auto">
+            <p class="text-body-secondary">Write your review for {{ product.friendly_name }}</p>
+            <form action="{% url 'review_product' product.id %}" method="POST" id="review-product-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field | as_crispy_field }}
+                {% endfor %}
+
+                <!-- Review Submit button -->
+                <div class="submit-button text-right mt-5 mb-2">
+                    <!-- Cancel and link back to products -->
+                    <a href="{% url 'my_reviews' %}" class="site-btn btn">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span class="font-weight-bold">Cancel</span>
+                    </a>
+                    <!-- Save product review -->
+                    <button id="submit-button" class="site-btn btn">
+                        <span class="font-weight-bold">Submit Review</span>
+                        <span class="icon">
+                            <i class="bi bi-plus-circle-fill"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+            <p></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+{% endblock %}

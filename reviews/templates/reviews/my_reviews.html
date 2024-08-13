@@ -1,0 +1,84 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}
+- My Reviews
+{% endblock %}
+
+{% block extra_css %}
+<!-- <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}"> -->
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">My Product Reviews</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+
+<!-- My Product Reviews Page -->
+<div class="my-reviews-page container">
+
+    <div class="row mx-auto">
+
+        <div class="col-10 offset-1 mb-5">
+            <!-- responsive bootstrap table -->
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <th>Product</th>
+                        <th>Stars</th>
+                        <th>Comment</th>
+                        <th>Published Name</th>
+                        <th>Date of Review</th>
+                        <th>Approved</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        {% for review in reviews %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'product_detail' review.product.id %}" target="_blank">
+                                    {{ review.product.friendly_name }}
+                                </a>
+                            </td>
+                            <td>{{ review.stars }}<small><i class="bi bi-star-fill"></i></small></td>
+                            <td>{{ review.comment }}</td>
+                            <td>{{ review.name }}</td>
+                            <td>{{ review.date }}</td>
+                            <td>{{ review.approved }}</td>
+                            <td>
+                                <div class="row">
+                                <div class="col-10 text-end align-text-bottom">
+                                <a class="edit-option text-success"
+                                        href="">
+                                        <small><i class="bi bi-pencil-square"></i></small></a>
+                                <a class="delete-option text-danger"
+                                    href="">
+                                    <small><i class="bi bi-trash"></i></small></a>
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+{% endblock %}
