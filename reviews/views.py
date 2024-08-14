@@ -27,16 +27,23 @@ def my_reviews(request):
 def review_product(request, product_id):
     """ Write a review for a store product """
     product = get_object_or_404(Product, pk=product_id)
-    
+    profile = get_object_or_404(UserProfile, user=request.user)
+
     # Handle POST requests
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES, instance=product)
+        print('--------')
+        print(product.name)
+        print(profile)
+        print('--------')
+        
+        form = ReviewForm(request.POST)
+        
         if form.is_valid():
-            review = form.save()
+            form.save()
             messages.success(request, 'Product review successfully submitted for approval.')
-            context = {
-                'product': product,
-                }
+            # context = {
+            #     'product': product,
+            #     }
             return redirect(reverse('my_reviews'))
             # return render(request, 'products/product_detail.html', context)
         else:
@@ -49,6 +56,18 @@ def review_product(request, product_id):
         context = {
             'form': form,
             'product': product,
+            'user_profile': profile,
         }
 
     return render(request, template, context)
+
+
+# @login_required(login_url="/accounts/login/")
+# def write_review(request, product_id):
+#     """ Write a review for a store product """
+#     product = get_object_or_404(Product, pk=product_id)
+
+#     if request.method == 'POST':
+#         form = ReviewForm(request.POST)
+
+

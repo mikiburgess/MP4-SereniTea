@@ -36,7 +36,8 @@ class Review(models.Model):
 
     def __str__(self):
         """ Return review code and product SKU """
-        return f'REVIEW {self.review_code} for SKU {self.product.sku}'
+        # return f'REVIEW {self.review_code} for SKU {self.product.sku}'
+        return f'REVIEW - {self.review_code}'
     
 
     def save(self, *args, **kwargs):
