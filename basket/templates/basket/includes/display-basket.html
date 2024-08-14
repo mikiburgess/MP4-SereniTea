@@ -1,5 +1,6 @@
 <!-- Display shopping basket contents -->
 {% load basket_tools %}
+{% load static %}
 
 <div class="table-responsive rounded basket-table">
     <table class="table table-sm table-borderless">
@@ -20,7 +21,7 @@
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.image %}
                         <img class="product-img-basket"
-                            src="{% static 'media/' %}{{ product.image }}"
+                            src="{% static 'media/' %}{{ item.product.image }}"
                             alt="{{ product.name }}"
                             class="w-100 product-img-order">
                         {% else %}
