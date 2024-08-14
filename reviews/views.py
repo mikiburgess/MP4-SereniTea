@@ -35,13 +35,17 @@ def review_product(request, product_id):
     
     # Handle POST requests
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES, instance=product)
+        form = ReviewForm(request.POST,  instance=product)
         if form.is_valid():
-            review = form.save()
+            print('-----')
+            print(product.friendly_name)
+            print(form)
+            print('-----')
+            form.save()
             messages.success(request, 'Product review successfully submitted for approval.')
-            context = {
-                'product': product,
-                }
+            # context = {
+            #     'product': product,
+            #     }
             return redirect(reverse('my_reviews'))
             # return render(request, 'products/product_detail.html', context)
         else:
@@ -50,6 +54,7 @@ def review_product(request, product_id):
     else:
         # Handle GET requests
         form = ReviewForm()
+        messages.info(request, f'You are reviewing {product.friendly_name}')
         template = 'reviews/review_product.html'
         context = {
             'form': form,

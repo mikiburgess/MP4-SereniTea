@@ -11,9 +11,11 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         # only show the fields user needs to edit
-        fields = ('comment',
+        fields = ('product',
+                  'comment',
                   'stars',
                   'name',)
+        # exclude = ('product',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -24,6 +26,7 @@ class ReviewForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # define dictionary of field placeholders to be used in place of labels
         placeholders = {
+            'product': 'Product',
             'comment': 'Your review',
             'stars': 'Star rating',
             'name': 'Your name',
@@ -34,7 +37,12 @@ class ReviewForm(forms.ModelForm):
         # iterate through form fields adding * if required, adding custom
         # placeholder, add css for each field, and remove the default labels
         for field in self.fields:
-            placeholder = f'{placeholders[field]}'
+            # if field != 'profile':
+            #     if self.fields[field].required:
+            #         placeholder = f'{placeholders[field]} *'
+            #     else:
+            #         placeholder = 'Product'
+            placeholder = f'{placeholders[field]}  *'
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].widget.attrs['autocomplete'] = 'on'
