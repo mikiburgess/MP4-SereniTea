@@ -32,15 +32,19 @@ def my_reviews(request):
 def review_product(request, product_id):
     """ Write a review for a store product """
     product = get_object_or_404(Product, pk=product_id)
+    profile = get_object_or_404(UserProfile, user=request.user)
     
     # Handle POST requests
     if request.method == 'POST':
-        form = ReviewForm(request.POST,  instance=product)
+
+        print('--------')
+        print(product.name)
+        print(profile)
+        print('--------')
+
+        form = ReviewForm(request.POST)
+    
         if form.is_valid():
-            print('-----')
-            print(product.friendly_name)
-            print(form)
-            print('-----')
             form.save()
             messages.success(request, 'Product review successfully submitted for approval.')
             # context = {
@@ -59,6 +63,7 @@ def review_product(request, product_id):
         context = {
             'form': form,
             'product': product,
+            'user_profile': profile,
         }
 
     return render(request, template, context)
