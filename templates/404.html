@@ -27,40 +27,39 @@
 
 <!-- Error Notification -->
 <div class="container-fluid">
-<div class="row">
-    <div class="col-10 offset-1">
-        
+    <div class="row">
+        <div class="col-10 offset-1">
+
             <div class="row">
                 <div class="col-12 col-md-4 my-auto image-container text-center">
-                    
-                        <a href="{% static 'media/oops.jpg' %}" target="_blank">
-                            <img class="card-img-top img-fluid product-img"
-                                src="{% static 'media/oops.jpg' %}"
-                                alt="Dropped cup, spilled tea and broken biscuits">
-                        </a>
-                    
+
+                    <a href="{% static 'media/oops.jpg' %}" target="_blank">
+                        <img class="card-img-top img-fluid product-img" src="{% static 'media/oops.jpg' %}"
+                            alt="Dropped cup, spilled tea and broken biscuits">
+                    </a>
+
                 </div>
-                
+
                 <div class="col-12 col-md-8 my-auto text-center">
                     <p></p>
                     <hr class="title-border d-md-none">
                     <p></p>
                     <h3 class="page-title-font my-0">Oops! Something went wrong!</h3>
-                    
+
                     <p class="page-title-font my-0">It appears the page you are looking for doesn't exist.</p>
                     <p></p>
-                            <a href="{% url 'products' %}" class="site-btn btn mt-2">
-                                <span class="icon">
-                                    <i class="bi bi-arrow-left-circle"></i>
-                                </span>
-                                <span>Return to browsing the products</span>
-                            </a>
-                            <p></p>
-                        </div>
-                        <p></p>
+                    <a href="{% url 'products' %}" class="site-btn btn mt-2">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span>Return to browsing the products</span>
+                    </a>
+                    <p></p>
+                </div>
+                <p></p>
             </div>
-        
+
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}
