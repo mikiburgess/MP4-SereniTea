@@ -8,200 +8,203 @@
 {% load static %}
 
 {% block extra_title %}
- - {{ product.friendly_name }}
+- {{ product.friendly_name }}
 {% endblock %}
 
 {% block extra_meta %}
-    <meta name="description" content="SereniTea Emporium - {{ product.friendly_name }} : {{ product.description }}">
+<meta name="description" content="SereniTea Emporium - {{ product.friendly_name }} : {{ product.description }}">
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            
-            <!-- Product Image -->
-                <div class="col-10 offset-1 col-md-5 offset-md-1">
-                    <div class="image-container my-5 text-center">
-                        {% if product.image %}
-                            <a href="{% static 'media/' %}{{ product.image }}" target="_blank">
-                                <img id="product-img" class="card-img-top img-fluid product-img"
-                                    src="{% static 'media/' %}{{ product.image }}"
-                                    alt="{{ product.name }}">
-                            </a>
-                        {% else %}
-                            <a href="{% static 'media/noimage.png' %}" target="_blank">
-                                <img class="card-img-top img-fluid product-img"
-                                    src="{% static 'media/noimage.png' %}"
-                                    alt="No image available for {{ product.friendly_name }}">
-                            </a>
-                        {% endif %}
-                    </div>
-                </div>
+<div class="container-fluid">
+    <div class="row">
 
-             <!-- Product Overview -->
-            <div class="col-10 offset-1 col-md-6 offset-md-0">
-                <div class="product-details-container mb-3 mb-lg-5 mt-2 mt-md-5">
-                    <h2 class="mb-0 product-name">{{ product.friendly_name }}</h2>
-                    {% if product.category %}
-                        <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
-                    {% else %}
-                        <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a> 
-                    {% endif %}
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }} {% if product.weight %}<small> ({{ product.weight }}g) </small>{% endif %}</p>
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="bi bi-star-fill"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
-
-                    {% if request.user.is_superuser %}
-                    <p>
-                        <a class="edit-option text-success"
-                            href="{% url 'edit_product' product.id %}">
-                            <small>Edit <i class="bi bi-pencil-square"></i></small></a>
-                        &ensp;
-                        <a class="delete-option text-danger"
-                            href="{% url 'delete_product' product.id %}">
-                            <small>Delete <i class="bi bi-trash"></i></small></a>
-                        &emsp;
-                        <small class="border border-dark rounded px-1">Stock level: 
-                            {% if product.stock_level > 0 %}
-                                {{ product.stock_level }}
-                            {% elif product.stock_level == 0 %}
-                                <em>sold out</em>
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </small>
-                    </p>
-                    {% endif %}
-                </div>
-
-                <!-- Form to add items to basket -->
-                <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                    {% csrf_token %}  
-                    <div class="form-row">
-                        <div class="col-12">
-                            <p class="mt-2"><strong>Quantity:</strong></p>
-                            <div class="form-group mt-2 w-50 d-flex flex-md-row">
-                                <div class="input-group">
-                                    {% if product.stock_level == 0 %}
-                                    <input class="form-control qty_input" type="number"
-                                        name="quantity" value="0" disabled>
-                                    {% else %}
-                                    <input class="form-control qty_input" type="number"
-                                        name="quantity" value="1" min="1" max="99" 
-                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 d-flex flex-column-reverse flex-md-row gap-1">
-                            <a href="{% url 'products' %}" class="site-btn btn mt-2">
-                                <span class="icon">
-                                    <i class="bi bi-arrow-left-circle"></i>
-                                </span>
-                                <span>Keep Shopping</span>
-                            </a>
-                            {% if product.stock_level == 0 %}
-                            <input type="submit" class="site-btn btn mt-2 text-danger" value="Out of Stock" disabled>
-                            {% else %}
-                            <input type="submit" class="site-btn btn mt-2" value="Add to Basket">
-                            {% endif %}
-                        </div>
-                        <!-- pass URL to enable redirect from basket -->
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
+        <!-- Product Image -->
+        <div class="col-10 offset-1 col-md-5 offset-md-1">
+            <div class="image-container my-5 text-center">
+                {% if product.image %}
+                <a href="{% static 'media/' %}{{ product.image }}" target="_blank">
+                    <img id="product-img" class="card-img-top img-fluid product-img"
+                        src="{% static 'media/' %}{{ product.image }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="{% static 'media/noimage.png' %}" target="_blank">
+                    <img class="card-img-top img-fluid product-img" src="{% static 'media/noimage.png' %}"
+                        alt="No image available for {{ product.friendly_name }}">
+                </a>
+                {% endif %}
             </div>
         </div>
 
-        <!-- Product Description -->
-        <div class="row">
-            <div class="col-10 offset-1">
-                <div class="product-description-container">
-                    {% if product.description %}
-                        {{ product.description|safe }}
-                    {% else %}
-                        <p><em>Product description coming soon ...</em></p>
-                    {% endif %}
-                    
-                    <!-- Additional Product Details - specifically for Teas -->
-                    <div class="text-center">
-                        {% if product.organic %}
-                        <span class="d-inline p-2">
-                            <small>
-                                {% if product.organic == 'yes' %}
-                                    <i class="bi bi-check2-circle"> <strong>Organic</strong></i>
-                                {% elif product.organic == 'no' %}
-                                    <i class="bi bi-x-circle-fill"></i> <strong>Non-organic</strong>
+        <!-- Product Overview -->
+        <div class="col-10 offset-1 col-md-6 offset-md-0">
+            <div class="product-details-container mb-3 mb-lg-5 mt-2 mt-md-5">
+                <h2 class="mb-0 product-name">{{ product.friendly_name }}</h2>
+                {% if product.category %}
+                <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{
+                    product.category.friendly_name }}</a>
+                {% else %}
+                <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a>
+                {% endif %}
+                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }} {% if product.weight %}<small> ({{
+                        product.weight }}g) </small>{% endif %}</p>
+                {% if product.rating %}
+                <small class="text-muted"><i class="bi bi-star-fill"></i>{{ product.rating }} / 5</small>
+                {% else %}
+                <small class="text-muted">No Rating</small>
+                {% endif %}
+
+                {% if request.user.is_superuser %}
+                <p>
+                    <a class="edit-option text-success" href="{% url 'edit_product' product.id %}">
+                        <small>Edit <i class="bi bi-pencil-square"></i></small></a>
+                    &ensp;
+                    <a class="delete-option text-danger" href="{% url 'delete_product' product.id %}">
+                        <small>Delete <i class="bi bi-trash"></i></small></a>
+                    &emsp;
+                    <small class="border border-dark rounded px-1">Stock level:
+                        {% if product.stock_level > 0 %}
+                        {{ product.stock_level }}
+                        {% elif product.stock_level == 0 %}
+                        <em>sold out</em>
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </small>
+                </p>
+                {% endif %}
+            </div>
+
+            <!-- Form to add items to basket -->
+            <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-12">
+                        <p class="mt-2"><strong>Quantity:</strong></p>
+                        <div class="form-group mt-2 w-50 d-flex flex-md-row">
+                            <div class="input-group">
+                                {% if product.stock_level == 0 %}
+                                <input class="form-control qty_input" type="number" name="quantity" value="0" disabled>
+                                {% else %}
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                    max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                 {% endif %}
-                            </small>
-                        </span>
-                        {% endif %}
+                            </div>
+                        </div>
+                    </div>
 
-                        {% if product.brew_time %}
-                        <span class="d-inline p-2"><small><i class="bi bi-cup-hot-fill"></i>
+                    <div class="col-12 d-flex flex-column-reverse flex-md-row gap-1">
+                        <a href="{% url 'products' %}" class="site-btn btn mt-2">
+                            <span class="icon">
+                                <i class="bi bi-arrow-left-circle"></i>
+                            </span>
+                            <span>Keep Shopping</span>
+                        </a>
+                        {% if product.stock_level == 0 %}
+                        <input type="submit" class="site-btn btn mt-2 text-danger" value="Out of Stock" disabled>
+                        {% else %}
+                        <input type="submit" class="site-btn btn mt-2" value="Add to Basket">
+                        {% endif %}
+                    </div>
+                    <!-- pass URL to enable redirect from basket -->
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="product-description-container">
+                {% if product.description %}
+                {{ product.description|safe }}
+                {% else %}
+                <p><em>Product description coming soon ...</em></p>
+                {% endif %}
+
+                <!-- Additional Product Details - specifically for Teas -->
+                <div class="text-center">
+                    {% if product.organic %}
+                    <span class="d-inline p-2">
+                        <small>
+                            {% if product.organic == 'yes' %}
+                            <i class="bi bi-check2-circle"> <strong>Organic</strong></i>
+                            {% elif product.organic == 'no' %}
+                            <i class="bi bi-x-circle-fill"></i> <strong>Non-organic</strong>
+                            {% endif %}
+                        </small>
+                    </span>
+                    {% endif %}
+
+                    {% if product.brew_time %}
+                    <span class="d-inline p-2"><small><i class="bi bi-cup-hot-fill"></i>
                             <strong> Brew Time (mins) -</strong> {{ product.brew_time }}</small>
-                        </span>
-                        {% endif %}
+                    </span>
+                    {% endif %}
 
-                        {% if product.water_temp %}
-                        <span class="d-inline p-2" data-bs-toggle="tooltip" 
-                            data-bs-placement="bottom" data-bs-html="true"
-                            data-bs-title="Boiling (100) <i class='bi bi-thermometer-high'></i><br>
+                    {% if product.water_temp %}
+                    <span class="d-inline p-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                        data-bs-title="Boiling (100) <i class='bi bi-thermometer-high'></i><br>
                                 Hot (over 80) <i class='bi bi-thermometer-half'></i><br>
                                 Low (over 60) <i class='bi bi-thermometer-low'></i><br>
                                 Cold <i class='bi bi-thermometer'></i>">
-                            <small>
-                                {% if product.water_temp == 100 %} <i class="bi bi-thermometer-high"></i>
-                                {% elif product.water_temp > 80 %} <i class="bi bi-thermometer-half"></i>
-                                {% elif product.water_temp > 60 %} <i class="bi bi-thermometer-low"></i>
-                                {% else %} <i class="bi bi-thermometer"></i>
-                                {% endif %}
-                                <strong>Brew Temperature -</strong> {{ product.water_temp}}&#8451;
-                            </small>
-                        </span>     
-                        {% endif %}
+                        <small>
+                            {% if product.water_temp == 100 %} <i class="bi bi-thermometer-high"></i>
+                            {% elif product.water_temp > 80 %} <i class="bi bi-thermometer-half"></i>
+                            {% elif product.water_temp > 60 %} <i class="bi bi-thermometer-low"></i>
+                            {% else %} <i class="bi bi-thermometer"></i>
+                            {% endif %}
+                            <strong>Brew Temperature -</strong> {{ product.water_temp}}&#8451;
+                        </small>
+                    </span>
+                    {% endif %}
 
-                        {% if product.strength %}
-                        <span class="d-inline p-2" data-bs-toggle="tooltip" 
-                            data-bs-placement="bottom" data-bs-html="true"
-                            data-bs-title="Mild (1-2) <i class='bi bi-droplet'></i><br>
+                    {% if product.strength %}
+                    <span class="d-inline p-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                        data-bs-title="Mild (1-2) <i class='bi bi-droplet'></i><br>
                                 Medium (3) <i class='bi bi-droplet-half'></i><br>
                                 Strong (4-5) <i class='bi bi-droplet-fill'></i>">
-                            <small>
-                                {% if product.strength == 1 %} <i class="bi bi-droplet"></i>
-                                {% elif product.strength == 2 %} <i class="bi bi-droplet"></i>
-                                {% elif product.strength == 3 %} <i class="bi bi-droplet-half"></i>
-                                {% elif product.strength == 4 %} <i class="bi bi-droplet-fill"></i>
-                                {% elif product.strength == 5 %} <i class="bi bi-droplet-fill"></i>
-                                {% endif %}
-                                <strong>Strength -</strong> {{ product.strength}}
-                            </small>
-                        </span>
-                        {% endif %}
-                    </div>
+                        <small>
+                            {% if product.strength == 1 %} <i class="bi bi-droplet"></i>
+                            {% elif product.strength == 2 %} <i class="bi bi-droplet"></i>
+                            {% elif product.strength == 3 %} <i class="bi bi-droplet-half"></i>
+                            {% elif product.strength == 4 %} <i class="bi bi-droplet-fill"></i>
+                            {% elif product.strength == 5 %} <i class="bi bi-droplet-fill"></i>
+                            {% endif %}
+                            <strong>Strength -</strong> {{ product.strength}}
+                        </small>
+                    </span>
+                    {% endif %}
                 </div>
+                {% if request.user.is_authenticated %}
+                <br>
+                <hr class="title-border">
+                <p class="text-center">Have you used this product?
+                    <a class="product-category-label" href="{% url 'review_product' product.id %}">Submit your review
+                        here
+                    </a>
+                </p>
+                {% endif %}
             </div>
         </div>
-
-        {{ block.super }}
     </div>
+
+    {{ block.super }}
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script>
-        // enable page tooltips
-        $(document).ready(function(){
-            $('[data-bs-toggle="tooltip"]').tooltip();
-        });
+{{ block.super }}
+<script>
+    // enable page tooltips
+    $(document).ready(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
 
-        // If unable to load product image, display 'noimage.png' instead
-        $('#product-img').on("error", function () {
-            $('#product-img').attr('src', '{% static "media/noimage.png" %}')
-        })      
-    </script>
+    // If unable to load product image, display 'noimage.png' instead
+    $('#product-img').on("error", function () {
+        $('#product-img').attr('src', '{% static "media/noimage.png" %}')
+    })      
+</script>
 {% endblock %}
