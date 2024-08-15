@@ -247,6 +247,17 @@ Error handling will be provided throughout to ensure that user engagement is not
 
 - Out of Scope Functionality: Until all future functionality is completed, some elements of the site will not be active. Although these are outside the scope of this project, these may cause an issue to visitors of the initial site. As such, where a page is not yet available in the site a bespoke ```404 - Page Not Found``` page has been added to the project.
 
+<p align="center">
+  <a href="docs/images/404-error-page.png">
+  <img src="docs/images/404-error-page.png" alt="Bespoke 404 Page Not Found Error Page" width="400">
+  </a>
+  <br>
+<em>Figure: 404 Error Page</em>
+</p>
+<br>
+
+
+
 #### Wireframes
 
 All wireframes were built upon an initial base design, comprising a standard header containing site navigation bar and offers carousel and a standard page footer.
