@@ -220,6 +220,9 @@ From the perspective of the site visitor however it will appear to be comprised 
   - Product page: for viewing the details of each individual product
 - Shopping Basket
 - Checkout
+- Product Reviews
+  - Submit a review
+  - See all submitted reviews
 - My Profile
   - Registration
   - Sign in + Sign out
@@ -310,6 +313,7 @@ All wireframes were built upon an initial base design, comprising a standard hea
 | 📂 ```Checkout``` | App to add payment details and delivery address, then process payment to obtain projects.<br/>Includes Stripe payment, Stripe webhooks, and order confirmation email.|
 | 📂 ```Products``` | Store products, plus the facility to view all products, sort and search products, and inspect the details of each individual product.<br/>Also includes pages for a superuser to add new products to the catalogue and edit existing products.|
 | 📂 ```Profiles``` | Enable site visitors to view their user profile, along with a full history of placed orders. |
+| 📂 ```Reviews``` | Enabling registered customers to review a product they have purchased or experienced (for example, received as a gift). |
 
 <br>
 
@@ -565,8 +569,10 @@ This section provides an overview of the SereniTea Emporium e-commerce web appli
 - *Information Pages* - Home/Landing, About Serenitea, Shipping & Delivery
 - *User access* - Account Registration, Sign In, Sign Out, Profile Page
 - *Store Products* - All Products, Product Category, Product Details
+- *Product Reviews* - Customer submitted reviews of store products
 - *Superuser Product Management* - All Products, Product Details, Edit Product, Add New Product
 - *Shopping Basket* - Shopping Basket, Checkout Process, Checkout Completed
+
 Illustrations of these functionalities are also demonstrated in the [Walkthroughs](docs/WALKTHROUGHS.MD) and [Testing](docs/TESTING.MD) documents.
 
 ### Responsive Site Navigation
@@ -817,13 +823,87 @@ Due to not using the Code Institute online tools (due to the unreliability of Co
 1. Sought assistance from my colleague, Dr N Caine, to see if deployment from their machine was also an issue. This was achieved by creating a git branch to use on their computer to test if their environment worked. It didn't. The same issues arose. (*Note: an accidental push from their machine ended up adding them as a contributor to this project. This was a one-off accident; they were not involved in the project work; Github history cah be reviewed to support this*)
 2. Created a number of text branches for me to experiment with Django and associated libraries.
 
-A compromise was reached for package incompatibilities by downgrading Django from version 5. 
+A compromise was reached for package incompatibilities by downgrading Django from version 5 to 4.2. 
 
 No solution was found for incorporating AWS within the available time limit. Instead, [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/WhiteNoise) was used to enable Django use of static files for the purpose of deploying this project. 
 
-#### BUG: Failing to render 404
-A tailored ```404 - Page Not Found``` html page has been created and added to the templates folder, to be displayed by Django in place of its standard 404 page. Unfortunately (and ironically), this is not currently functional.
-This would be a good feature to include to ensure when there is an error the site informs the visitor politely that something has happened and provides them with a mechanism for returning to the home page. However, adding this to the live site has not been moved to a future development stage, along with the creation of other HTTP error handlers.
+
+#### CHALLENGE: Handling static files
+Towards the end of development stage, this full stack site worked as intended when DEBUG was set to TRUE. However, once set to FALSE the site failed. Initially the failure related to being unable to load static files (stylesheets and images), then later (after some failed fixes) a 500 Server Error. This meant the site could not be deployed with Debug set to FALSE.
+
+The settings used in the Module 4 examples (the Boutique Ado project) and the demonstrated approach to managing static files no longer work in later versions of Django. So, a new approach needed to be adopted, using [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/django.html "Using WhiteNoise with Django").
+
+#### The issue with static files
+Following the guidance in the course material with a newer version of Django resulted in the following two errors:
+- Lost access to all 'static' files, and
+- Lost access to all images stored in the 'media' folder.
+
+#### Fixing access to static files
+To include all media images in the live site, the original 'media' folder was moved into the 'static' folder.
+
+This ensured WhiteNoise would be able to handle them along with all other static files used across the site (css, js, etc).
+
+Although all static files could remain in a single folder, the following line included in settings.py specified a different folder for use by WhiteNoise for managing static files during deployment, keeping the static files distinct from those used during development:
+ ```STATIC_ROOT = BASE_DIR / "staticfiles" ```
+
+
+Ahead of deployment to the live server, the static files need to be collated using the command
+```python manage.py collectstatic```
+Once the collation process is complete, all files can be accessed by the live deployed system (```DEBUG=False```), in deployment rather than development (```DEBUG=True```) mode.
+
+
+Two final modifications needed to be made to the HTML code in order for Django to access the media files (site images).
+For consistent images, those that are set and do not change, the following was used:
+```{% static 'media/filename.jpg' %}```
+For dynamic images, those selected at runtime according to data extracted from the Postgres database, the following alternative was employed:
+```{% static 'media/' %}{{ product.image }}```
+This latter enables the web pages to be served displaying the relevant product images, based on the current database content and user-selections.
+
+
+#### Image Compression
+
+An option when using WhiteNoise is to enable it to manage image compression. To allow for that feature the following code can be added to settings.py
+
+
+```STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    # Enable WhiteNoise's GZip and Brotli compression of static assets:
+    # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+```
+
+However, I made the decision not to use WhiteNoise's compression facility as all site images have already been optimised for the web using TinyPNG. The following was therefore used instead, using Django's inbuilt storage management.
+
+```STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"```
+
+
+#### The Process
+During the process of fixing the static files deployment issue, the relevant filenames were added to the development web pages so that the file paths could be checked and issues identified, to guide the development process.
+
+<br>
+<p align="center">
+  <img src="docs/images/django/staticfile-name-check.png" alt="addition of filenames under site images" width="300">
+<br>
+<em>Figure: Example of displaying file paths in the dynamically generated HTML pages</em>
+</p>
+<br>
+
+
+Django [logging](https://docs.djangoproject.com/en/5.0/topics/logging/ "Logging in Django") was also enabled to allow for a more detailed inspection of code behaviour. 
+
+<br>
+<p align="center">
+  <img src="docs/images/django/django-logging.png" alt="django logging in action" width="400">
+<br>
+<em>Figure: Illustration of logging information during the initial stage, showing an early problem, where media files (images) were not being collected from the correct folder</em>
+</p>
+<br>
+
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
