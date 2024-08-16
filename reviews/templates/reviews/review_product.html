@@ -6,6 +6,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_title %}
 - Write a Product Review
@@ -27,9 +28,34 @@
         <!-- Review Form -->
         <div class="col-10 offset-1 my-auto">
             <p class="text-body-secondary">Write your review for {{ product.friendly_name }}</p>
-            <form action="{% url 'review_product' product.id %}" method="POST" id="review-product-form">
+            <form action="{% url 'review_product' product.id %}" method="POST" id="review-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form|crispy }}
+                <!-- {{ form|crispy }} -->
+                <div class="row">
+                    <!-- <input type="hidden" name="user_profile" value="{{ user_profile }}" id="id_user">
+                    <input type="hidden" name="product" value="{{ product }}" id="id_product"> -->
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.user_profile|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.product|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ form.comment|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.stars|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                </div>
+                
+
 
                 <!-- Review Submit button -->
                 <div class="submit-button text-right mt-5 mb-2">
@@ -57,4 +83,13 @@
 
 {% block postloadjs %}
     {{ block.super }}
+
+<script>
+$(document).ready(function() {
+    $("#id_user_profile").prop('selectedIndex', index_here); 
+}
+
+
+</script>
+
 {% endblock %}

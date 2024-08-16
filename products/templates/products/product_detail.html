@@ -41,13 +41,11 @@
             <div class="product-details-container mb-3 mb-lg-5 mt-2 mt-md-5">
                 <h2 class="mb-0 product-name">{{ product.friendly_name }}</h2>
                 {% if product.category %}
-                <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{
-                    product.category.friendly_name }}</a>
+                <a class="product-category-label" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                 {% else %}
                 <a class="product-category-label" href="{% url 'products' %}">SereniTea Product Catalogue</a>
                 {% endif %}
-                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }} {% if product.weight %}<small> ({{
-                        product.weight }}g) </small>{% endif %}</p>
+                <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }} {% if product.weight %}<small> ({{ product.weight }}g) </small>{% endif %}</p>
                 {% if product.rating %}
                 <small class="text-muted"><i class="bi bi-star-fill"></i>{{ product.rating }} / 5</small>
                 {% else %}

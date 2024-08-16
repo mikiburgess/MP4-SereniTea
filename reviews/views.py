@@ -33,31 +33,46 @@ def review_product(request, product_id):
     """ Write a review for a store product """
     product = get_object_or_404(Product, pk=product_id)
     profile = get_object_or_404(UserProfile, user=request.user)
+    template = 'reviews/review_product.html'
     
     # Handle POST requests
     if request.method == 'POST':
+        # product = get_object_or_404(Product, pk=request.product)
+        # profile = get_object_or_404(UserProfile, pk=request.user_profile)
 
         print('--------')
-        print(product.name)
-        print(profile)
+        print(request.POST)
         print('--------')
 
         form = ReviewForm(request.POST)
     
+        # form.save()
+        # messages.success(request, 'Product review successfully submitted for approval.')
+        # return redirect(reverse('my_reviews'))
+        # form.fields['user_profile'] = profile
+
         if form.is_valid():
+            print('Form is valid')
+            print('--------')
+
+
+
             form.save()
             messages.success(request, 'Product review successfully submitted for approval.')
-            # context = {
-            #     'product': product,
-            #     }
-            return redirect(reverse('my_reviews'))
-            # return render(request, 'products/product_detail.html', context)
+            context = {
+                'product': product,
+                }
+            # return redirect(reverse('product_detail', product_id))
+            return render(request, 'products/product_detail.html', context)
         else:
             messages.error(request, 'Failed to submit review. Please check \
                            the form is valid.')
+            return render ('my_reviews')
     else:
         # Handle GET requests
-        form = ReviewForm()
+        form = ReviewForm(initial={'user_profile': profile, 'product': product})
+        # form.data['user_profile'] = profile
+        # form.data['product'] = product
         messages.info(request, f'You are reviewing {product.friendly_name}')
         template = 'reviews/review_product.html'
         context = {
@@ -66,4 +81,4 @@ def review_product(request, product_id):
             'user_profile': profile,
         }
 
-    return render(request, template, context)
+        return render(request, template, context)
