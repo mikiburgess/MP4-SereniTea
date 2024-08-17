@@ -907,6 +907,24 @@ During the process of fixing the static files deployment issue, the relevant fil
 
 Django [logging](https://docs.djangoproject.com/en/5.0/topics/logging/ "Logging in Django") was also enabled to allow for a more detailed inspection of code behaviour. 
 
+
+```
+# DATA LOGGING DURING DEVELOPMENT (settings.py)
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+}
+```
+
 <br>
 <p align="center">
   <img src="docs/images/django/django-logging.png" alt="django logging in action" width="400">
