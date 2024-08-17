@@ -375,6 +375,15 @@ a,
     color: var(--bistre);
 }
 
+
+.review-link-text,
+.review-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.80rem;
+    font-style: normal;
+    color: var(--bistre);
+}
+
 /* ----------------------------------------------- TEXT AREAS  */
 .welcome-container {
     text-align: center;
