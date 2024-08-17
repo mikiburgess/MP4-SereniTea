@@ -22,13 +22,15 @@
     </div>
 </div>
 
+
 <!-- Product Review Form -->
 <div class="review-product-page container">
     <div class="row mx-auto">
         <!-- Review Form -->
         <div class="col-10 offset-1 my-auto">
             <p class="text-body-secondary">Write your review for {{ product.friendly_name }}</p>
-            <form action="{% url 'review_product' product.id %}" method="POST" id="review-product-form" enctype="multipart/form-data">
+            <form action="{% url 'review_product' product.id %}" method="POST"
+                    id="review-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row">
                     <div class="form-group col-md-6 mb-0">
@@ -51,9 +53,9 @@
                         {{ form.name|as_crispy_field }}
                     </div>
                 </div>
-
+                
                 <!-- Review Submit button -->
-                <div class="submit-button text-right mt-5 mb-2">
+                <div class="submit-button text-right mt-2 mb-2">
                     <!-- Cancel and link back to products -->
                     <a href="{% url 'my_reviews' %}" class="site-btn btn">
                         <span class="icon">
@@ -68,9 +70,13 @@
                             <i class="bi bi-plus-circle-fill"></i>
                         </span>
                     </button>
-                </div>
+                </div>  
             </form>
             <p></p>
+        </div>
+        <div class="col-10 offset-1 my-auto">
+            <p class="text-center fw-lighter review-link-text">Once submitted, please allow up to 5 working days
+                for your review to be approved for publication.</p>
         </div>
     </div>
 </div>
