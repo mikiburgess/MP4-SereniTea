@@ -27,10 +27,8 @@ class ReviewForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # define dictionary of field placeholders to be used in place of labels
         placeholders = {
-            'user_profile': 'User', 
-            'product': 'Product',
             'comment': 'Your review',
-            'stars': 'Star rating',
+            'stars': 'Rating',
             'name': 'Your name',
         }
 
@@ -39,13 +37,17 @@ class ReviewForm(forms.ModelForm):
         # iterate through form fields adding * if required, adding custom
         # placeholder, add css for each field, and remove the default labels
         for field in self.fields:
-            # if field != 'profile':
-            #     if self.fields[field].required:
-            #         placeholder = f'{placeholders[field]} *'
-            #     else:
-            #         placeholder = 'Product'
-            placeholder = f'{placeholders[field]}'
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
-            # self.fields[field].widget.attrs['autocomplete'] = 'on'
-            # self.fields[field].label = False
+            self.fields[field].label = False
+            if field in ('user_profile', 'product'):
+                self.fields[field].widget.attrs['hidden'] = True
+            
+            else:
+                if field == 'stars':
+                    self.fields[field].widget.attrs['value'] = ""
+                
+                placeholder = f'{placeholders[field]}'
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['required'] = True
+                self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+                # self.fields[field].widget.attrs['autocomplete'] = 'on'
+                
