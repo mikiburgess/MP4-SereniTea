@@ -82,6 +82,7 @@ def edit_review(request, rev_code):
             'reviews': reviews,
         }    
         return render(request, template, context)
+    
     else:
         # Handle GET requests
         form = ReviewForm(instance=review)
@@ -92,4 +93,20 @@ def edit_review(request, rev_code):
             'review': review,
             'user_profile': profile,
         }
+    return render(request, template, context)
+
+
+@login_required(login_url="/accounts/login/")
+def delete_review(request, rev_code):
+    """ Delete a previously submitted review """
+    review = Review.objects.filter(review_code=rev_code).first()
+    review.delete()
+    messages.success(request, f'Your review for product {review.product.friendly_name} has been deleted successfully.')
+    # After deletion, return to all product reviews
+    profile = get_object_or_404(UserProfile, user=request.user)
+    reviews = Review.objects.all().filter(user_profile=profile)
+    template = "reviews/my_reviews.html"
+    context = {
+        'reviews': reviews,
+    }    
     return render(request, template, context)
