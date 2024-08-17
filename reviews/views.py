@@ -17,10 +17,9 @@ from .forms import ReviewForm
 
 @login_required(login_url="/accounts/login/")
 def my_reviews(request):
-    """ Display full order history for current user """
+    """ Display all reviews submitted by current user """
     profile = get_object_or_404(UserProfile, user=request.user)
     reviews = Review.objects.all().filter(user_profile=profile)
-
     template = "reviews/my_reviews.html"
     context = {
         'reviews': reviews,
@@ -35,44 +34,23 @@ def review_product(request, product_id):
     profile = get_object_or_404(UserProfile, user=request.user)
     template = 'reviews/review_product.html'
     
-    # Handle POST requests
     if request.method == 'POST':
-        # product = get_object_or_404(Product, pk=request.product)
-        # profile = get_object_or_404(UserProfile, pk=request.user_profile)
-
-        print('--------')
-        print(request.POST)
-        print('--------')
-
+        # Handle POST requests
         form = ReviewForm(request.POST)
-    
-        # form.save()
-        # messages.success(request, 'Product review successfully submitted for approval.')
-        # return redirect(reverse('my_reviews'))
-        # form.fields['user_profile'] = profile
-
         if form.is_valid():
-            print('Form is valid')
-            print('--------')
-
-
-
             form.save()
-            messages.success(request, 'Product review successfully submitted for approval.')
-            context = {
-                'product': product,
-                }
-            # return redirect(reverse('product_detail', product_id))
-            return render(request, 'products/product_detail.html', context)
+            messages.success(request, 'Product review successfully submitted for approval.')        
         else:
             messages.error(request, 'Failed to submit review. Please check \
                            the form is valid.')
-            return render ('my_reviews')
+        context = {
+            'product': product,
+        }
+        return render(request, 'products/product_detail.html', context)
+    
     else:
         # Handle GET requests
         form = ReviewForm(initial={'user_profile': profile, 'product': product})
-        # form.data['user_profile'] = profile
-        # form.data['product'] = product
         messages.info(request, f'You are reviewing {product.friendly_name}')
         template = 'reviews/review_product.html'
         context = {
@@ -80,5 +58,38 @@ def review_product(request, product_id):
             'product': product,
             'user_profile': profile,
         }
-
         return render(request, template, context)
+
+
+@login_required(login_url="/accounts/login/")
+def edit_review(request, rev_code):
+    """ Edit a previously written product review """
+    review = Review.objects.filter(review_code=rev_code).first()
+    profile = get_object_or_404(UserProfile, user=request.user)
+    template = 'reviews/edit_review.html'
+
+    if request.method == 'POST':
+        # Handle POST requests
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product review successfully updated.')
+        else:
+            messages.error(request, 'Failed to update product review.')       
+        reviews = Review.objects.all().filter(user_profile=profile)
+        template = "reviews/my_reviews.html"
+        context = {
+            'reviews': reviews,
+        }    
+        return render(request, template, context)
+    else:
+        # Handle GET requests
+        form = ReviewForm(instance=review)
+        messages.info(request, f'You are editing your product review')
+        template = 'reviews/edit_review.html'
+        context = {
+            'form': form,
+            'review': review,
+            'user_profile': profile,
+        }
+    return render(request, template, context)

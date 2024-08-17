@@ -1,0 +1,82 @@
+<!-- 
+    MILESTONE PROJECT 4 by MIKHAILA BURGESS
+    "SERENITEA EMPORIUM"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_title %}
+- Edit Product Review
+{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div id="page-title" class="row">
+    <div class="col-12 my-auto">
+        <hr class="title-border">
+        <h2 class="page-title-font my-0">Edit Product Review</h2>
+        <hr class="title-border">
+    </div>
+</div>
+
+<!-- Add Product Form -->
+<div class="edit-product-review container">
+    <div class="row mx-auto">
+        <!-- Product Details -->
+        <div class="col-10 offset-1 my-auto">
+            <p class="text-body-secondary">Use the following form to edit your review</p>
+            <form action="{% url 'edit_review' review.review_code %}" method="POST" id="edit-review-form"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.user_profile|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.product|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ form.comment|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.stars|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                </div>
+
+                <!-- Edit Review form buttons -->
+                <div class="submit-button text-right mt-5 mb-2">
+                    <!-- Cancel and link back to list of reviews -->
+                    <a href="{% url 'my_reviews' %}" class="site-btn btn">
+                        <span class="icon">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </span>
+                        <span class="font-weight-bold">Cancel</span>
+                    </a>
+                    <!-- Save updated review -->
+                    <button id="submit-button" class="site-btn btn">
+                        <span class="font-weight-bold">Update Review</span>
+                        <span class="icon">
+                            <i class="bi bi-pencil-square"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+            <p></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% endblock %}
