@@ -12,7 +12,6 @@
 {% endblock %}
 
 {% block extra_css %}
-<!-- <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}"> -->
 {% endblock %}
 
 {% block content %}
@@ -25,12 +24,9 @@
     </div>
 </div>
 
-
 <!-- My Product Reviews Page -->
 <div class="my-reviews-page container">
-
     <div class="row mx-auto">
-
         <div class="col-10 offset-1 mb-5">
             <!-- responsive bootstrap table -->
             <div class="order-history table-responsive">
@@ -59,15 +55,17 @@
                             <td>{{ review.approved }}</td>
                             <td>
                                 <div class="row">
-                                <div class="col-10 text-end align-text-bottom">
-                                <a class="edit-option text-success"
-                                        href="">
-                                        <small><i class="bi bi-pencil-square"></i></small></a>
-                                <a class="delete-option text-danger"
-                                    href="">
-                                    <small><i class="bi bi-trash"></i></small></a>
+                                    <div class="col-10 text-end align-text-bottom">
+                                        <!-- If review has been approved, do not allow edits -->
+                                        {% if review.approved == False %}
+                                        <a class="edit-option text-success"
+                                            href="{% url 'edit_review' review.review_code %}">
+                                            <small><i class="bi bi-pencil-square"></i></small></a>
+                                        {% endif %}
+                                        <a class="delete-option text-danger" href="">
+                                            <small><i class="bi bi-trash"></i></small></a>
+                                    </div>
                                 </div>
-                            </div>
                             </td>
                         </tr>
                         {% endfor %}
@@ -80,5 +78,5 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
+{{ block.super }}
 {% endblock %}
