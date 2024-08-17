@@ -178,10 +178,8 @@
                 {% if request.user.is_authenticated %}
                 <br>
                 <hr class="title-border">
-                <p class="text-center">Have you used this product?
-                    <a class="product-category-label" href="{% url 'review_product' product.id %}">Submit your review
-                        here
-                    </a>
+                <p class="text-center fw-lighter review-link-text">Have you tried this product? Let us know what you thought by completing our
+                    <a class="review-link fw-light" href="{% url 'review_product' product.id %}">product review form.</a>
                 </p>
                 {% endif %}
             </div>
