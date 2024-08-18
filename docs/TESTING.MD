@@ -233,6 +233,7 @@ The following tests could not be undertaken within the project timeframe, but wo
 - Responsiveness testing using Google Chrome DevTools for simulated mobile devices.
 - Lighthouse testing for mobile devices.
 - Testing on a selection of physical devices.
+- Additional testing of the Reviews app (not completed in full due to time constraints).
 - Production of illustrations of testing results for each user story.
 - Production of illustrations of testing site across a range of browsers.
 - Inclusion of automated testing.
