@@ -4,7 +4,7 @@
 
 
 <p align="center">
-    <img src="docs/images/serenitea-devices.png" alt="Illustration of the Honey Bee site across a variety of devices">
+    <img src="docs/images/serenitea-devices.png" alt="Illustration of the Serenitea Emporium site as viewed across a variety of devices">
 </p>
 
 <p align="center"> 
@@ -49,6 +49,7 @@
   - [Improvements to Design and Development](#Improvements-to-Design-and-Development)
   - [Future Features](#Future-Features)
   - [Challenges and Bugs](#Challenges-and-Bugs)
+- [Developments Since Initial Submission](#developments-_since_initial_submission)
 - [Project Credits and Acknowledgements](#Project-Credits-and-Acknowledgements)
 
 - - -
@@ -101,13 +102,14 @@ In future the '***Store Owner***' would be added as another distinct user. This 
 
 
 #### User Stories
-The user stories for SereniTea have been organised into 6 activity areas:
+The user stories for SereniTea have been organised into 7 activity areas:
 - [A. Visiting the Site](#A-Visiting-the-Site)
 - [B. Store Browsing and Navigation](#B-Store-Browsing-and-Navigation)
 - [C. Searching and Sorting](#C-Searching-and-Sorting)
 - [D. User Registration and Accounts](#D-User-Registration-and-Accounts)
 - [E. Purchasing and Checkout](#E-Purchasing-and-Checkout)
 - [F. Store Management](#F-Store-Management)
+- [G. Product Reviews](#G-Product-Reviews)
 
 
 ##### A. Visiting the Site
@@ -179,6 +181,18 @@ The user stories for SereniTea have been organised into 6 activity areas:
 | F.4 | Site Admin | See number of items of products in stock | Monitor stock levels to re-order as needed |
 | F.5 | Site Admin | Ensure no orders are placed for out of stock items | Be confident that the store can complete all submitted orders |
 
+
+##### G. Product Reviews
+| User Story ID | As a ... | I want to be able to ... | So that I can ... |
+|---------------|-----------|------------------------|-----------------|
+| G.1 | Customer | Write a review for a product I have used (purchased or gifted) | Provide feedback to the seller and share my experience with others |
+| G.2 | Customer | See all product reviews that I have written | Keep track of which products I've reviewed |
+| G.3 | Customer | Edit a submitted review | Correct any mistakes or change my rating |
+| G.4 | Customer | Delete a submitted review | Change my mind and remove my comments. |
+| G.5 | Site Admin | Validate customer written product reviews before making them visible to all customers | Ensure reviews are appropriate and not fake or abusive, so that no inappropriate reviews are published to the site. |
+
+
+
 ### Structure
 <!-- How is the information structured, and is it logically grouped? -->
 The site structure according to functionality and features (not strictly mapped to site pages) is shown in the Site Structure figure.
@@ -220,9 +234,10 @@ From the perspective of the site visitor however it will appear to be comprised 
   - Product page: for viewing the details of each individual product
 - Shopping Basket
 - Checkout
-- Product Reviews
+- Product Reviews (customer-written)
   - Submit a review
   - See all submitted reviews
+  - Edit/Delete reviews
 - My Profile
   - Registration
   - Sign in + Sign out
@@ -332,9 +347,10 @@ All wireframes were built upon an initial base design, comprising a standard hea
 
 | Name      | Description|
 | --------- | ------- |
-| 📂 ```Media``` | Store for all site images, including product images.|
-| 📂 ```Serenitea``` | The main site folder containing Django settings and URLs|
-| 📂 ```Static``` | Site stylesheet and icon|
+| 📂 ```Media``` | Store for all site images, including product images |
+| 📂 ```Serenitea``` | The main site folder containing Django settings and URLs |
+| 📂 ```Static``` | Site stylesheets and icon |
+| 📂 ```StaticFiles``` | Site stylesheets and icon, media files and all other resources gathered by WhiteNoise to enable Django to serve static files during deployment |
 | 📂 ```Templates``` | Resources used across the site:<br/>- 📂 ```allauth```: all allauth templates to be employed by Django to provide common user interaction functions, such as creating accounts, login authorisation, and resetting passwords.<br/>- 📂 ```includes```: Main (top) navigation menu & products menu, for both large and mobile devices<br/>- 📰 ```base.html```: The foundation page which is used by all apps to ensure consistency across the site.<br/>- 📰 ```404.html```: Tailored 'page not found' error page |
 
 
@@ -421,7 +437,7 @@ Site accessibility was considered throughout the design, development and testing
 In the following section we look at the key areas of decisions and actions relating to developing the web application, according go the designs and approaches covered above.
 
 ### Data Management
-The defined relational database schema was constructed in the online Postgres database [ElephantSQL](https://www.elephantsql.com/). The process of populating and updating the database was then supported by using teh Django framework.
+The defined relational database schema was constructed in the online Postgres database [ElephantSQL](https://www.elephantsql.com/). The process of populating and updating the database was then supported by using the Django framework.
 
 ### Site Content
 <!-- Generation of data for the site -->
@@ -772,22 +788,29 @@ An important future development would therefore be to sanitize data input to rem
 
 Improving security would be of high priority if this site were developed further and deployed as a fully functional e-commerce store, being essential to complete before store launch.
 
+#### Improved Approach to Product Reviews
+The initial version of this feature enables customers to submit a review for any product in the store. This therefore allows for reviews to be submitted for products they have purchased and received as gifts. However, this also currently allows for erroneous and malicious reviews to be submitted. In future this would be developed to limit the products customer can review, initially to only those they have purchased.
+
+Other developments are also required to the product review feature. These were not implemented in this version due to time constraints and therefore being beyond project scope. However, an overview of the main required developments are covered below in the sections [Confirmation of product and review deletion](#confirmation_of_product_and_review_deletion) and [Product and Company Reviews](#product_and_company_reviews).
+
 
 ### Future Features
 As can be seen in the Testing section, there are a number of areas where the current implementation of the site could be developed further and therefore improved. The features listed below are in addition to those previously listed future developments, and have been identified as those that would add greatest benefit to the site if implemented within the next development stage.
 
-
-#### Confirmation of product deletion 
+#### Confirmation of product and review deletion 
 This feature is currently missing from the current version of this web application.
 
-When a store administrator (system superuser) deletes a product from the store catalogue, clicking 'delete' should result in the user being asked 'Are you sure you want to delete this product?'. This is important to stop accidental deletions, as once deleted the product details have gone. 
+When a customer deletes a product review, or when a store administrator (system superuser) deletes a product from the store catalogue, clicking 'delete' should result in the user being asked 'Are you sure you want to delete this product/review?'. This is important to stop accidental deletions, as once deleted the data will be gone. 
+
 Due to time constraints this wasn't added to the current version of this web application. This would therefore need to be added in a future development stage.
 
 #### Product and Company Reviews
-To improve communication with visitors and customers, as well as customer engagement, the first significant development would be the inclusion of customer-written, dynamic product (and company) reviews. This would include the following:
-- Enable registered users to write and submit product reviews, editable until published to the site and visible to site visitors via the associated product details page. Optional customer images of store products could be added.
-- Additional facility for site administrators to review and approve customer-written product reviews (with the option to publish immediately without any review), and remove any inappropriate reviews from the site.
-- Calculate product rating scores dynamically based on customer-entered star ratings, rather than using static star ratings stored in the backend database.
+To improve communication with visitors and customers, as well as customer engagement, the first significant development would be the improvement to the process of using customer-written product reviews, and allowing for customers to also review the company itself. This would include the following:
+- Mechanism to notify site admin of customer-written reviews that require approval and providing a page where they can quickly review and mark reviews as approved or rejected, and remove any inappropriate reviews from the site.
+- Approved reviews to be displayed on the relevant product pages, to assist future customers in their purchasing decisions.
+- Notification email sent to customers to confirm their review has been submitted, plus an additional notification email to confirm when it has been reviewed and published ot the site.
+- Dynamic calculation of product rating scores (stars) based on customer-entered ratings, rather than using the static star ratings currently stored in the backend database.
+- Allow customers to upload images with their written reviews.
 
 #### User Profile Improvements
 The current approach to customer access and profile management could also be developed further:
@@ -934,6 +957,17 @@ LOGGING = {
 <br>
 
 
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+## Developments Since Initial Submission
+In response to the feedback I received fom the initial project assessor, the following elements have been developed for the resubmission:
+
+- **Product Reviews**: Addition of the *Reviews* app, including Model and Views and Forms (as discussed above and demonstrated through project Walkthroughs.)
+- **Debug & Static Files**: Fixing the static files issue in order to set ```Debug = False``` (described in section [CHALLENGE: Handling static files](#challenge:_handling_static_files) )
+- **Product Quantity**: Product quantities are restricted to be within the range 0-99.
+- **Project Documentation**: Documentation updated in support of the *Reviews* app. This includes [User Stories](#user_stories), [TESTING.MD](docs/TESTING.MD), [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD) and [Future Features](#future_features).
+
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
@@ -987,6 +1021,7 @@ I would like to acknowledge the following people who helped me complete this mil
 - [Amy Richardson](https://code-institute-room.slack.com/team/U06CZC2JZTN) - our Code Institute cohort facilitator, for her support and encouragement throughout this project.
 - [Jubril Akolade](https://github.com/Jubrillionaire) - my Code Institute mentor,m for their support, guidance and advice.
 - Dr N. Caine - for his support and advice, particularly with regard to converting site data into JSON format and testing approaches to project deployment.
+- The Code Institute Project Assessor, whose informative and constructive feedback helped me improve this project.
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
