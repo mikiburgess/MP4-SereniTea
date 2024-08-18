@@ -8,7 +8,8 @@ This document revisits the original user stories, reviewing the status of implem
 - [D. User Registration and Accounts](#D-User-Registration-and-Accounts)
 - [E. Purchasing and Checkout](#E-Purchasing-and-Checkout)
 - [F. Store Management](#F-Store-Management)
-
+- [F. Store Management](#F-Store-Management)
+- [G. Product Reviews](#G-Product-Reviews)
 
 - - -
 
@@ -95,6 +96,19 @@ This document revisits the original user stories, reviewing the status of implem
 | F.3 | Site Admin | Delete a product | Removed items from the store that are no longer for sale | Complete       | Site products can be deleted:<br/>- through the products list page by clicking the red 'bin' icon<br/>- through the individual product details page by clicking the red 'Delete' option | Confirmation needs to be added to allow for the deletion to be checked and considered before the item is permanently removed. |
 | F.4 | Site Admin | See number of items of products in stock           | Monitor stock levels to re-order as needed | Complete       | Stock level for products are visible from the site administration page.<br/>Stock level visible on the product details page for every product.<br/>Excludes loose leaf teas, which are bagged to order. | Upon purchase the stock count of a product would be reduced by the quantity purchased, ensuring the online product catalogue is up-to-date. The status would be reviewed to ensure orders have completed. If an issue has arisen, such as a failed stripe payment, then the product(s) would be added back into stock (based on stripe webhook notification). |
 | F.5 | Site Admin | Ensure no orders are placed for out of stock items | Be confident that the store can complete all submitted orders         | Complete       | When a product is out of stock this is marked on the product listing page. <br/>Product detail page states out of stock, and add to basket option is disabled. | The inclusion of dynamic product stock level updates (outlined above) would help support this user story. |
+
+
+- - -
+
+### G. Product Reviews
+
+| User Story ID | As a …  | I want to be able to ... | So that I can ... | Implementation | How is this Demonstrated | Future Development|
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| G.1 | Customer | Write a review for a product I have used (purchased or gifted) | Provide feedback to the seller and share my experience with others | Complete | When logged in, a customer can choose 'Review a Product' from the menu. This provides customers with an online from in which they can select their product, write a review, add a rating and publication name, then submit to the Site Administrator for review. | Limiting the products that can be reviewed to only those purchased by each customer will help reduce the site administration workload in validating submitted reviews.<br/>Customer view will be improved by providing quick access to list of products they have purchased, which they haven't yet reviewed, and a direct link to add a review for each product. |
+| G.2 | Customer | See all product reviews that I have written | Keep track of which products I've reviewed | Complete | When logged in, a customer can select the 'My Product Reviews' option from the top menu. This will display a page of all reviews written by that customer and submitted to the store, and the status of each review (whether that have been accepted or not) | Addition of view options to select which reviews to see (e.g. those not yet reviewed, and those published, all reviews, category reviews) and to choose review ordering (e.g. order by date, product name, product category, etc) |
+| G.3 | Customer | Edit a submitted review | Correct any mistakes or change my rating | Complete | When logged in, a customer can access all reviews via the 'My Product Reviews' page, where a green Edit button is available for those reviews that have not yet been reviewed and approved for publication. Clicking this button provides the user with a form where they can modify their review and resubmit. | |
+| G.4 | Customer | Delete a submitted review | Change my mind and remove my comments. | Complete | When logged in, a customer can access all reviews via the 'My Product Reviews' page, where a read Delete button is available for all submitted reviews. Clicking this button deletes the review. | Addition of an additional confirmation step where the customer is asked "Are you sure you want to delete this review?" Only after confirming will the review be deleted. |
+| G.5 | Site Admin | Validate customer written product reviews before making them visible to all customers | Ensure reviews are appropriate and not fake or abusive, so that no inappropriate reviews are published to the site. | Complete | Site administrators can access all submitted reviews through the site admin panel. Submitted reviews are initially marked with a cross (not approved). Once checked the site administrator can change this to 'approved'. Approved reviews will appear in the admin panel alongside a green tick. | Creation of a site administration section of the web application to support the quick and easy approval of reviews. This approach will be more intuitive and quicker than using the Django admin site. |
 
 
 - - -
