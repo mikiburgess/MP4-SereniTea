@@ -27,44 +27,83 @@
 <!-- My Product Reviews Page -->
 <div class="my-reviews-page container">
     <div class="row mx-auto">
-        <div class="col-10 offset-1 mb-5">
+        <div class="col-12 col-md-10 offset-0 offset-md-1 mb-5 my-auto">
+            
             <!-- responsive bootstrap table -->
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
+            <div class="table-responsive rounded basket-table">
+                <table class="table table-sm table-borderless align-middle table-hover">
                     <thead>
-                        <th>Product</th>
-                        <th>Stars</th>
-                        <th>Comment</th>
-                        <th>Published Name</th>
-                        <th>Date of Review</th>
-                        <th>Approved</th>
-                        <th>Actions</th>
+                        <th scope="col" class="text-center">Product</th>
+                        <th scope="col" class="text-center">Stars</th>
+                        <th scope="col">Comment</th>
+                        <th scope="col" class="d-none d-md-table-cell">Name</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Date</th>
+                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col" class="text-center">Modify</th>
                     </thead>
                     <tbody>
                         {% for review in reviews %}
                         <tr>
-                            <td>
-                                <a href="{% url 'product_detail' review.product.id %}" target="_blank">
+                            <td class="py-2 text-center">
+                                <!-- <a href="{% url 'product_detail' review.product.id %}" target="_blank">
                                     {{ review.product.friendly_name }}
+                                </a> -->
+                                <a href="{% url 'product_detail' review.product.id %}">
+                                    {% if review.product.image %}
+                                    <img src="{% static 'media/' %}{{ review.product.image }}" alt="{{ review.product.name }}"
+                                        class="product-img-review">
+                                    {% else %}
+                                    <img src="{% static 'media/noimage.png' %}" alt="{{ review.product.name }}"
+                                        class="product-img-review">
+                                    {% endif %}
                                 </a>
                             </td>
-                            <td>{{ review.stars }}<small><i class="bi bi-star-fill"></i></small></td>
-                            <td>{{ review.comment }}</td>
-                            <td>{{ review.name }}</td>
-                            <td>{{ review.date }}</td>
-                            <td>{{ review.approved }}</td>
-                            <td>
-                                <div class="row">
+                            <td class="py-2 text-center">{{ review.stars }}<small><i class="bi bi-star-fill"></i></small></td>
+                            <td class="py-2">{{ review.comment }}</td>
+                            <td class="py-2 d-none d-md-table-cell">{{ review.name }}</td>
+                            <td class="py-2 d-none d-lg-table-cell">{{ review.date.date }}</td>
+                            <td class="py-2 text-center">
+                                {% if review.approved %}
+                                    <small><i class="bi bi-check-circle-fill text-success"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Published"></i></small></a>
+                                {% else %}
+                                    <small><i class="bi bi-circle-fill"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Waiting review"></i></small></a>
+                                {% endif %}
+                            </td>
+                            <td class="py-2">
+                                <div class="row text-center">
                                     <div class="col-10 text-end align-text-bottom">
                                         <!-- If review has been approved, do not allow edits -->
-                                        {% if review.approved == False %}
-                                        <a class="edit-option text-success"
+                                        {% if review.approved %}
+                                            <small><i class="bi bi-ban"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Unavailable">
+                                            </i></small></a>
+                                        {% else %}
+                                            <a class="edit-option text-success"
                                             href="{% url 'edit_review' review.review_code %}">
-                                            <small><i class="bi bi-pencil-square"></i></small></a>
+                                            <small><i class="bi bi-pencil-square"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Edit"></i></small></a>
                                         {% endif %}
                                         <a class="delete-option text-danger"
                                             href="{% url 'delete_review' review.review_code %}">
-                                            <small><i class="bi bi-trash"></i></small></a>
+                                            <small><i class="bi bi-trash"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Delete"></i></small></a>
                                     </div>
                                 </div>
                             </td>
@@ -80,4 +119,10 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
+<script>
+    // Enable Tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 {% endblock %}
