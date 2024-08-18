@@ -28,14 +28,13 @@
     <div class="row mx-auto">
         <!-- Review Form -->
         <div class="col-10 offset-1 my-auto">
-            <!-- <p class="text-body-secondary">Write your review for <em>{{ product.friendly_name }}</em></p> -->
             <form action="{% url 'review_product' product.id %}" method="POST"
                     id="review-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div class="row d-md-none align-items-center mb-2 mt-0">
                     <div class="col-12">
-                        <p class="text-body-secondary fw-medium">Write your review for <em>{{ product.friendly_name }}</em></p>
+                        <p class="lead mb-2">Write your review for <em>{{ product.friendly_name }}</em></p>
                     </div>
                 </div>
                 <div class="row d-none d-md-flex align-items-center mb-2 mt-0">
@@ -49,7 +48,7 @@
                         </a>
                     </div>
                     <div class="col-10">
-                        <p class="text-body-secondary fw-medium">Write your review for <em>{{ product.friendly_name }}</em></p>
+                        <p class="lead mb-2">Write your review for <em>{{ product.friendly_name }}</em></p>
                     </div>
                 </div>
 

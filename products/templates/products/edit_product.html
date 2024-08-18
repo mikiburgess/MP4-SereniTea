@@ -26,7 +26,7 @@
     <div class="row mx-auto">
         <!-- Product Details -->
         <div class="col-10 offset-1 my-auto">
-            <p class="text-body-secondary">Use the following form to update product details</p>
+            <p class="lead mb-2">Use the following form to update product details</p>
             <form action="{% url 'edit_product' product.id %}" method="POST" id="edit-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
