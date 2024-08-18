@@ -49,7 +49,7 @@
   - [Improvements to Design and Development](#Improvements-to-Design-and-Development)
   - [Future Features](#Future-Features)
   - [Challenges and Bugs](#Challenges-and-Bugs)
-- [Developments Since Initial Submission](#developments-_since_initial_submission)
+- [Developments Since Initial Submission](#Developments-Since-Initial-Submission)
 - [Project Credits and Acknowledgements](#Project-Credits-and-Acknowledgements)
 
 - - -
@@ -791,7 +791,7 @@ Improving security would be of high priority if this site were developed further
 #### Improved Approach to Product Reviews
 The initial version of this feature enables customers to submit a review for any product in the store. This therefore allows for reviews to be submitted for products they have purchased and received as gifts. However, this also currently allows for erroneous and malicious reviews to be submitted. In future this would be developed to limit the products customer can review, initially to only those they have purchased.
 
-Other developments are also required to the product review feature. These were not implemented in this version due to time constraints and therefore being beyond project scope. However, an overview of the main required developments are covered below in the sections [Confirmation of product and review deletion](#confirmation_of_product_and_review_deletion) and [Product and Company Reviews](#product_and_company_reviews).
+Other developments are also required to the product review feature. These were not implemented in this version due to time constraints and therefore being beyond project scope. However, an overview of the main required developments are covered below in the sections [Confirmation of product and review deletion](#Confirmation-of-product-and-review-deletion) and [Product and Company Reviews](#Product-and-Company-Reviews).
 
 
 ### Future Features
@@ -896,7 +896,7 @@ This latter enables the web pages to be served displaying the relevant product i
 
 #### Image Compression
 
-An option when using WhiteNoise is to enable it to manage image compression. To allow for that feature the following code can be added to settings.py
+An option when using WhiteNoise is to enable it to manage image compression. To allow for that feature the following code can be added to ```settings.py```
 
 
 ```STORAGES = {
@@ -964,9 +964,9 @@ LOGGING = {
 In response to the feedback I received fom the initial project assessor, the following elements have been developed for the resubmission:
 
 - **Product Reviews**: Addition of the *Reviews* app, including Model and Views and Forms (as discussed above and demonstrated through project Walkthroughs.)
-- **Debug & Static Files**: Fixing the static files issue in order to set ```Debug = False``` (described in section [CHALLENGE: Handling static files](#challenge:_handling_static_files) )
+- **Debug & Static Files**: Fixing the static files issue in order to set ```Debug = False``` (described in section [CHALLENGE: Handling static files](#CHALLENGE:-Handling-static-files) )
 - **Product Quantity**: Product quantities are restricted to be within the range 0-99.
-- **Project Documentation**: Documentation updated in support of the *Reviews* app. This includes [User Stories](#user_stories), [TESTING.MD](docs/TESTING.MD), [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD) and [Future Features](#future_features).
+- **Project Documentation**: Documentation updated in support of the *Reviews* app. This includes [User Stories](#User-Stories), [TESTING.MD](docs/TESTING.MD), [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD) and [Future Features](#Future-Features).
 
 
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
