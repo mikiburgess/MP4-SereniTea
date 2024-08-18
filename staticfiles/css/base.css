@@ -375,13 +375,18 @@ a,
     color: var(--bistre);
 }
 
-
 .review-link-text,
 .review-link {
     font-family: "Montserrat", sans-serif;
     font-size: 0.80rem;
     font-style: normal;
     color: var(--bistre);
+}
+
+.custom-tooltip {
+    font-family: "Montserrat", sans-serif;
+    --bs-tooltip-bg: var(--timberwolf);
+    --bs-tooltip-color: var(--bistre);
 }
 
 /* ----------------------------------------------- TEXT AREAS  */
@@ -486,6 +491,11 @@ a,
     margin: auto;
 }
 
+.product-img-review {
+    border-radius: 5%;
+    width: 50px;
+    
+}
 
 /* ---------------------------------------------------- FORMS */
 
