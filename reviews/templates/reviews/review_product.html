@@ -28,23 +28,40 @@
     <div class="row mx-auto">
         <!-- Review Form -->
         <div class="col-10 offset-1 my-auto">
-            <p class="text-body-secondary">Write your review for {{ product.friendly_name }}</p>
+            <!-- <p class="text-body-secondary">Write your review for <em>{{ product.friendly_name }}</em></p> -->
             <form action="{% url 'review_product' product.id %}" method="POST"
                     id="review-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="row">
-                    <div class="form-group col-md-6 mb-0">
+
+                <div class="row d-md-none align-items-center mb-2 mt-0">
+                    <div class="col-12">
+                        <p class="text-body-secondary fw-medium">Write your review for <em>{{ product.friendly_name }}</em></p>
+                    </div>
+                </div>
+                <div class="row d-none d-md-flex align-items-center mb-2 mt-0">
+                    <div class="col-2">
+                        <a href="{% url 'product_detail' product.id %}">
+                            {% if product.image %}
+                            <img src="{% static 'media/' %}{{ product.image }}" alt="{{ product.name }}" class="w-100 product-img-order">
+                            {% else %}
+                            <img src="{% static 'media/noimage.png' %}" alt="{{ product.name }}" class="w-100 product-img-order">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-10">
+                        <p class="text-body-secondary fw-medium">Write your review for <em>{{ product.friendly_name }}</em></p>
+                    </div>
+                </div>
+
+                <div class="row d-none">
+                    <div class="form-group">
                         {{ form.user_profile|as_crispy_field }}
                     </div>
-                    <div class="form-group col-md-6 mb-0">
+                    <div class="form-group">
                         {{ form.product|as_crispy_field }}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col-md-12 mb-0">
-                        {{ form.comment|as_crispy_field }}
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="form-group col-md-6 mb-0">
                         {{ form.stars|as_crispy_field }}
@@ -54,8 +71,14 @@
                     </div>
                 </div>
                 
+                <div class="row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ form.comment|as_crispy_field }}
+                    </div>
+                </div>
+
                 <!-- Review Submit button -->
-                <div class="submit-button text-right mt-2 mb-2">
+                <div class="submit-button text-right mt-2 mb-2 text-center">
                     <!-- Cancel and link back to products -->
                     <a href="{% url 'my_reviews' %}" class="site-btn btn">
                         <span class="icon">
