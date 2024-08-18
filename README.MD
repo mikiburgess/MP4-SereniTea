@@ -964,7 +964,7 @@ LOGGING = {
 In response to the feedback I received fom the initial project assessor, the following elements have been developed for the resubmission:
 
 - **Product Reviews**: Addition of the *Reviews* app, including Model and Views and Forms (as discussed above and demonstrated through project Walkthroughs.)
-- **Debug & Static Files**: Fixing the static files issue in order to set ```Debug = False``` (described in section [CHALLENGE: Handling static files](#CHALLENGE:-Handling-static-files) )
+- **Debug & Static Files**: Fixing the static files issue in order to set ```Debug = False``` (described in section [CHALLENGE: Handling static files](#CHALLENGE-Handling-static-files) )
 - **Product Quantity**: Product quantities are restricted to be within the range 0-99.
 - **Project Documentation**: Documentation updated in support of the *Reviews* app. This includes [User Stories](#User-Stories), [TESTING.MD](docs/TESTING.MD), [WALKTHROUGHS.MD](docs/WALKTHROUGHS.MD) and [Future Features](#Future-Features).
 
