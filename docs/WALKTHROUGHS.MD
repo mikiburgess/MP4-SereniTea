@@ -18,6 +18,11 @@
   - [Reviewing all orders](#reviewing-all-orders)
   - [Order confirmation emails (inc Stripe)](#order-confirmation-emails-inc-stripe)
   - [Using an iPhone](#using-an-iphone)
+- [Product Reviewing Walkthroughs](#product_reviewing_walkthroughs)
+  - [Writing a Product Review](#writing-a-product-review)
+  - [Editing a Product Review](#editing-a-product-review)
+  - [Approving Product Reviews](#approving_product_reviews)
+  - [Unable to Edit an Approved Product Review](#unable_to_edit_an_approved_product_review)
 - [Administrator Walkthroughs](#administrator-walkthroughs)
   - [Adding a new product](#adding-a-new-product)
   - [Editing a store product](#editing-a-store-product)
@@ -360,6 +365,102 @@ Registered customer Sasha, making a purchase using an iphone.
 <kbd>[Return to ToC](#Table-of-Contents)</kbd>
 - - -
 
+## Product Reviewing Walkthroughs
+The following walkthroughs show how registered customers can submit product reviews for potential publication. 
+
+
+### Writing a Product Review
+
+**Step 1. Selecting the 'product review form' link from a product details page**
+Hovering cursor over the review link shows the review URL.
+<p align="center">
+  <img src="walkthroughs/writing-product-review/Screenshot 2024-08-18 at 11.35.39.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 2. Partially completing the review form and pressing the 'Submit Review' button**
+Submitting an incomplete form results in prompts to the customer to complete the missing elements.
+<p align="center">
+  <img src="walkthroughs/writing-product-review/Screenshot 2024-08-18 at 11.37.06.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 3. Complete review form**
+<p align="center">
+  <img src="walkthroughs/writing-product-review/Screenshot 2024-08-18 at 11.37.21.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 4. Successful submission**
+Result of completing the review and pressing the 'Submit Review' button.
+<p align="center">
+  <img src="walkthroughs/writing-product-review/Screenshot 2024-08-18 at 11.37.25.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 5. The submitted review**
+Submitted review visible in the 'My Reviews' page (which can be seen in the dropdown menu), waiting to be approved by site admin.
+<p align="center">
+  <img src="walkthroughs/writing-product-review/Screenshot 2024-08-18 at 11.41.19.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+### Editing a Product Review
+
+**Step 1. Finding a review to edit**
+Finding the review in the 'My Reviews' page. As review is still awaiting approval, green Edit option is available.
+<p align="center">
+  <img src="walkthroughs/editing-product-review/Screenshot 2024-08-18 at 11.42.18.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 2. Editing the selected review, after clicking the green Edit button**
+<p align="center">
+  <img src="walkthroughs/editing-product-review/Screenshot 2024-08-18 at 11.42.40.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Step 3. Result after submitting the updated review**
+Automatic redirection to the 'My Reviews' page, where the updated review can be seen.
+<p align="center">
+  <img src="walkthroughs/editing-product-review/Screenshot 2024-08-18 at 11.42.48.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+### Approving Product Reviews
+Site administrators can currently review and approve submitted reviews in the site admin panel. In future this will be a facility provided through the site, with user-friendly views and forms, consistent with other parts of the site (such as adding and editing products, as shown below).
+<p align="center">
+  <img src="walkthroughs/approving-product-reviews/Screenshot 2024-08-18 at 11.44.53.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
+
+### Unable to Edit an Approved Product Review
+
+**Review has been approved**
+A site administrator has checked the submitted review, and approved it for publication.
+<p align="center">
+  <img src="walkthroughs/unable-to-edit-approved-review/Screenshot 2024-08-18 at 11.48.35.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+**Edit option no longer available**
+Due to the review being approved for publication, the green edit option is no longer available.
+<p align="center">
+  <img src="walkthroughs/unable-to-edit-approved-review/Screenshot 2024-08-18 at 11.48.38.png"
+    alt="walkthrough screenshot" width="500px">
+</p>
+
+<kbd>[Return to ToC](#Table-of-Contents)</kbd>
+- - -
 
 ## Administrator Walkthroughs
 The following walkthroughs relate to users with admin/superuser privileges. 
