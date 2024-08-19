@@ -161,6 +161,8 @@ The [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) tool in
 | Shopping Basket with 4 Items | ![Single Item shopping basket result](testing/lighthouse/lighthouse-desktop-basket-four-items.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-basket-four-items-summary.pdf) |
 | Checkout page | ![Checkout page result](testing/lighthouse/lighthouse-desktop-checkout.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-checkout-summary.pdf) |
 | Checkout Confirmation | ![Checkout Confirmation page result](testing/lighthouse/lighthouse-desktop-checkout-success.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-checkout-success-summary.pdf) |
+| Review Product | ![Review Product page result](testing/lighthouse/lighthouse-desktop-review-product.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-review-product-summary.pdf) |
+| My Reviews | ![My Reviews page result](testing/lighthouse/lighthouse-desktop-my-reviews.png) | [pdf](testing/lighthouse/summary-reports/lighthouse-desktop-my-reviews-summary.pdf) |
 
 Table 4 shows the results of testing a selection of site pages, using the desktop views. A number of lessons have been learned and actions identified:
 
